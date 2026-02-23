@@ -58,7 +58,7 @@ load_dotenv()
 DATA_DIR = "processed_data"
 RAW_DATA_DIR = "data"
 # User requested "Qwen3-Embedding-4B-Instruct"
-MODEL_NAME = "Qwen/Qwen3-Embedding-4B" 
+MODEL_NAME = "Qwen/Qwen3-Embedding-8B" 
 OUTPUT_DIR = "results"
 METRICS_FILE = os.path.join(OUTPUT_DIR, "baseline_metrics.csv")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -109,18 +109,24 @@ class EmbeddingModel:
             
         self.model.eval()
 
-    def encode(self, texts: List[str], batch_size: int = 1) -> np.ndarray:
+    def encode(self, texts: List[str], batch_size: int = 1, instruction: str = "") -> np.ndarray:
         """
         Generates embeddings for a list of texts.
         
         Args:
             texts: List of strings to encode.
-            batch_size: Number of texts to process at once. Keep low (1) for low VRAM/System RAM.
+            batch_size: Number of texts to process at once.
+            instruction: Optional instruction prefix to prepend to each text.
             
         Returns:
             Numpy array of embeddings of shape (N, D).
         """
         embeddings = []
+        
+        # Prepend instruction if provided
+        if instruction:
+            texts = [f"{instruction}\n{text}" for text in texts]
+
         # Process in batches to manage memory
         for i in tqdm(range(0, len(texts), batch_size), desc="Encoding"):
             batch_texts = texts[i : i + batch_size]
@@ -138,12 +144,27 @@ class EmbeddingModel:
                 outputs = self.model(**inputs)
                 last_hidden = outputs.last_hidden_state
                 
-                # Mean Pooling (Standard provider-agnostic approach)
-                attention_mask = inputs.attention_mask
-                input_mask_expanded = attention_mask.unsqueeze(-1).expand(last_hidden.size()).float()
-                sum_embeddings = torch.sum(last_hidden * input_mask_expanded, 1)
-                sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
-                batch_embeddings = sum_embeddings / sum_mask
+                # Switch to Last Token Pooling (EOS) for Qwen/Decoder models
+                # Find the index of the last token (not including padding)
+                # attention_mask has 1s for tokens, 0s for padding. 
+                # The index of the last 1 is sum(mask) - 1
+                
+                if "Qwen" in MODEL_NAME or "Llama" in MODEL_NAME:
+                    # Last Token Pooling
+                    # shape: [B, S]
+                    sequence_lengths = inputs.attention_mask.sum(dim=1) - 1
+                    batch_size_curr = last_hidden.shape[0]
+                    
+                    # Gather the vector at the last valid token position for each sample
+                    # [B, D]
+                    batch_embeddings = last_hidden[torch.arange(batch_size_curr, device=last_hidden.device), sequence_lengths]
+                else:
+                    # Fallback to Mean Pooling for BERT-like models
+                    attention_mask = inputs.attention_mask
+                    input_mask_expanded = attention_mask.unsqueeze(-1).expand(last_hidden.size()).float()
+                    sum_embeddings = torch.sum(last_hidden * input_mask_expanded, 1)
+                    sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+                    batch_embeddings = sum_embeddings / sum_mask
                 
                 # Normalize embeddings (Cosine similarity requires normalized vectors)
                 batch_embeddings = torch.nn.functional.normalize(batch_embeddings, p=2, dim=1)
@@ -250,11 +271,14 @@ def run_retrieval(model: EmbeddingModel, queries: List[str], db_ids: List[str], 
     
     print(f"Encoding {len(unique_schema_texts)} Key Schemas (Repository)...")
     # Batch size 1 for safety
+    # No instruction for Documents/Schemas usually (or "passage: ")
     schema_embeds = model.encode(unique_schema_texts, batch_size=1) 
     
     # 2. Encode Queries
     print(f"Encoding {len(queries)} Queries...")
-    query_embeds = model.encode(queries, batch_size=1)
+    # Add instruction for retrieval
+    query_instruction = "Given a user question, retrieve the relevant database schema."
+    query_embeds = model.encode(queries, batch_size=1, instruction=query_instruction)
     
     # 3. Compute Similarity & Retrieve
     print("Computing Similarity Matrix...")

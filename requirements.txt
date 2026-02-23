@@ -11,3 +11,4 @@ tqdm
 sentence-transformers
 
 python-dotenv
+groq

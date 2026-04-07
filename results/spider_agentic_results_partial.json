@@ -6,10 +6,10 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
-      "scholar",
       "authors",
-      "citeseer",
       "language_corpus",
+      "scholar",
+      "citeseer",
       "icfp_1",
       "aan_1",
       "imdb",
@@ -17,9 +17,9 @@
       "donor"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the keyword \"Natural Language\" and requests the count of papers containing it, with no ambiguity or missing essential information."
   },
   {
     "question": "return me the number of the keywords of \" Making database systems usable \" .",
@@ -39,9 +39,9 @@
       "imdb"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the paper title \"Making database systems usable\" and requests the count of its associated keywords, which is a well-defined task."
   },
   {
     "question": "return me the number of the keywords related to \" H. V. Jagadish \" .",
@@ -52,8 +52,8 @@
       "academic",
       "authors",
       "scholar",
-      "citeseer",
       "icfp_1",
+      "citeseer",
       "language_corpus",
       "imdb",
       "aan_1",
@@ -61,9 +61,9 @@
       "epinions_1"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal+exec_probe",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly requests the count of keywords associated with the specific author \"H. V. Jagadish,\" and the intent is unambiguous without additional context."
   },
   {
     "question": "return me the number of keywords in VLDB conference .",
@@ -71,9 +71,9 @@
     "resolved_question": "return me the number of keywords in VLDB conference .",
     "gold_db": "academic",
     "retrieved_dbs": [
+      "authors",
       "academic",
       "scholar",
-      "authors",
       "citeseer",
       "language_corpus",
       "codebase_community",
@@ -82,44 +82,43 @@
       "csu_1",
       "epinions_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
+    "selected_db": "authors",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly requests the count of keywords associated with the VLDB conference, which can be determined by examining the relevant database tables (e.g., papers and their keywords in the conference)."
   },
   {
     "question": "return me the number of keywords in PVLDB .",
     "original_question": "return me the number of keywords in PVLDB .",
-    "resolved_question": "return me the number of keywords in PVLDB .",
+    "resolved_question": "How many unique keywords are associated with papers published in the PVLDB journal?",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "academic",
-      "scholar",
       "authors",
+      "scholar",
+      "academic",
       "citeseer",
-      "language_corpus",
+      "aan_1",
       "codebase_community",
       "codebase_comments",
       "icfp_1",
-      "aan_1",
       "csu_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "selected_db": "authors",
+    "method": "keyword_plus_llm_resolved",
+    "label": "Ambiguous",
+    "reasoning": "Resolved Ambiguous. Top: authors"
   },
   {
     "question": "return me the number of keywords in the papers of \" University of Michigan \" .",
     "original_question": "return me the number of keywords in the papers of \" University of Michigan \" .",
-    "resolved_question": "What is the count of unique keywords in the papers that are affiliated with \"University of Michigan\"?",
+    "resolved_question": "return me the number of keywords in the papers of \" University of Michigan \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
       "authors",
+      "aan_1",
       "scholar",
       "academic",
       "citeseer",
-      "aan_1",
       "icfp_1",
       "csu_1",
       "language_corpus",
@@ -127,9 +126,9 @@
       "university_rank"
     ],
     "selected_db": "authors",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of unique keywords in the papers that are affiliated with \"University of Michigan\"?"
+    "method": "keyword_plus_llm_normal",
+    "label": "Normal",
+    "reasoning": "The question clearly requests the count of keywords in papers affiliated with the \"University of Michigan,\" with sufficient context to determine the required data."
   },
   {
     "question": "return me the number of the papers of \" H. V. Jagadish \" containing keyword \" User Study \" .",
@@ -138,8 +137,8 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
-      "scholar",
       "authors",
+      "scholar",
       "citeseer",
       "aan_1",
       "icfp_1",
@@ -149,9 +148,9 @@
       "codebase_community"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the author \"H. V. Jagadish\" and the keyword \"User Study,\" making the intent to count their associated papers unambiguous."
   },
   {
     "question": "return me the number of papers in PVLDB containing keyword \" Keyword search \" .",
@@ -160,8 +159,8 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
-      "scholar",
       "authors",
+      "scholar",
       "citeseer",
       "aan_1",
       "icfp_1",
@@ -171,9 +170,9 @@
       "csu_1"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the journal (PVLDB) and the keyword (\"Keyword search\"), making the intent unambiguous and self-contained."
   },
   {
     "question": "return me the number of papers in VLDB conference containing keyword \" Information Retrieval \" .",
@@ -182,8 +181,8 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
-      "scholar",
       "authors",
+      "scholar",
       "citeseer",
       "aan_1",
       "icfp_1",
@@ -193,9 +192,9 @@
       "csu_1"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the conference (VLDB) and the keyword (\"Information Retrieval\"), making the intent unambiguous."
   },
   {
     "question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
@@ -203,21 +202,21 @@
     "resolved_question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "academic",
+      "icfp_1",
       "authors",
+      "academic",
       "scholar",
       "citeseer",
-      "icfp_1",
       "aan_1",
       "language_corpus",
       "book_1",
       "imdb",
       "codebase_community"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the intent to count authors with papers containing the keyword \"Relational Database,\" and the necessary information (keyword and target entity) is explicitly provided."
   },
   {
     "question": "return me the total citations of the papers containing keyword \" Natural Language \"",
@@ -226,9 +225,9 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
+      "authors",
       "scholar",
       "citeseer",
-      "authors",
       "aan_1",
       "language_corpus",
       "icfp_1",
@@ -237,9 +236,9 @@
       "imdb"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the intent to retrieve the total citations of papers containing the keyword \"Natural Language,\" with all necessary real-world information provided."
   },
   {
     "question": "return me the number of the organizations .",
@@ -259,185 +258,179 @@
       "local_govt_mdm"
     ],
     "selected_db": "e_government",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly requests the count of entities referred to as \"organizations,\" which directly corresponds to the Organizations table in the e_government database."
   },
   {
     "question": "return me the number of the organizations in \" North America \" .",
     "original_question": "return me the number of the organizations in \" North America \" .",
-    "resolved_question": "return me the number of the organizations in \" North America \" .",
+    "resolved_question": "How many countries are located in North America?",
     "gold_db": "academic",
     "retrieved_dbs": [
       "world_1",
-      "mondial_geo",
-      "superstore",
-      "world",
-      "regional_sales",
-      "address",
       "car_1",
-      "yelp",
+      "mondial_geo",
+      "world",
       "geo",
+      "address",
+      "yelp",
       "software_company"
     ],
     "selected_db": "world_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "method": "keyword_plus_llm_resolved+exec_probe",
+    "label": "Incomplete",
+    "reasoning": "Resolved Incomplete. Top: car_1"
   },
   {
     "question": "return me the number of organizations in Databases area .",
     "original_question": "return me the number of organizations in Databases area .",
-    "resolved_question": "return me the number of organizations in Databases area .",
+    "resolved_question": "How many organizations are located in a specific geographic area (e.g., state or province)? Please specify the exact region.",
     "gold_db": "academic",
     "retrieved_dbs": [
+      "geo",
+      "regional_sales",
+      "region_building",
+      "restaurants",
       "e_government",
-      "software_company",
-      "codebase_community",
-      "academic",
-      "csu_1",
       "local_govt_mdm",
       "world_1",
       "language_corpus",
       "yelp",
       "mondial_geo"
     ],
-    "selected_db": "e_government",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "selected_db": "geo",
+    "method": "keyword_plus_llm_resolved",
+    "label": "Incomplete",
+    "reasoning": "Resolved Incomplete. Top: geo"
   },
   {
     "question": "return me the number of organizations in Databases area located in \" North America \" .",
     "original_question": "return me the number of organizations in Databases area located in \" North America \" .",
-    "resolved_question": "return me the number of organizations in Databases area located in \" North America \" .",
+    "resolved_question": "How many countries are located in North America?",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "world_1",
+      "car_1",
       "mondial_geo",
-      "superstore",
+      "world_1",
       "world",
-      "region_building",
+      "geo",
       "regional_sales",
       "yelp",
       "address",
-      "geo",
       "flight_4"
     ],
-    "selected_db": "world_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "selected_db": "car_1",
+    "method": "keyword_plus_llm_resolved",
+    "label": "Incomplete",
+    "reasoning": "Resolved Incomplete. Top: car_1"
   },
   {
     "question": "return me the number of papers in \" University of Michigan \" .",
     "original_question": "return me the number of papers in \" University of Michigan \" .",
-    "resolved_question": "return me the number of papers in \" University of Michigan \" .",
+    "resolved_question": "What is the total number of papers authored by researchers affiliated with the University of Michigan?",
     "gold_db": "academic",
     "retrieved_dbs": [
       "icfp_1",
-      "scholar",
-      "citeseer",
-      "academic",
       "authors",
+      "scholar",
       "aan_1",
+      "academic",
       "csu_1",
       "university_rank",
       "college_completion",
       "donor"
     ],
     "selected_db": "icfp_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "method": "keyword_plus_llm_resolved",
+    "label": "Incomplete",
+    "reasoning": "Resolved Incomplete. Top: icfp_1"
   },
   {
     "question": "return me the number of papers in \" University of Michigan \" in Databases area .",
     "original_question": "return me the number of papers in \" University of Michigan \" in Databases area .",
-    "resolved_question": "What is the count of papers in the \"University of Michigan\" affiliation in the \"Databases\" area across all databases?",
+    "resolved_question": "How many publications are associated with the University of Michigan and the Databases research area?",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "aan_1",
-      "scholar",
+      "university_rank",
       "academic",
-      "citeseer",
+      "scholar",
       "authors",
+      "aan_1",
       "icfp_1",
       "csu_1",
-      "university_rank",
       "college_completion",
       "language_corpus"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_resolved_vector_search",
+    "selected_db": "university_rank",
+    "method": "keyword_plus_llm_resolved",
     "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of papers in the \"University of Michigan\" affiliation in the \"Databases\" area across all databases?"
+    "reasoning": "Resolved Incomplete. Top: university_rank"
   },
   {
     "question": "return me the number of papers after 2000 in \" University of Michigan \" .",
     "original_question": "return me the number of papers after 2000 in \" University of Michigan \" .",
-    "resolved_question": "return me the number of papers after 2000 in \" University of Michigan \" .",
+    "resolved_question": "How many papers published after the year 2000 have at least one author affiliated with the University of Michigan?",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "aan_1",
       "scholar",
-      "academic",
-      "citeseer",
       "authors",
-      "csu_1",
+      "academic",
+      "aan_1",
       "icfp_1",
+      "csu_1",
       "college_completion",
       "university_rank",
       "university"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "selected_db": "scholar",
+    "method": "keyword_plus_llm_resolved+exec_probe",
+    "label": "Incomplete",
+    "reasoning": "Resolved Incomplete. Top: scholar"
   },
   {
     "question": "return me the number of papers in VLDB conference in \" University of Michigan \" .",
     "original_question": "return me the number of papers in VLDB conference in \" University of Michigan \" .",
-    "resolved_question": "What is the count of papers published in the VLDB conference at the University of Michigan?",
+    "resolved_question": "How many papers were presented at the VLDB conference and authored by researchers affiliated with the University of Michigan?",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "scholar",
       "authors",
-      "academic",
-      "aan_1",
       "icfp_1",
+      "academic",
+      "scholar",
+      "aan_1",
       "citeseer",
       "csu_1",
       "conference",
       "university_rank",
       "language_corpus"
     ],
-    "selected_db": "scholar",
-    "method": "agent_resolved_vector_search",
+    "selected_db": "authors",
+    "method": "keyword_plus_llm_resolved",
     "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of papers published in the VLDB conference at the University of Michigan?"
+    "reasoning": "Resolved Incomplete. Top: authors"
   },
   {
     "question": "return me the number of papers in PVLDB in \" University of Michigan \" .",
     "original_question": "return me the number of papers in PVLDB in \" University of Michigan \" .",
-    "resolved_question": "What is the count of papers published in the journal \"PVLDB\" that are affiliated with the \"University of Michigan\"?",
+    "resolved_question": "return me the number of papers in PVLDB in \" University of Michigan \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
+      "icfp_1",
       "scholar",
       "authors",
       "academic",
       "aan_1",
-      "icfp_1",
       "citeseer",
       "csu_1",
       "language_corpus",
       "university_rank",
       "college_completion"
     ],
-    "selected_db": "scholar",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of papers published in the journal \"PVLDB\" that are affiliated with the \"University of Michigan\"?"
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
+    "label": "Normal",
+    "reasoning": "The question clearly specifies the journal \"PVLDB\" and the affiliation \"University of Michigan,\" making the intent to count papers in that journal by authors from that institution unambiguous."
   },
   {
     "question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
@@ -445,10 +438,10 @@
     "resolved_question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "academic",
-      "scholar",
       "authors",
       "aan_1",
+      "scholar",
+      "academic",
       "citeseer",
       "icfp_1",
       "csu_1",
@@ -456,10 +449,10 @@
       "codebase_community",
       "college_completion"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
+    "selected_db": "authors",
+    "method": "keyword_plus_llm_normal+exec_probe",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the venue (PVLDB), time frame (after 2000), and affiliation (University of Michigan), making the intent unambiguous."
   },
   {
     "question": "return me the total citations of the papers in \" University of Michigan \" .",
@@ -467,10 +460,10 @@
     "resolved_question": "return me the total citations of the papers in \" University of Michigan \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "aan_1",
       "scholar",
       "citeseer",
       "academic",
+      "aan_1",
       "authors",
       "icfp_1",
       "csu_1",
@@ -478,15 +471,15 @@
       "college_completion",
       "donor"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
+    "selected_db": "scholar",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies \"University of Michigan\" as the entity of interest and requests the total citations of its papers, with no ambiguity or missing essential information."
   },
   {
     "question": "return me the number of researchers in \" University of Michigan \" .",
     "original_question": "return me the number of researchers in \" University of Michigan \" .",
-    "resolved_question": "What is the total number of researchers (i.e., faculty members) at the University of Michigan?",
+    "resolved_question": "return me the number of researchers in \" University of Michigan \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
       "university_rank",
@@ -501,14 +494,14 @@
       "protein_institute"
     ],
     "selected_db": "university_rank",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the total number of researchers (i.e., faculty members) at the University of Michigan?"
+    "method": "keyword_plus_llm_normal",
+    "label": "Normal",
+    "reasoning": "The question clearly specifies the subject (\"University of Michigan\") and the requested information (number of researchers), making the intent unambiguous."
   },
   {
     "question": "return me the number of researchers in Databases area in \" University of Michigan \" .",
     "original_question": "return me the number of researchers in Databases area in \" University of Michigan \" .",
-    "resolved_question": "What is the total number of researchers in the \"Databases\" area at the \"University of Michigan\"?",
+    "resolved_question": "return me the number of researchers in Databases area in \" University of Michigan \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
       "university_rank",
@@ -523,9 +516,9 @@
       "donor"
     ],
     "selected_db": "university_rank",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the total number of researchers in the \"Databases\" area at the \"University of Michigan\"?"
+    "method": "keyword_plus_llm_normal",
+    "label": "Normal",
+    "reasoning": "The question clearly specifies the subject (\"University of Michigan\") and the research area (\"Databases\"), making the intent to count affiliated researchers unambiguous."
   },
   {
     "question": "return me the number of authors who have papers in PVLDB .",
@@ -533,9 +526,9 @@
     "resolved_question": "return me the number of authors who have papers in PVLDB .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "scholar",
-      "authors",
       "icfp_1",
+      "authors",
+      "scholar",
       "academic",
       "aan_1",
       "citeseer",
@@ -544,10 +537,10 @@
       "epinions_1",
       "csu_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies \"PVLDB,\" which is a well-known academic journal, making the intent to count authors with papers in that specific venue unambiguous."
   },
   {
     "question": "return me the number of authors who have papers in the VLDB conference .",
@@ -555,10 +548,10 @@
     "resolved_question": "return me the number of authors who have papers in the VLDB conference .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "authors",
-      "scholar",
-      "academic",
       "icfp_1",
+      "authors",
+      "academic",
+      "scholar",
       "aan_1",
       "citeseer",
       "codebase_community",
@@ -566,10 +559,10 @@
       "book_1",
       "epinions_1"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the VLDB conference and requests the count of authors associated with papers in that conference, with no missing or ambiguous information."
   },
   {
     "question": "return me the number of papers published on PVLDB before 2000 .",
@@ -580,8 +573,8 @@
       "scholar",
       "academic",
       "authors",
-      "citeseer",
       "aan_1",
+      "citeseer",
       "icfp_1",
       "csu_1",
       "codebase_community",
@@ -589,9 +582,9 @@
       "epinions_1"
     ],
     "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the journal (PVLDB) and the time frame (before 2000), making the intent unambiguous."
   },
   {
     "question": "return me the number of papers published in the VLDB conference before 2000 .",
@@ -599,10 +592,10 @@
     "resolved_question": "return me the number of papers published in the VLDB conference before 2000 .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "aan_1",
-      "scholar",
       "academic",
       "authors",
+      "scholar",
+      "aan_1",
       "citeseer",
       "icfp_1",
       "csu_1",
@@ -610,10 +603,10 @@
       "language_corpus",
       "conference"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
+    "selected_db": "academic",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the conference (VLDB) and the time frame (before 2000), providing all necessary information to determine the number of papers."
   },
   {
     "question": "return me the total citations of all the papers in PVLDB .",
@@ -633,9 +626,9 @@
       "epinions_1"
     ],
     "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the intent to retrieve the total citations of all papers in PVLDB, a well-defined venue in the database context."
   },
   {
     "question": "return me the citations of each paper in PVLDB .",
@@ -643,21 +636,21 @@
     "resolved_question": "return me the citations of each paper in PVLDB .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "aan_1",
       "scholar",
+      "aan_1",
+      "authors",
       "citeseer",
       "academic",
-      "authors",
       "icfp_1",
       "codebase_community",
       "epinions_1",
       "language_corpus",
       "csu_1"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
+    "selected_db": "scholar",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly requests the citations of each paper in PVLDB, a well-known database venue, with no missing essential information."
   },
   {
     "question": "return me the total citations of papers in PVLDB in 2005 .",
@@ -677,9 +670,9 @@
       "epinions_1"
     ],
     "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the venue (PVLDB), year (2005), and the request for total citations, making the intent unambiguous and self-contained."
   },
   {
     "question": "return me the total citations of papers in PVLDB before 2005 .",
@@ -699,9 +692,9 @@
       "epinions_1"
     ],
     "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the venue (PVLDB), the time frame (before 2005), and the metric (total citations), making the intent unambiguous."
   },
   {
     "question": "return me the total citations of papers in PVLDB in each year .",
@@ -710,10 +703,10 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "scholar",
-      "aan_1",
-      "citeseer",
       "authors",
       "academic",
+      "aan_1",
+      "citeseer",
       "icfp_1",
       "csu_1",
       "codebase_community",
@@ -721,9 +714,9 @@
       "epinions_1"
     ],
     "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the venue (PVLDB) and requests total citations per year, which is unambiguous and self-contained."
   },
   {
     "question": "return me the number of papers published in PVLDB in each year .",
@@ -731,10 +724,10 @@
     "resolved_question": "return me the number of papers published in PVLDB in each year .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "scholar",
       "authors",
-      "aan_1",
+      "scholar",
       "academic",
+      "aan_1",
       "citeseer",
       "icfp_1",
       "csu_1",
@@ -742,10 +735,10 @@
       "codebase_community",
       "book_2"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "selected_db": "authors",
+    "method": "keyword_plus_llm_normal+exec_probe",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the venue \"PVLDB\" and requests the count of papers published in each year, with no ambiguity or missing essential information."
   },
   {
     "question": "return me the total citations of all the papers in the VLDB conference .",
@@ -754,10 +747,10 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
+      "authors",
       "scholar",
       "citeseer",
       "aan_1",
-      "authors",
       "icfp_1",
       "codebase_community",
       "csu_1",
@@ -765,9 +758,9 @@
       "epinions_1"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the subject (papers in the VLDB conference) and the desired information (total citations), with no ambiguity or missing essential details."
   },
   {
     "question": "return me the citations of each paper in the VLDB conference .",
@@ -775,21 +768,21 @@
     "resolved_question": "return me the citations of each paper in the VLDB conference .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "academic",
+      "authors",
       "scholar",
       "citeseer",
       "aan_1",
-      "authors",
+      "academic",
       "icfp_1",
       "codebase_community",
       "epinions_1",
       "workshop_paper",
       "csu_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
+    "selected_db": "authors",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies retrieving citations for each paper in the VLDB conference, with no missing essential information."
   },
   {
     "question": "return me the total citations of papers in the VLDB conference in 2005 .",
@@ -798,10 +791,10 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
+      "authors",
       "scholar",
       "citeseer",
       "aan_1",
-      "authors",
       "icfp_1",
       "csu_1",
       "codebase_community",
@@ -809,9 +802,9 @@
       "epinions_1"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the subject (VLDB conference papers in 2005) and the desired information (total citations), with no missing or ambiguous elements."
   },
   {
     "question": "return me the total citations of papers in the VLDB conference before 2005 .",
@@ -820,10 +813,10 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
+      "authors",
       "scholar",
       "citeseer",
       "aan_1",
-      "authors",
       "icfp_1",
       "csu_1",
       "codebase_community",
@@ -831,9 +824,9 @@
       "conference"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the subject (papers in the VLDB conference), the timeframe (before 2005), and the desired information (total citations), making the intent unambiguous."
   },
   {
     "question": "return me the total citations of papers in the VLDB conference in each year .",
@@ -842,10 +835,10 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "academic",
+      "authors",
       "scholar",
       "aan_1",
       "citeseer",
-      "authors",
       "icfp_1",
       "csu_1",
       "conference",
@@ -853,9 +846,9 @@
       "language_corpus"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the conference (VLDB), the metric (total citations), and the granularity (each year), making the intent unambiguous."
   },
   {
     "question": "return me the number of papers published in the VLDB conference in each year .",
@@ -864,8 +857,8 @@
     "gold_db": "academic",
     "retrieved_dbs": [
       "authors",
-      "scholar",
       "academic",
+      "scholar",
       "aan_1",
       "citeseer",
       "icfp_1",
@@ -875,9 +868,9 @@
       "codebase_community"
     ],
     "selected_db": "authors",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the conference (VLDB) and requests the count of papers published each year, with no missing essential information."
   },
   {
     "question": "return me the authors who have cooperated both with \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
@@ -897,9 +890,9 @@
       "book_publishing_company"
     ],
     "selected_db": "icfp_1",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the intent to find authors who have collaborated with both \"H. V. Jagadish\" and \"Divesh Srivastava,\" with no missing or ambiguous information."
   },
   {
     "question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
@@ -907,10 +900,10 @@
     "resolved_question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "academic",
-      "authors",
-      "scholar",
       "icfp_1",
+      "authors",
+      "academic",
+      "scholar",
       "aan_1",
       "citeseer",
       "book_1",
@@ -918,10 +911,10 @@
       "imdb",
       "cre_Doc_Workflow"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the author \"H. V. Jagadish,\" the collaboration timeframe (after 2000), and the intent to retrieve cooperating authors, with no missing essential information."
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
@@ -929,21 +922,21 @@
     "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "academic",
+      "icfp_1",
       "authors",
       "scholar",
       "aan_1",
-      "icfp_1",
+      "academic",
       "citeseer",
       "codebase_community",
       "epinions_1",
       "book_publishing_company",
       "book_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the authors \"H. V. Jagadish\" and \"Divesh Srivastava\" and requests the papers they wrote, with no missing or ambiguous information."
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
@@ -951,21 +944,21 @@
     "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
     "gold_db": "academic",
     "retrieved_dbs": [
+      "icfp_1",
       "scholar",
       "authors",
       "aan_1",
       "academic",
-      "icfp_1",
       "citeseer",
       "codebase_community",
       "imdb",
       "epinions_1",
       "csu_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the authors (\"H. V. Jagadish\" and \"Yunyao Li\") and the time frame (\"after 2005\"), making the intent unambiguous and self-contained."
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
@@ -973,9 +966,9 @@
     "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "authors",
-      "scholar",
       "icfp_1",
+      "scholar",
+      "authors",
       "aan_1",
       "academic",
       "citeseer",
@@ -984,10 +977,10 @@
       "imdb",
       "language_corpus"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the authors (\"H. V. Jagadish\" and \"Yunyao Li\") and the journal (\"PVLDB\"), making the intent unambiguous and self-contained."
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
@@ -995,21 +988,21 @@
     "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
     "gold_db": "academic",
     "retrieved_dbs": [
+      "icfp_1",
       "scholar",
       "authors",
       "aan_1",
       "academic",
-      "icfp_1",
       "citeseer",
       "codebase_community",
       "epinions_1",
       "csu_1",
       "language_corpus"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the authors, venue (PVLDB), and time frame (after 2005), making the intent unambiguous."
   },
   {
     "question": "return me the authors who have cooperated with \" H. V. Jagadish \" .",
@@ -1029,9 +1022,9 @@
       "epinions_1"
     ],
     "selected_db": "icfp_1",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly requests authors who have collaborated with \"H. V. Jagadish,\" specifying the subject (the named author) and the type of relationship (cooperation), making the intent unambiguous."
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
@@ -1039,10 +1032,10 @@
     "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
     "gold_db": "academic",
     "retrieved_dbs": [
+      "icfp_1",
       "scholar",
       "authors",
       "aan_1",
-      "icfp_1",
       "academic",
       "citeseer",
       "codebase_community",
@@ -1050,10 +1043,10 @@
       "imdb",
       "journal_committee"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the authors, the type of information (papers), and the time constraint (before 2000), making the intent unambiguous."
   },
   {
     "question": "return me the authors who have cited the papers by \" H. V. Jagadish \" .",
@@ -1073,9 +1066,9 @@
       "cre_Doc_Workflow"
     ],
     "selected_db": "academic",
-    "method": "agent_normal_select",
+    "method": "keyword_plus_llm_normal+exec_probe",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly requests authors who have cited papers authored by \"H. V. Jagadish,\" with sufficient specificity to determine the required real-world information without ambiguity."
   },
   {
     "question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
@@ -1083,20 +1076,20 @@
     "resolved_question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
     "gold_db": "academic",
     "retrieved_dbs": [
-      "authors",
+      "icfp_1",
       "scholar",
+      "authors",
       "aan_1",
       "academic",
-      "icfp_1",
       "citeseer",
       "codebase_community",
       "language_corpus",
       "imdb",
       "csu_1"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
+    "selected_db": "icfp_1",
+    "method": "keyword_plus_llm_normal",
     "label": "Normal",
-    "reasoning": "Normal query."
+    "reasoning": "The question clearly specifies the authors and the request for the number of papers they have written, with no missing essential information."
   }
 ]

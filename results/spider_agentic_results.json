@@ -1,9 +1,8 @@
 [
   {
     "question": "return me the number of papers which contain the keyword \" Natural Language \" .",
-    "original_question": "return me the number of papers which contain the keyword \" Natural Language \" .",
-    "resolved_question": "return me the number of papers which contain the keyword \" Natural Language \" .",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
       "academic",
       "scholar",
@@ -16,16 +15,24 @@
       "codebase_comments",
       "donor"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "authors": "",
+      "citeseer": "",
+      "language_corpus": ""
+    },
+    "retrieval_order": [
+      "scholar",
+      "academic",
+      "authors",
+      "citeseer",
+      "language_corpus"
+    ]
   },
   {
     "question": "return me the number of the keywords of \" Making database systems usable \" .",
-    "original_question": "return me the number of the keywords of \" Making database systems usable \" .",
-    "resolved_question": "return me the number of the keywords of \" Making database systems usable \" .",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
       "academic",
       "scholar",
@@ -38,16 +45,24 @@
       "csu_1",
       "imdb"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "authors": "",
+      "citeseer": "",
+      "language_corpus": ""
+    },
+    "retrieval_order": [
+      "academic",
+      "scholar",
+      "authors",
+      "citeseer",
+      "language_corpus"
+    ]
   },
   {
     "question": "return me the number of the keywords related to \" H. V. Jagadish \" .",
-    "original_question": "return me the number of the keywords related to \" H. V. Jagadish \" .",
-    "resolved_question": "return me the number of the keywords related to \" H. V. Jagadish \" .",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
       "academic",
       "authors",
@@ -60,16 +75,24 @@
       "codebase_community",
       "epinions_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "academic",
+      "authors",
+      "scholar",
+      "citeseer",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the number of keywords in VLDB conference .",
-    "original_question": "return me the number of keywords in VLDB conference .",
-    "resolved_question": "return me the number of keywords in VLDB conference .",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
       "academic",
       "scholar",
@@ -82,16 +105,24 @@
       "csu_1",
       "epinions_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Journal matching [ShortName] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "academic",
+      "scholar",
+      "authors",
+      "citeseer",
+      "language_corpus"
+    ]
   },
   {
     "question": "return me the number of keywords in PVLDB .",
-    "original_question": "return me the number of keywords in PVLDB .",
-    "resolved_question": "return me the number of keywords in PVLDB .",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
       "academic",
       "scholar",
@@ -104,20 +135,28 @@
       "aan_1",
       "csu_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "academic",
+      "authors",
+      "citeseer",
+      "language_corpus"
+    ]
   },
   {
     "question": "return me the number of keywords in the papers of \" University of Michigan \" .",
-    "original_question": "return me the number of keywords in the papers of \" University of Michigan \" .",
-    "resolved_question": "What is the count of unique keywords in the papers that are affiliated with \"University of Michigan\"?",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
-      "authors",
-      "scholar",
       "academic",
+      "scholar",
+      "authors",
       "citeseer",
       "aan_1",
       "icfp_1",
@@ -126,20 +165,29 @@
       "college_completion",
       "university_rank"
     ],
-    "selected_db": "authors",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of unique keywords in the papers that are affiliated with \"University of Michigan\"?"
+    "entities": [
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'",
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "academic",
+      "authors",
+      "citeseer",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of the papers of \" H. V. Jagadish \" containing keyword \" User Study \" .",
-    "original_question": "return me the number of the papers of \" H. V. Jagadish \" containing keyword \" User Study \" .",
-    "resolved_question": "return me the number of the papers of \" H. V. Jagadish \" containing keyword \" User Study \" .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "academic",
       "scholar",
       "authors",
+      "academic",
       "citeseer",
       "aan_1",
       "icfp_1",
@@ -148,20 +196,30 @@
       "epinions_1",
       "codebase_community"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "User Study"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'",
+      "aan_1": "Found data in Paper matching [title] LIKE '%User Study%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "citeseer",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of papers in PVLDB containing keyword \" Keyword search \" .",
-    "original_question": "return me the number of papers in PVLDB containing keyword \" Keyword search \" .",
-    "resolved_question": "return me the number of papers in PVLDB containing keyword \" Keyword search \" .",
     "gold_db": "academic",
+    "selected_db": "authors",
     "retrieved_dbs": [
-      "academic",
-      "scholar",
       "authors",
+      "scholar",
+      "academic",
       "citeseer",
       "aan_1",
       "icfp_1",
@@ -170,16 +228,26 @@
       "epinions_1",
       "csu_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB",
+      "Keyword search"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Title] LIKE '%Keyword search%'; Found data in Paper matching [Keyword] LIKE '%Keyword search%'",
+      "aan_1": "Found data in Paper matching [title] LIKE '%Keyword search%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "citeseer",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of papers in VLDB conference containing keyword \" Information Retrieval \" .",
-    "original_question": "return me the number of papers in VLDB conference containing keyword \" Information Retrieval \" .",
-    "resolved_question": "return me the number of papers in VLDB conference containing keyword \" Information Retrieval \" .",
     "gold_db": "academic",
+    "selected_db": "academic",
     "retrieved_dbs": [
       "academic",
       "scholar",
@@ -192,20 +260,28 @@
       "epinions_1",
       "csu_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "citeseer",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
-    "original_question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
-    "resolved_question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
     "gold_db": "academic",
+    "selected_db": "authors",
     "retrieved_dbs": [
-      "academic",
       "authors",
       "scholar",
+      "academic",
       "citeseer",
       "icfp_1",
       "aan_1",
@@ -214,20 +290,28 @@
       "imdb",
       "codebase_community"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Relational Database"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Author matching [Name] LIKE '%Relational Database%'; Found data in Paper matching [Title] LIKE '%Relational Database%'; Found data in Paper matching [Keyword] LIKE '%Relational Database%'"
+    },
+    "retrieval_order": [
+      "authors",
+      "scholar",
+      "academic",
+      "citeseer",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the total citations of the papers containing keyword \" Natural Language \"",
-    "original_question": "return me the total citations of the papers containing keyword \" Natural Language \"",
-    "resolved_question": "return me the total citations of the papers containing keyword \" Natural Language \"",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "academic",
       "scholar",
       "citeseer",
+      "academic",
       "authors",
       "aan_1",
       "language_corpus",
@@ -236,16 +320,24 @@
       "csu_1",
       "imdb"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "citeseer": "",
+      "authors": "",
+      "aan_1": ""
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "academic",
+      "authors",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of the organizations .",
-    "original_question": "return me the number of the organizations .",
-    "resolved_question": "return me the number of the organizations .",
     "gold_db": "academic",
+    "selected_db": "e_government",
     "retrieved_dbs": [
       "e_government",
       "software_company",
@@ -258,19 +350,28 @@
       "trains",
       "local_govt_mdm"
     ],
-    "selected_db": "e_government",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "e_government": "",
+      "software_company": "",
+      "codebase_community": "",
+      "language_corpus": ""
+    },
+    "retrieval_order": [
+      "e_government",
+      "software_company",
+      "academic",
+      "codebase_community",
+      "language_corpus"
+    ]
   },
   {
     "question": "return me the number of the organizations in \" North America \" .",
-    "original_question": "return me the number of the organizations in \" North America \" .",
-    "resolved_question": "return me the number of the organizations in \" North America \" .",
     "gold_db": "academic",
+    "selected_db": "mondial_geo",
     "retrieved_dbs": [
-      "world_1",
       "mondial_geo",
+      "world_1",
       "superstore",
       "world",
       "regional_sales",
@@ -280,19 +381,25 @@
       "geo",
       "software_company"
     ],
-    "selected_db": "world_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "North America"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "mondial_geo",
+      "world_1",
+      "superstore",
+      "world",
+      "regional_sales"
+    ]
   },
   {
     "question": "return me the number of organizations in Databases area .",
-    "original_question": "return me the number of organizations in Databases area .",
-    "resolved_question": "return me the number of organizations in Databases area .",
     "gold_db": "academic",
+    "selected_db": "software_company",
     "retrieved_dbs": [
-      "e_government",
       "software_company",
+      "e_government",
       "codebase_community",
       "academic",
       "csu_1",
@@ -302,19 +409,28 @@
       "yelp",
       "mondial_geo"
     ],
-    "selected_db": "e_government",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "software_company": "",
+      "e_government": "",
+      "codebase_community": "",
+      "csu_1": ""
+    },
+    "retrieval_order": [
+      "software_company",
+      "e_government",
+      "codebase_community",
+      "academic",
+      "csu_1"
+    ]
   },
   {
     "question": "return me the number of organizations in Databases area located in \" North America \" .",
-    "original_question": "return me the number of organizations in Databases area located in \" North America \" .",
-    "resolved_question": "return me the number of organizations in Databases area located in \" North America \" .",
     "gold_db": "academic",
+    "selected_db": "mondial_geo",
     "retrieved_dbs": [
-      "world_1",
       "mondial_geo",
+      "world_1",
       "superstore",
       "world",
       "region_building",
@@ -324,21 +440,27 @@
       "geo",
       "flight_4"
     ],
-    "selected_db": "world_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "North America"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "mondial_geo",
+      "world_1",
+      "superstore",
+      "world",
+      "region_building"
+    ]
   },
   {
     "question": "return me the number of papers in \" University of Michigan \" .",
-    "original_question": "return me the number of papers in \" University of Michigan \" .",
-    "resolved_question": "return me the number of papers in \" University of Michigan \" .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "icfp_1",
       "scholar",
       "citeseer",
       "academic",
+      "icfp_1",
       "authors",
       "aan_1",
       "csu_1",
@@ -346,60 +468,88 @@
       "college_completion",
       "donor"
     ],
-    "selected_db": "icfp_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "academic",
+      "icfp_1",
+      "authors"
+    ]
   },
   {
     "question": "return me the number of papers in \" University of Michigan \" in Databases area .",
-    "original_question": "return me the number of papers in \" University of Michigan \" in Databases area .",
-    "resolved_question": "What is the count of papers in the \"University of Michigan\" affiliation in the \"Databases\" area across all databases?",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "aan_1",
       "scholar",
       "academic",
       "citeseer",
       "authors",
+      "aan_1",
       "icfp_1",
       "csu_1",
       "university_rank",
       "college_completion",
       "language_corpus"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of papers in the \"University of Michigan\" affiliation in the \"Databases\" area across all databases?"
-  },
-  {
-    "question": "return me the number of papers after 2000 in \" University of Michigan \" .",
-    "original_question": "return me the number of papers after 2000 in \" University of Michigan \" .",
-    "resolved_question": "return me the number of papers after 2000 in \" University of Michigan \" .",
-    "gold_db": "academic",
-    "retrieved_dbs": [
-      "aan_1",
+    "entities": [
+      "University of Michigan",
+      "Databases"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'; Found data in Paper matching [Title] LIKE '%Databases%'",
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'; Found data in Paper matching [title] LIKE '%Databases%'"
+    },
+    "retrieval_order": [
       "scholar",
       "academic",
       "citeseer",
       "authors",
+      "aan_1"
+    ]
+  },
+  {
+    "question": "return me the number of papers after 2000 in \" University of Michigan \" .",
+    "gold_db": "academic",
+    "selected_db": "scholar",
+    "retrieved_dbs": [
+      "scholar",
+      "academic",
+      "citeseer",
+      "authors",
+      "aan_1",
       "csu_1",
       "icfp_1",
       "college_completion",
       "university_rank",
       "university"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "2000",
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'; Found data in Paper matching [Year] = 2000",
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "academic",
+      "citeseer",
+      "authors",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of papers in VLDB conference in \" University of Michigan \" .",
-    "original_question": "return me the number of papers in VLDB conference in \" University of Michigan \" .",
-    "resolved_question": "What is the count of papers published in the VLDB conference at the University of Michigan?",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -412,16 +562,26 @@
       "university_rank",
       "language_corpus"
     ],
-    "selected_db": "scholar",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of papers published in the VLDB conference at the University of Michigan?"
+    "entities": [
+      "VLDB",
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'",
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "aan_1",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the number of papers in PVLDB in \" University of Michigan \" .",
-    "original_question": "return me the number of papers in PVLDB in \" University of Michigan \" .",
-    "resolved_question": "What is the count of papers published in the journal \"PVLDB\" that are affiliated with the \"University of Michigan\"?",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -434,21 +594,31 @@
       "university_rank",
       "college_completion"
     ],
-    "selected_db": "scholar",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of papers published in the journal \"PVLDB\" that are affiliated with the \"University of Michigan\"?"
+    "entities": [
+      "PVLDB",
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'",
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "aan_1",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
-    "original_question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
-    "resolved_question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "academic",
       "scholar",
       "authors",
       "aan_1",
+      "academic",
       "citeseer",
       "icfp_1",
       "csu_1",
@@ -456,21 +626,32 @@
       "codebase_community",
       "college_completion"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB",
+      "2000",
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'",
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "aan_1",
+      "academic",
+      "citeseer"
+    ]
   },
   {
     "question": "return me the total citations of the papers in \" University of Michigan \" .",
-    "original_question": "return me the total citations of the papers in \" University of Michigan \" .",
-    "resolved_question": "return me the total citations of the papers in \" University of Michigan \" .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "aan_1",
       "scholar",
       "citeseer",
       "academic",
+      "aan_1",
       "authors",
       "icfp_1",
       "csu_1",
@@ -478,16 +659,25 @@
       "college_completion",
       "donor"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "aan_1": "Found data in Affiliation matching [name] LIKE '%University of Michigan%'",
+      "authors": "Found data in Paper matching [Title] LIKE '%University of Michigan%'; Found data in Author matching [Affiliation] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "academic",
+      "aan_1",
+      "authors"
+    ]
   },
   {
     "question": "return me the number of researchers in \" University of Michigan \" .",
-    "original_question": "return me the number of researchers in \" University of Michigan \" .",
-    "resolved_question": "What is the total number of researchers (i.e., faculty members) at the University of Michigan?",
     "gold_db": "academic",
+    "selected_db": "university_rank",
     "retrieved_dbs": [
       "university_rank",
       "csu_1",
@@ -500,19 +690,28 @@
       "university",
       "protein_institute"
     ],
-    "selected_db": "university_rank",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the total number of researchers (i.e., faculty members) at the University of Michigan?"
+    "entities": [
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "csu_1": "",
+      "college_completion": "Found data in institution_details matching [chronname] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "university_rank",
+      "csu_1",
+      "college_completion",
+      "icfp_1",
+      "academic"
+    ]
   },
   {
     "question": "return me the number of researchers in Databases area in \" University of Michigan \" .",
-    "original_question": "return me the number of researchers in Databases area in \" University of Michigan \" .",
-    "resolved_question": "What is the total number of researchers in the \"Databases\" area at the \"University of Michigan\"?",
     "gold_db": "academic",
+    "selected_db": "csu_1",
     "retrieved_dbs": [
-      "university_rank",
       "csu_1",
+      "university_rank",
       "academic",
       "college_completion",
       "icfp_1",
@@ -522,16 +721,26 @@
       "cs_semester",
       "donor"
     ],
-    "selected_db": "university_rank",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the total number of researchers in the \"Databases\" area at the \"University of Michigan\"?"
+    "entities": [
+      "Databases",
+      "University of Michigan"
+    ],
+    "exec_evidence": {
+      "csu_1": "",
+      "college_completion": "Found data in institution_details matching [chronname] LIKE '%University of Michigan%'"
+    },
+    "retrieval_order": [
+      "csu_1",
+      "university_rank",
+      "academic",
+      "college_completion",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the number of authors who have papers in PVLDB .",
-    "original_question": "return me the number of authors who have papers in PVLDB .",
-    "resolved_question": "return me the number of authors who have papers in PVLDB .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -544,19 +753,27 @@
       "epinions_1",
       "csu_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "icfp_1",
+      "academic",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of authors who have papers in the VLDB conference .",
-    "original_question": "return me the number of authors who have papers in the VLDB conference .",
-    "resolved_question": "return me the number of authors who have papers in the VLDB conference .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "authors",
       "scholar",
+      "authors",
       "academic",
       "icfp_1",
       "aan_1",
@@ -566,16 +783,24 @@
       "book_1",
       "epinions_1"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "icfp_1",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the number of papers published on PVLDB before 2000 .",
-    "original_question": "return me the number of papers published on PVLDB before 2000 .",
-    "resolved_question": "return me the number of papers published on PVLDB before 2000 .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "academic",
@@ -588,21 +813,30 @@
       "language_corpus",
       "epinions_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
-  },
-  {
-    "question": "return me the number of papers published in the VLDB conference before 2000 .",
-    "original_question": "return me the number of papers published in the VLDB conference before 2000 .",
-    "resolved_question": "return me the number of papers published in the VLDB conference before 2000 .",
-    "gold_db": "academic",
-    "retrieved_dbs": [
-      "aan_1",
+    "entities": [
+      "PVLDB",
+      "2000"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Year] = 2000"
+    },
+    "retrieval_order": [
       "scholar",
       "academic",
       "authors",
+      "citeseer",
+      "aan_1"
+    ]
+  },
+  {
+    "question": "return me the number of papers published in the VLDB conference before 2000 .",
+    "gold_db": "academic",
+    "selected_db": "scholar",
+    "retrieved_dbs": [
+      "scholar",
+      "academic",
+      "authors",
+      "aan_1",
       "citeseer",
       "icfp_1",
       "csu_1",
@@ -610,16 +844,25 @@
       "language_corpus",
       "conference"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB",
+      "2000"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "academic",
+      "authors",
+      "aan_1",
+      "citeseer"
+    ]
   },
   {
     "question": "return me the total citations of all the papers in PVLDB .",
-    "original_question": "return me the total citations of all the papers in PVLDB .",
-    "resolved_question": "return me the total citations of all the papers in PVLDB .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "citeseer",
@@ -632,20 +875,28 @@
       "csu_1",
       "epinions_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
+      "authors"
+    ]
   },
   {
     "question": "return me the citations of each paper in PVLDB .",
-    "original_question": "return me the citations of each paper in PVLDB .",
-    "resolved_question": "return me the citations of each paper in PVLDB .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "aan_1",
       "scholar",
       "citeseer",
+      "aan_1",
       "academic",
       "authors",
       "icfp_1",
@@ -654,16 +905,24 @@
       "language_corpus",
       "csu_1"
     ],
-    "selected_db": "aan_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
+      "authors"
+    ]
   },
   {
     "question": "return me the total citations of papers in PVLDB in 2005 .",
-    "original_question": "return me the total citations of papers in PVLDB in 2005 .",
-    "resolved_question": "return me the total citations of papers in PVLDB in 2005 .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "citeseer",
@@ -676,16 +935,25 @@
       "language_corpus",
       "epinions_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB",
+      "2005"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Year] = 2005"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
+      "authors"
+    ]
   },
   {
     "question": "return me the total citations of papers in PVLDB before 2005 .",
-    "original_question": "return me the total citations of papers in PVLDB before 2005 .",
-    "resolved_question": "return me the total citations of papers in PVLDB before 2005 .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "citeseer",
@@ -698,16 +966,25 @@
       "language_corpus",
       "epinions_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB",
+      "2005"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Year] = 2005"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
+      "authors"
+    ]
   },
   {
     "question": "return me the total citations of papers in PVLDB in each year .",
-    "original_question": "return me the total citations of papers in PVLDB in each year .",
-    "resolved_question": "return me the total citations of papers in PVLDB in each year .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "aan_1",
@@ -720,16 +997,24 @@
       "language_corpus",
       "epinions_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "aan_1",
+      "citeseer",
+      "authors",
+      "academic"
+    ]
   },
   {
     "question": "return me the number of papers published in PVLDB in each year .",
-    "original_question": "return me the number of papers published in PVLDB in each year .",
-    "resolved_question": "return me the number of papers published in PVLDB in each year .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -742,21 +1027,31 @@
       "codebase_community",
       "book_2"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "PVLDB",
+      "year"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Journal matching [ShortName] LIKE '%PVLDB%'; Found data in Paper matching [Title] LIKE '%year%'; Found data in Paper matching [Keyword] LIKE '%year%'",
+      "aan_1": "Found data in Paper matching [title] LIKE '%year%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "aan_1",
+      "academic",
+      "citeseer"
+    ]
   },
   {
     "question": "return me the total citations of all the papers in the VLDB conference .",
-    "original_question": "return me the total citations of all the papers in the VLDB conference .",
-    "resolved_question": "return me the total citations of all the papers in the VLDB conference .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "academic",
       "scholar",
       "citeseer",
       "aan_1",
+      "academic",
       "authors",
       "icfp_1",
       "codebase_community",
@@ -764,21 +1059,29 @@
       "language_corpus",
       "epinions_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
-  },
-  {
-    "question": "return me the citations of each paper in the VLDB conference .",
-    "original_question": "return me the citations of each paper in the VLDB conference .",
-    "resolved_question": "return me the citations of each paper in the VLDB conference .",
-    "gold_db": "academic",
-    "retrieved_dbs": [
-      "academic",
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
       "scholar",
       "citeseer",
       "aan_1",
+      "academic",
+      "authors"
+    ]
+  },
+  {
+    "question": "return me the citations of each paper in the VLDB conference .",
+    "gold_db": "academic",
+    "selected_db": "scholar",
+    "retrieved_dbs": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
       "authors",
       "icfp_1",
       "codebase_community",
@@ -786,21 +1089,29 @@
       "workshop_paper",
       "csu_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
-  },
-  {
-    "question": "return me the total citations of papers in the VLDB conference in 2005 .",
-    "original_question": "return me the total citations of papers in the VLDB conference in 2005 .",
-    "resolved_question": "return me the total citations of papers in the VLDB conference in 2005 .",
-    "gold_db": "academic",
-    "retrieved_dbs": [
-      "academic",
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
       "scholar",
       "citeseer",
       "aan_1",
+      "academic",
+      "authors"
+    ]
+  },
+  {
+    "question": "return me the total citations of papers in the VLDB conference in 2005 .",
+    "gold_db": "academic",
+    "selected_db": "scholar",
+    "retrieved_dbs": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
       "authors",
       "icfp_1",
       "csu_1",
@@ -808,21 +1119,30 @@
       "conference",
       "epinions_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
-  },
-  {
-    "question": "return me the total citations of papers in the VLDB conference before 2005 .",
-    "original_question": "return me the total citations of papers in the VLDB conference before 2005 .",
-    "resolved_question": "return me the total citations of papers in the VLDB conference before 2005 .",
-    "gold_db": "academic",
-    "retrieved_dbs": [
-      "academic",
+    "entities": [
+      "VLDB",
+      "2005"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
       "scholar",
       "citeseer",
       "aan_1",
+      "academic",
+      "authors"
+    ]
+  },
+  {
+    "question": "return me the total citations of papers in the VLDB conference before 2005 .",
+    "gold_db": "academic",
+    "selected_db": "scholar",
+    "retrieved_dbs": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
       "authors",
       "icfp_1",
       "csu_1",
@@ -830,21 +1150,30 @@
       "epinions_1",
       "conference"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB",
+      "2005"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "citeseer",
+      "aan_1",
+      "academic",
+      "authors"
+    ]
   },
   {
     "question": "return me the total citations of papers in the VLDB conference in each year .",
-    "original_question": "return me the total citations of papers in the VLDB conference in each year .",
-    "resolved_question": "return me the total citations of papers in the VLDB conference in each year .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "academic",
       "scholar",
       "aan_1",
       "citeseer",
+      "academic",
       "authors",
       "icfp_1",
       "csu_1",
@@ -852,19 +1181,27 @@
       "codebase_community",
       "language_corpus"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "aan_1",
+      "citeseer",
+      "academic",
+      "authors"
+    ]
   },
   {
     "question": "return me the number of papers published in the VLDB conference in each year .",
-    "original_question": "return me the number of papers published in the VLDB conference in each year .",
-    "resolved_question": "return me the number of papers published in the VLDB conference in each year .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "authors",
       "scholar",
+      "authors",
       "academic",
       "aan_1",
       "citeseer",
@@ -874,19 +1211,27 @@
       "language_corpus",
       "codebase_community"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "VLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Conference matching [ShortName] LIKE '%VLDB%'; Found data in Conference matching [FullName] LIKE '%VLDB%'; Found data in Paper matching [Title] LIKE '%VLDB%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "academic",
+      "aan_1",
+      "citeseer"
+    ]
   },
   {
     "question": "return me the authors who have cooperated both with \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
-    "original_question": "return me the authors who have cooperated both with \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
-    "resolved_question": "return me the authors who have cooperated both with \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
     "gold_db": "academic",
+    "selected_db": "authors",
     "retrieved_dbs": [
-      "icfp_1",
       "authors",
+      "icfp_1",
       "aan_1",
       "academic",
       "scholar",
@@ -896,19 +1241,28 @@
       "cre_Doc_Workflow",
       "book_publishing_company"
     ],
-    "selected_db": "icfp_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Divesh Srivastava"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "authors",
+      "icfp_1",
+      "aan_1",
+      "academic",
+      "scholar"
+    ]
   },
   {
     "question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
-    "original_question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
-    "resolved_question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
     "gold_db": "academic",
+    "selected_db": "authors",
     "retrieved_dbs": [
-      "academic",
       "authors",
+      "academic",
       "scholar",
       "icfp_1",
       "aan_1",
@@ -918,38 +1272,56 @@
       "imdb",
       "cre_Doc_Workflow"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "2000"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "authors",
+      "academic",
+      "scholar",
+      "icfp_1",
+      "aan_1"
+    ]
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
-    "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
-    "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
     "gold_db": "academic",
+    "selected_db": "authors",
     "retrieved_dbs": [
-      "academic",
       "authors",
       "scholar",
       "aan_1",
       "icfp_1",
+      "academic",
       "citeseer",
       "codebase_community",
       "epinions_1",
       "book_publishing_company",
       "book_1"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Divesh Srivastava"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "authors",
+      "scholar",
+      "aan_1",
+      "icfp_1",
+      "academic"
+    ]
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
-    "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
-    "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -962,19 +1334,29 @@
       "epinions_1",
       "csu_1"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Yunyao Li",
+      "2005"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "aan_1",
+      "academic",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
-    "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
-    "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "authors",
       "scholar",
+      "authors",
       "icfp_1",
       "aan_1",
       "academic",
@@ -984,16 +1366,26 @@
       "imdb",
       "language_corpus"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Yunyao Li",
+      "PVLDB"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "icfp_1",
+      "aan_1",
+      "academic"
+    ]
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
-    "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
-    "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -1006,19 +1398,30 @@
       "csu_1",
       "language_corpus"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Yunyao Li",
+      "PVLDB",
+      "2005"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "aan_1",
+      "academic",
+      "icfp_1"
+    ]
   },
   {
     "question": "return me the authors who have cooperated with \" H. V. Jagadish \" .",
-    "original_question": "return me the authors who have cooperated with \" H. V. Jagadish \" .",
-    "resolved_question": "return me the authors who have cooperated with \" H. V. Jagadish \" .",
     "gold_db": "academic",
+    "selected_db": "authors",
     "retrieved_dbs": [
-      "icfp_1",
       "authors",
+      "icfp_1",
       "academic",
       "aan_1",
       "scholar",
@@ -1028,16 +1431,24 @@
       "cre_Doc_Workflow",
       "epinions_1"
     ],
-    "selected_db": "icfp_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "authors",
+      "icfp_1",
+      "academic",
+      "aan_1",
+      "scholar"
+    ]
   },
   {
     "question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
-    "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
-    "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
       "scholar",
       "authors",
@@ -1050,41 +1461,59 @@
       "imdb",
       "journal_committee"
     ],
-    "selected_db": "scholar",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Divesh Srivastava",
+      "2000"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "aan_1",
+      "icfp_1",
+      "academic"
+    ]
   },
   {
     "question": "return me the authors who have cited the papers by \" H. V. Jagadish \" .",
-    "original_question": "return me the authors who have cited the papers by \" H. V. Jagadish \" .",
-    "resolved_question": "return me the authors who have cited the papers by \" H. V. Jagadish \" .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "academic",
       "scholar",
       "aan_1",
       "citeseer",
       "authors",
+      "academic",
       "icfp_1",
       "book_1",
       "epinions_1",
       "codebase_community",
       "cre_Doc_Workflow"
     ],
-    "selected_db": "academic",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "aan_1",
+      "citeseer",
+      "authors",
+      "academic"
+    ]
   },
   {
     "question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
-    "original_question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
-    "resolved_question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
     "gold_db": "academic",
+    "selected_db": "scholar",
     "retrieved_dbs": [
-      "authors",
       "scholar",
+      "authors",
       "aan_1",
       "academic",
       "icfp_1",
@@ -1094,9 +1523,19 @@
       "imdb",
       "csu_1"
     ],
-    "selected_db": "authors",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "H. V. Jagadish",
+      "Divesh Srivastava"
+    ],
+    "exec_evidence": {
+      "authors": "Found data in Paper matching [Title] LIKE '%H. V. Jagadish%'; Found data in Author matching [Name] LIKE '%H. V. Jagadish%'; Found data in PaperAuthor matching [Name] LIKE '%H. V. Jagadish%'"
+    },
+    "retrieval_order": [
+      "scholar",
+      "authors",
+      "aan_1",
+      "academic",
+      "icfp_1"
+    ]
   }
 ]

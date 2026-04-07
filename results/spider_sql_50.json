@@ -1,0 +1,419 @@
+{
+  "metrics": {
+    "execution_accuracy": 1.0,
+    "total_queries": 50,
+    "successful_executions": 50,
+    "retrieval": {
+      "R@1": 0.38,
+      "R@3": 0.62,
+      "R@5": 0.96,
+      "R@10": 0.96,
+      "R@20": 0.96,
+      "MAP": 0.5443333333333333,
+      "Dataset": "spider-GenRun",
+      "Model": "Qwen/Qwen3-Embedding-8B"
+    }
+  },
+  "data": [
+    {
+      "original_question": "return me the number of papers which contain the keyword \" Natural Language \" .",
+      "resolved_question": "return me the number of papers which contain the keyword \" Natural Language \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT pk.pid) FROM publication_keyword pk JOIN keyword k ON pk.kid = k.kid WHERE k.keyword = ' Natural Language '",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of the keywords of \" Making database systems usable \" .",
+      "resolved_question": "return me the number of the keywords of \" Making database systems usable \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(*) FROM publication_keyword WHERE pid = (SELECT pid FROM publication WHERE title = 'Making database systems usable')",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of the keywords related to \" H. V. Jagadish \" .",
+      "resolved_question": "return me the number of the keywords related to \" H. V. Jagadish \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT pk.kid) FROM author a JOIN writes w ON a.aid = w.aid JOIN publication_keyword pk ON w.pid = pk.pid WHERE a.name = 'H. V. Jagadish'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of keywords in VLDB conference .",
+      "resolved_question": "return me the number of keywords in VLDB conference .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT publication_keyword.kid) FROM conference JOIN publication ON conference.cid = publication.cid JOIN publication_keyword ON publication.pid = publication_keyword.pid WHERE conference.name = 'VLDB'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of keywords in PVLDB .",
+      "resolved_question": "return me the number of keywords in PVLDB .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT k.keyword) FROM conference c JOIN publication p ON c.cid = p.cid JOIN publication_keyword pk ON p.pid = pk.pid JOIN keyword k ON pk.kid = k.kid WHERE c.name = 'PVLDB';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of keywords in the papers of \" University of Michigan \" .",
+      "resolved_question": "What is the count of unique keywords in the papers that are affiliated with \"University of Michigan\"?",
+      "selected_db": "authors",
+      "generated_sql": "SELECT COUNT(DISTINCT Paper.Keyword) FROM Paper INNER JOIN PaperAuthor ON Paper.Id = PaperAuthor.PaperId WHERE PaperAuthor.Affiliation LIKE '%University of Michigan%' AND Paper.Keyword IS NOT NULL;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of the papers of \" H. V. Jagadish \" containing keyword \" User Study \" .",
+      "resolved_question": "return me the number of the papers of \" H. V. Jagadish \" containing keyword \" User Study \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT writes.pid)\nFROM author\nINNER JOIN writes ON author.aid = writes.aid\nINNER JOIN publication_keyword ON writes.pid = publication_keyword.pid\nINNER JOIN keyword ON publication_keyword.kid = keyword.kid\nWHERE author.name = ' H. V. Jagadish ' \nAND keyword.keyword = ' User Study '",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in PVLDB containing keyword \" Keyword search \" .",
+      "resolved_question": "return me the number of papers in PVLDB containing keyword \" Keyword search \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(*) FROM publication JOIN journal ON publication.jid = journal.jid JOIN publication_keyword ON publication.pid = publication_keyword.pid JOIN keyword ON publication_keyword.kid = keyword.kid WHERE journal.name = 'PVLDB' AND keyword.keyword = 'Keyword search'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in VLDB conference containing keyword \" Information Retrieval \" .",
+      "resolved_question": "return me the number of papers in VLDB conference containing keyword \" Information Retrieval \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT publication.pid) FROM publication JOIN conference ON publication.cid = conference.cid JOIN publication_keyword ON publication.pid = publication_keyword.pid JOIN keyword ON publication_keyword.kid = keyword.kid WHERE conference.name = 'VLDB' AND keyword.keyword = ' Information Retrieval '",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
+      "resolved_question": "return me the number of authors who have papers containing keyword \" Relational Database \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT w.aid) FROM writes w JOIN publication_keyword pk ON w.pid = pk.pid JOIN keyword k ON pk.kid = k.kid WHERE k.keyword = ' Relational Database '",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of the papers containing keyword \" Natural Language \"",
+      "resolved_question": "return me the total citations of the papers containing keyword \" Natural Language \"",
+      "selected_db": "academic",
+      "generated_sql": "SELECT SUM(publication.citation_num) FROM publication INNER JOIN publication_keyword ON publication.pid = publication_keyword.pid INNER JOIN keyword ON publication_keyword.kid = keyword.kid WHERE keyword.keyword = ' Natural Language '",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of the organizations .",
+      "resolved_question": "return me the number of the organizations .",
+      "selected_db": "e_government",
+      "generated_sql": "SELECT COUNT(*) FROM Organizations;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of the organizations in \" North America \" .",
+      "resolved_question": "return me the number of the organizations in \" North America \" .",
+      "selected_db": "world_1",
+      "generated_sql": "SELECT COUNT(*) FROM country WHERE Continent = 'North America';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of organizations in Databases area .",
+      "resolved_question": "return me the number of organizations in Databases area .",
+      "selected_db": "e_government",
+      "generated_sql": "SELECT COUNT(*) FROM Organizations WHERE organization_name = 'Databases';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of organizations in Databases area located in \" North America \" .",
+      "resolved_question": "return me the number of organizations in Databases area located in \" North America \" .",
+      "selected_db": "world_1",
+      "generated_sql": "SELECT COUNT(*) FROM country WHERE Region = 'Databases' AND Continent = 'North America';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in \" University of Michigan \" .",
+      "resolved_question": "return me the number of papers in \" University of Michigan \" .",
+      "selected_db": "icfp_1",
+      "generated_sql": "SELECT COUNT(DISTINCT Papers.paperID) FROM Authorship JOIN Inst ON Authorship.instID = Inst.instID JOIN Papers ON Authorship.paperID = Papers.paperID WHERE Inst.name = 'University of Michigan'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in \" University of Michigan \" in Databases area .",
+      "resolved_question": "What is the count of papers in the \"University of Michigan\" affiliation in the \"Databases\" area across all databases?",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(DISTINCT p.paperId) FROM paper p JOIN venue v ON p.venueId = v.venueId JOIN paperKeyphrase pk ON p.paperId = pk.paperId JOIN keyphrase k ON pk.keyphraseId = k.keyphraseId WHERE v.venueName = 'University of Michigan' AND k.keyphraseName = 'Databases'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers after 2000 in \" University of Michigan \" .",
+      "resolved_question": "return me the number of papers after 2000 in \" University of Michigan \" .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM paper INNER JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'University of Michigan' AND paper.year > 2000;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in VLDB conference in \" University of Michigan \" .",
+      "resolved_question": "What is the count of papers published in the VLDB conference at the University of Michigan?",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM paper INNER JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'VLDB' AND paper.venueId IN (SELECT venueId FROM venue WHERE venueName LIKE '%University of Michigan%');",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in PVLDB in \" University of Michigan \" .",
+      "resolved_question": "What is the count of papers published in the journal \"PVLDB\" that are affiliated with the \"University of Michigan\"?",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM paper INNER JOIN journal ON paper.journalId = journal.journalId WHERE journal.journalName = 'PVLDB' AND paper.paperId IN (SELECT paperId FROM writes WHERE authorId IN (SELECT authorId FROM author WHERE authorName LIKE '%University of Michigan%'));",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
+      "resolved_question": "return me the number of papers in PVLDB after 2000 in \" University of Michigan \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT COUNT(DISTINCT publication.pid) FROM publication JOIN journal ON publication.jid = journal.jid JOIN writes ON publication.pid = writes.pid JOIN author ON writes.aid = author.aid JOIN organization ON author.oid = organization.oid WHERE journal.name = 'PVLDB' AND publication.year > 2000 AND organization.name = 'University of Michigan'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of the papers in \" University of Michigan \" .",
+      "resolved_question": "return me the total citations of the papers in \" University of Michigan \" .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT SUM(p.numCiting) FROM paper p JOIN writes w ON p.paperId = w.paperId JOIN author a ON w.authorId = a.authorId WHERE a.authorName LIKE '%University of Michigan%';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of researchers in \" University of Michigan \" .",
+      "resolved_question": "What is the total number of researchers (i.e., faculty members) at the University of Michigan?",
+      "selected_db": "csu_1",
+      "generated_sql": "SELECT SUM(f.Faculty) FROM faculty f JOIN Campuses c ON f.Campus = c.Id WHERE c.Campus = 'University of Michigan';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of researchers in Databases area in \" University of Michigan \" .",
+      "resolved_question": "What is the total number of researchers in the \"Databases\" area at the \"University of Michigan\"?",
+      "selected_db": "csu_1",
+      "generated_sql": "SELECT SUM(Graduate) AS Researchers FROM discipline_enrollments JOIN Campuses ON discipline_enrollments.Campus = Campuses.Id WHERE Campuses.Campus = 'University of Michigan' AND Discipline = 'Databases';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of authors who have papers in PVLDB .",
+      "resolved_question": "return me the number of authors who have papers in PVLDB .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(DISTINCT writes.authorId) FROM paper JOIN venue ON paper.venueId = venue.venueId JOIN writes ON paper.paperId = writes.paperId WHERE venue.venueName = 'PVLDB'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of authors who have papers in the VLDB conference .",
+      "resolved_question": "return me the number of authors who have papers in the VLDB conference .",
+      "selected_db": "authors",
+      "generated_sql": "SELECT COUNT(DISTINCT PaperAuthor.AuthorId) FROM Conference JOIN Paper ON Conference.Id = Paper.ConferenceId JOIN PaperAuthor ON Paper.Id = PaperAuthor.PaperId WHERE Conference.ShortName = 'VLDB'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers published on PVLDB before 2000 .",
+      "resolved_question": "return me the number of papers published on PVLDB before 2000 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM paper JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'PVLDB' AND paper.year < 2000;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers published in the VLDB conference before 2000 .",
+      "resolved_question": "return me the number of papers published in the VLDB conference before 2000 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM paper JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'VLDB' AND paper.year < 2000;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of all the papers in PVLDB .",
+      "resolved_question": "return me the total citations of all the papers in PVLDB .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT SUM(p.numCitedBy) FROM paper p JOIN venue v ON p.venueId = v.venueId WHERE v.venueName = 'PVLDB'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the citations of each paper in PVLDB .",
+      "resolved_question": "return me the citations of each paper in PVLDB .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT p.paperId, p.title, p.numCiting, p.numCitedBy \nFROM paper p \nJOIN venue v ON p.venueId = v.venueId \nWHERE v.venueName = 'PVLDB'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of papers in PVLDB in 2005 .",
+      "resolved_question": "return me the total citations of papers in PVLDB in 2005 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM cite WHERE citedPaperId IN (SELECT paper.paperId FROM paper JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'PVLDB' AND paper.year = 2005)",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of papers in PVLDB before 2005 .",
+      "resolved_question": "return me the total citations of papers in PVLDB before 2005 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT COUNT(*) FROM cite WHERE citedPaperId IN (SELECT paper.paperId FROM paper JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'PVLDB' AND paper.year < 2005)",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of papers in PVLDB in each year .",
+      "resolved_question": "return me the total citations of papers in PVLDB in each year .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT p.year, COUNT(*) AS total_citations FROM paper p JOIN venue v ON p.venueId = v.venueId JOIN cite c ON p.paperId = c.citedPaperId WHERE v.venueName = 'PVLDB' GROUP BY p.year ORDER BY p.year;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers published in PVLDB in each year .",
+      "resolved_question": "return me the number of papers published in PVLDB in each year .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT paper.year, COUNT(*) FROM paper JOIN venue ON paper.venueId = venue.venueId WHERE venue.venueName = 'PVLDB' GROUP BY paper.year;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of all the papers in the VLDB conference .",
+      "resolved_question": "return me the total citations of all the papers in the VLDB conference .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT SUM(p.citation_num) FROM publication p JOIN conference c ON p.cid = c.cid WHERE c.name = 'VLDB'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the citations of each paper in the VLDB conference .",
+      "resolved_question": "return me the citations of each paper in the VLDB conference .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT p.pid, COUNT(c.cited) AS citation_count FROM publication p JOIN conference conf ON p.cid = conf.cid LEFT JOIN cite c ON p.pid = c.cited WHERE conf.name = 'VLDB' GROUP BY p.pid;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of papers in the VLDB conference in 2005 .",
+      "resolved_question": "return me the total citations of papers in the VLDB conference in 2005 .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT SUM(publication.citation_num) FROM publication JOIN conference ON publication.cid = conference.cid WHERE conference.name = 'VLDB' AND publication.year = 2005;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of papers in the VLDB conference before 2005 .",
+      "resolved_question": "return me the total citations of papers in the VLDB conference before 2005 .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT SUM(p.citation_num) FROM publication p INNER JOIN conference c ON p.cid = c.cid WHERE c.name = 'VLDB' AND p.year < 2005;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the total citations of papers in the VLDB conference in each year .",
+      "resolved_question": "return me the total citations of papers in the VLDB conference in each year .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT p.year, SUM(p.citation_num) FROM publication p JOIN conference c ON p.cid = c.cid WHERE c.name = 'VLDB' GROUP BY p.year;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers published in the VLDB conference in each year .",
+      "resolved_question": "return me the number of papers published in the VLDB conference in each year .",
+      "selected_db": "authors",
+      "generated_sql": "SELECT Paper.Year, COUNT(*) FROM Paper INNER JOIN Conference ON Paper.ConferenceId = Conference.Id WHERE Conference.ShortName = 'VLDB' GROUP BY Paper.Year;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the authors who have cooperated both with \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
+      "resolved_question": "return me the authors who have cooperated both with \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
+      "selected_db": "icfp_1",
+      "generated_sql": "SELECT a.authID, a.fname || ' ' || a.lname AS name\nFROM Authors a\nWHERE EXISTS (\n    SELECT 1\n    FROM Authorship AS1\n    WHERE AS1.authID = a.authID\n    AND AS1.paperID IN (\n        SELECT paperID\n        FROM Authorship\n        WHERE authID = (\n            SELECT authID\n            FROM Authors\n            WHERE fname || ' ' || lname = 'H. V. Jagadish'\n        )\n    )\n)\nAND EXISTS (\n    SELECT 1\n    FROM Authorship AS2\n    WHERE AS2.authID = a.authID\n    AND AS2.paperID IN (\n        SELECT paperID\n        FROM Authorship\n        WHERE authID = (\n            SELECT authID\n            FROM Authors\n            WHERE fname || ' ' || lname = 'Divesh Srivastava'\n        )\n    )\n)",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
+      "resolved_question": "return me the authors who have cooperated with \" H. V. Jagadish \" after 2000 .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT DISTINCT a.name FROM author a INNER JOIN writes w ON a.aid = w.aid INNER JOIN publication p ON w.pid = p.pid WHERE p.year > 2000 AND w.pid IN (SELECT w2.pid FROM writes w2 INNER JOIN author a2 ON w2.aid = a2.aid WHERE a2.name = 'H. V. Jagadish') AND a.name != 'H. V. Jagadish'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
+      "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT p.* \nFROM publication p\nJOIN writes w ON p.pid = w.pid\nJOIN author a ON w.aid = a.aid\nWHERE a.name IN ('H. V. Jagadish', 'Divesh Srivastava')\nGROUP BY p.pid\nHAVING COUNT(DISTINCT a.aid) = 2;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
+      "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" after 2005 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT p.paperId, p.title\nFROM paper p\nJOIN writes w ON p.paperId = w.paperId\nJOIN author a ON w.authorId = a.authorId\nWHERE a.authorName IN ('H. V. Jagadish', 'Yunyao Li') AND p.year > 2005\nGROUP BY p.paperId\nHAVING COUNT(DISTINCT a.authorId) = 2;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
+      "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB .",
+      "selected_db": "authors",
+      "generated_sql": "SELECT Paper.Id, Paper.Title\nFROM Paper\nJOIN Journal ON Paper.JournalId = Journal.Id\nWHERE Journal.ShortName = 'PVLDB'\nAND Paper.Id IN (\n    SELECT PaperAuthor.PaperId\n    FROM PaperAuthor\n    WHERE PaperAuthor.AuthorId IN (\n        SELECT Author.Id\n        FROM Author\n        WHERE Author.Name IN ('H. V. Jagadish', 'Yunyao Li')\n    )\n    GROUP BY PaperAuthor.PaperId\n    HAVING COUNT(DISTINCT PaperAuthor.AuthorId) = 2\n);",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
+      "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Yunyao Li \" on PVLDB after 2005 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT p.paperId, p.title\nFROM paper p\nJOIN venue v ON p.venueId = v.venueId\nJOIN writes w1 ON p.paperId = w1.paperId\nJOIN author a1 ON w1.authorId = a1.authorId\nJOIN writes w2 ON p.paperId = w2.paperId\nJOIN author a2 ON w2.authorId = a2.authorId\nWHERE a1.authorName = 'H. V. Jagadish'\n  AND a2.authorName = 'Yunyao Li'\n  AND v.venueName = 'PVLDB'\n  AND p.year > 2005;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the authors who have cooperated with \" H. V. Jagadish \" .",
+      "resolved_question": "return me the authors who have cooperated with \" H. V. Jagadish \" .",
+      "selected_db": "icfp_1",
+      "generated_sql": "SELECT DISTINCT a.authID, a.fname, a.lname\nFROM Authors a\nJOIN Authorship coauth ON a.authID = coauth.authID\nWHERE coauth.paperID IN (\n    SELECT paperID\n    FROM Authorship\n    WHERE authID = (\n        SELECT authID\n        FROM Authors\n        WHERE fname || ' ' || lname = 'H. V. Jagadish'\n    )\n)\nAND a.authID != (\n    SELECT authID\n    FROM Authors\n    WHERE fname || ' ' || lname = 'H. V. Jagadish'\n)",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
+      "resolved_question": "return me the papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" before 2000 .",
+      "selected_db": "scholar",
+      "generated_sql": "SELECT p.paperId, p.title, p.year\nFROM paper p\nWHERE p.year < 2000\nAND EXISTS (\n    SELECT 1\n    FROM writes w1\n    JOIN author a1 ON w1.authorId = a1.authorId\n    WHERE w1.paperId = p.paperId AND a1.authorName = 'H. V. Jagadish'\n)\nAND EXISTS (\n    SELECT 1\n    FROM writes w2\n    JOIN author a2 ON w2.authorId = a2.authorId\n    WHERE w2.paperId = p.paperId AND a2.authorName = 'Divesh Srivastava'\n);",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the authors who have cited the papers by \" H. V. Jagadish \" .",
+      "resolved_question": "return me the authors who have cited the papers by \" H. V. Jagadish \" .",
+      "selected_db": "academic",
+      "generated_sql": "SELECT DISTINCT a.name\nFROM author a\nJOIN writes w ON a.aid = w.aid\nJOIN cite c ON w.pid = c.citing\nWHERE c.cited IN (\n    SELECT w2.pid\n    FROM author auth\n    JOIN writes w2 ON auth.aid = w2.aid\n    WHERE auth.name = ' H. V. Jagadish ' \n)",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
+      "resolved_question": "return me the number of papers written by \" H. V. Jagadish \" and \" Divesh Srivastava \" .",
+      "selected_db": "authors",
+      "generated_sql": "SELECT COUNT(DISTINCT PaperAuthor.PaperId) FROM PaperAuthor INNER JOIN Author ON PaperAuthor.AuthorId = Author.Id WHERE Author.Name IN ('H. V. Jagadish','Divesh Srivastava')",
+      "execution_status": true,
+      "execution_error": null
+    }
+  ]
+}

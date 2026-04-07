@@ -1,13 +1,12 @@
 [
   {
     "question": "What are the alias of the cities with 0 population in 2010?",
-    "original_question": "What are the alias of the cities with 0 population in 2010?",
-    "resolved_question": "What are the alias of the cities with 0 population in 2010?",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "address",
       "world_1",
       "world",
+      "address",
       "city_record",
       "geo",
       "flight_4",
@@ -16,16 +15,25 @@
       "shipping",
       "address_1"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "2010",
+      "0"
+    ],
+    "exec_evidence": {
+      "city_record": "Found data in hosting_city matching [Year] = 2010"
+    },
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "address",
+      "city_record",
+      "geo"
+    ]
   },
   {
     "question": "Among the cities with area code 608, how many cities implement daylight savings?",
-    "original_question": "Among the cities with area code 608, how many cities implement daylight savings?",
-    "resolved_question": "What is the count of cities with area code 608 where the time_zone is 'Daylight Savings' from the zip_data table in the address database?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "flight_4",
@@ -38,19 +46,26 @@
       "tv_shows",
       "airline"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of cities with area code 608 where the time_zone is 'Daylight Savings' from the zip_data table in the address database?"
+    "entities": [
+      "608",
+      "daylight savings"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "flight_4",
+      "world_1",
+      "world",
+      "bike_1"
+    ]
   },
   {
     "question": "Provide the average elevation of the cities with alias Amherst.",
-    "original_question": "Provide the average elevation of the cities with alias Amherst.",
-    "resolved_question": "What is the average elevation of the cities in the zip_data table where the alias is 'Amherst'?",
     "gold_db": "address",
+    "selected_db": "geo",
     "retrieved_dbs": [
-      "address",
       "geo",
+      "address",
       "world_1",
       "mondial_geo",
       "flight_4",
@@ -60,19 +75,25 @@
       "address_1",
       "world"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the average elevation of the cities in the zip_data table where the alias is 'Amherst'?"
+    "entities": [
+      "Amherst"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "geo",
+      "address",
+      "world_1",
+      "mondial_geo",
+      "flight_4"
+    ]
   },
   {
     "question": "What is the country and state of the city named Dalton?",
-    "original_question": "What is the country and state of the city named Dalton?",
-    "resolved_question": "What is the country and state of the city named Dalton?",
     "gold_db": "address",
+    "selected_db": "geo",
     "retrieved_dbs": [
-      "world_1",
       "geo",
+      "world_1",
       "world",
       "address_1",
       "address",
@@ -82,16 +103,24 @@
       "human_resources",
       "voter_1"
     ],
-    "selected_db": "world_1",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Dalton"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%Dalton%'"
+    },
+    "retrieval_order": [
+      "geo",
+      "world_1",
+      "world",
+      "address_1",
+      "address"
+    ]
   },
   {
     "question": "Give at least five alias of cities with a postal point of post office.",
-    "original_question": "Give at least five alias of cities with a postal point of post office.",
-    "resolved_question": "What are at least five different aliases (or names) of cities that have a postal point of post office, considering the available databases and their respective tables?",
     "gold_db": "address",
+    "selected_db": "flight_4",
     "retrieved_dbs": [
       "flight_4",
       "world_1",
@@ -104,16 +133,26 @@
       "flight_2",
       "shipping"
     ],
-    "selected_db": "flight_4",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What are at least five different aliases (or names) of cities that have a postal point of post office, considering the available databases and their respective tables?"
+    "entities": [],
+    "exec_evidence": {
+      "flight_4": "",
+      "world_1": "",
+      "world": "",
+      "tv_shows": "",
+      "city_record": ""
+    },
+    "retrieval_order": [
+      "flight_4",
+      "world_1",
+      "world",
+      "tv_shows",
+      "city_record"
+    ]
   },
   {
     "question": "What is the difference in the number of cities with P.O. box only and cities with Post Office among the cities with area code 787?",
-    "original_question": "What is the difference in the number of cities with P.O. box only and cities with Post Office among the cities with area code 787?",
-    "resolved_question": "What is the difference in the number of cities with P.O. box only and cities with Post Office among the cities with area code 787?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "world_1",
@@ -126,19 +165,27 @@
       "address_1",
       "chicago_crime"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "P.O. box only",
+      "Post Office",
+      "787"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "world",
+      "store_product",
+      "flight_4"
+    ]
   },
   {
     "question": "Among the cities belonging to the country named Arroyo, calculate the percentage of increase in the population in these cities from 2010 to 2020.",
-    "original_question": "Among the cities belonging to the country named Arroyo, calculate the percentage of increase in the population in these cities from 2010 to 2020.",
-    "resolved_question": "Among the cities belonging to the country named Arroyo, calculate the percentage of increase in the population in these cities from 2010 to 2020.",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "world",
       "world_1",
+      "world",
       "geo",
       "address",
       "city_record",
@@ -148,16 +195,28 @@
       "software_company",
       "farm"
     ],
-    "selected_db": "world",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Arroyo",
+      "2010",
+      "2020"
+    ],
+    "exec_evidence": {
+      "world_1": "Found data in city matching [Name] LIKE '%Arroyo%'",
+      "world": "Found data in City matching [Name] LIKE '%Arroyo%'",
+      "city_record": "Found data in hosting_city matching [Year] = 2010"
+    },
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "geo",
+      "address",
+      "city_record"
+    ]
   },
   {
     "question": "Among the postal points in Texas, provide the zip codes and cities of postal points which have total beneficiaries of above 10000.",
-    "original_question": "Among the postal points in Texas, provide the zip codes and cities of postal points which have total beneficiaries of above 10000.",
-    "resolved_question": "Among the postal points in Texas, provide the zip codes and cities of postal points which have total beneficiaries of above 10000.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "geo",
@@ -170,16 +229,26 @@
       "donor",
       "world_1"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Texas",
+      "10000"
+    ],
+    "exec_evidence": {
+      "address": "Found data in state matching [name] LIKE '%Texas%'",
+      "software_company": ""
+    },
+    "retrieval_order": [
+      "address",
+      "geo",
+      "software_company",
+      "yelp",
+      "election"
+    ]
   },
   {
     "question": "Among the postal points in the District of Columbia, how many of them have an area with above 20000 black population?",
-    "original_question": "Among the postal points in the District of Columbia, how many of them have an area with above 20000 black population?",
-    "resolved_question": "What is the count of zip codes in the District of Columbia where the black population in the corresponding area is above 20000?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "store_product",
@@ -192,16 +261,26 @@
       "district_spokesman",
       "california_schools"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the count of zip codes in the District of Columbia where the black population in the corresponding area is above 20000?"
+    "entities": [
+      "District of Columbia",
+      "20000"
+    ],
+    "exec_evidence": {
+      "address": "Found data in state matching [name] LIKE '%District of Columbia%'",
+      "software_company": ""
+    },
+    "retrieval_order": [
+      "address",
+      "store_product",
+      "chicago_crime",
+      "software_company",
+      "county_public_safety"
+    ]
   },
   {
     "question": "Provide the city where zip code 19019 is located and the alias of that city.",
-    "original_question": "Provide the city where zip code 19019 is located and the alias of that city.",
-    "resolved_question": "Provide the city where zip code 19019 is located and the alias of that city.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "flight_4",
@@ -214,16 +293,22 @@
       "chicago_crime",
       "flight_2"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "19019"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "flight_4",
+      "world_1",
+      "world",
+      "address_1"
+    ]
   },
   {
     "question": "List the bad alias of the postal point located in Camuy.",
-    "original_question": "List the bad alias of the postal point located in Camuy.",
-    "resolved_question": "What are the bad aliases of the postal points located in Camuy?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "yelp",
@@ -236,16 +321,22 @@
       "tv_shows",
       "restaurant"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What are the bad aliases of the postal points located in Camuy?"
+    "entities": [
+      "Camuy"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "yelp",
+      "flight_4",
+      "chicago_crime",
+      "mondial_geo"
+    ]
   },
   {
     "question": "Provide the zip code, city, and congress representative's full names of the area which has highest population in 2020.",
-    "original_question": "Provide the zip code, city, and congress representative's full names of the area which has highest population in 2020.",
-    "resolved_question": "Provide the zip code, city, and congress representative's full names of the area which has highest population in 2020.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "election",
@@ -258,16 +349,24 @@
       "voter_1",
       "chicago_crime"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "2020"
+    ],
+    "exec_evidence": {
+      "legislator": ""
+    },
+    "retrieval_order": [
+      "address",
+      "election",
+      "legislator",
+      "world_1",
+      "world"
+    ]
   },
   {
     "question": "Among the daylight savings areas in the Midwest region, how many postal points are there in Illinois?",
-    "original_question": "Among the daylight savings areas in the Midwest region, how many postal points are there in Illinois?",
-    "resolved_question": "Among the daylight savings areas in the Midwest region, how many postal points are there in Illinois?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "chicago_crime",
@@ -280,19 +379,29 @@
       "voter_1",
       "retail_complains"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Midwest region",
+      "Illinois"
+    ],
+    "exec_evidence": {
+      "address": "Found data in state matching [name] LIKE '%Illinois%'",
+      "chicago_crime": "Found data in Neighborhood matching [neighborhood_name] LIKE '%Illinois%'"
+    },
+    "retrieval_order": [
+      "address",
+      "chicago_crime",
+      "geo",
+      "regional_sales",
+      "superstore"
+    ]
   },
   {
     "question": "Provide the countries and the zip codes in the Virgin Islands.",
-    "original_question": "Provide the countries and the zip codes in the Virgin Islands.",
-    "resolved_question": "What are the countries and zip codes associated with the Virgin Islands in the mondial_geo database?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
-      "world_1",
       "address",
+      "world_1",
       "mondial_geo",
       "world_development_indicators",
       "world",
@@ -302,16 +411,28 @@
       "wine_1",
       "regional_sales"
     ],
-    "selected_db": "world_1",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What are the countries and zip codes associated with the Virgin Islands in the mondial_geo database?"
+    "entities": [
+      "Virgin Islands"
+    ],
+    "exec_evidence": {
+      "address": "Found data in state matching [name] LIKE '%Virgin Islands%'",
+      "world_1": "Found data in country matching [Name] LIKE '%Virgin Islands%'; Found data in country matching [LocalName] LIKE '%Virgin Islands%'",
+      "mondial_geo": "Found data in country matching [Name] LIKE '%Virgin Islands%'; Found data in province matching [Name] LIKE '%Virgin Islands%'",
+      "world_development_indicators": "Found data in Country matching [ShortName] LIKE '%Virgin Islands%'; Found data in Country matching [TableName] LIKE '%Virgin Islands%'; Found data in Country matching [LongName] LIKE '%Virgin Islands%'",
+      "world": "Found data in Country matching [Name] LIKE '%Virgin Islands%'; Found data in Country matching [LocalName] LIKE '%Virgin Islands%'"
+    },
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "mondial_geo",
+      "world_development_indicators",
+      "world"
+    ]
   },
   {
     "question": "Provide the zip codes and the alias of Greeneville.",
-    "original_question": "Provide the zip codes and the alias of Greeneville.",
-    "resolved_question": "Provide the zip codes and the alias of Greeneville.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "world_1",
@@ -324,21 +445,29 @@
       "mondial_geo",
       "craftbeer"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Greeneville"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%Greeneville%'"
+    },
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "geo",
+      "wine_1",
+      "world"
+    ]
   },
   {
     "question": "Compare the numbers of postal points under Smith Adrian and Heck Joe.",
-    "original_question": "Compare the numbers of postal points under Smith Adrian and Heck Joe.",
-    "resolved_question": "Compare the numbers of postal points under Smith Adrian and Heck Joe.",
     "gold_db": "address",
+    "selected_db": "software_company",
     "retrieved_dbs": [
-      "professional_basketball",
       "software_company",
       "address",
       "codebase_community",
+      "professional_basketball",
       "store_product",
       "legislator",
       "e_government",
@@ -346,16 +475,25 @@
       "local_govt_mdm",
       "california_schools"
     ],
-    "selected_db": "professional_basketball",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Smith Adrian",
+      "Heck Joe"
+    ],
+    "exec_evidence": {
+      "software_company": ""
+    },
+    "retrieval_order": [
+      "software_company",
+      "address",
+      "codebase_community",
+      "professional_basketball",
+      "store_product"
+    ]
   },
   {
     "question": "Provide the zip codes and CBSA officers of the postal point in Oxford.",
-    "original_question": "Provide the zip codes and CBSA officers of the postal point in Oxford.",
-    "resolved_question": "What are the zip codes and CBSA officers associated with the postal point in Oxford, and how can we retrieve this information from the provided databases?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "chicago_crime",
@@ -368,16 +506,26 @@
       "legislator",
       "geo"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What are the zip codes and CBSA officers associated with the postal point in Oxford, and how can we retrieve this information from the provided databases?"
+    "entities": [
+      "Oxford",
+      "CBSA"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%Oxford%'",
+      "local_govt_mdm": ""
+    },
+    "retrieval_order": [
+      "address",
+      "chicago_crime",
+      "election",
+      "local_govt_mdm",
+      "store_product"
+    ]
   },
   {
     "question": "Provide the zip codes and their affiliated organization for the postal point under Kingsport-Bristol, TN-VA.",
-    "original_question": "Provide the zip codes and their affiliated organization for the postal point under Kingsport-Bristol, TN-VA.",
-    "resolved_question": "Provide the zip codes and their affiliated organization for the postal point under Kingsport-Bristol, TN-VA.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "election",
@@ -390,16 +538,24 @@
       "local_govt_mdm",
       "shipping"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Kingsport-Bristol, TN-VA"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%Kingsport-Bristol, TN-VA%'"
+    },
+    "retrieval_order": [
+      "address",
+      "election",
+      "e_government",
+      "store_product",
+      "voter_1"
+    ]
   },
   {
     "question": "Provide the zip codes and the congress representatives' names of the postal points which are affiliated with Readers Digest.",
-    "original_question": "Provide the zip codes and the congress representatives' names of the postal points which are affiliated with Readers Digest.",
-    "resolved_question": "What are the zip codes and the names of the congress representatives associated with the postal points that are affiliated with Readers Digest?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "legislator",
@@ -412,16 +568,24 @@
       "voter_1",
       "election_representative"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What are the zip codes and the names of the congress representatives associated with the postal points that are affiliated with Readers Digest?"
+    "entities": [
+      "Readers Digest"
+    ],
+    "exec_evidence": {
+      "software_company": ""
+    },
+    "retrieval_order": [
+      "address",
+      "legislator",
+      "election",
+      "software_company",
+      "e_government"
+    ]
   },
   {
     "question": "Among the postal points in California, calculate the percentage of them in post office types.",
-    "original_question": "Among the postal points in California, calculate the percentage of them in post office types.",
-    "resolved_question": "Among the postal points in California, calculate the percentage of them in post office types.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "california_schools",
@@ -434,19 +598,30 @@
       "chicago_crime",
       "superstore"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "California"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%California%'; Found data in state matching [name] LIKE '%California%'",
+      "california_schools": "Found data in frpm matching [District Name] LIKE '%California%'; Found data in frpm matching [School Name] LIKE '%California%'; Found data in satscores matching [sname] LIKE '%California%'",
+      "csu_1": "",
+      "college_completion": "Found data in institution_details matching [chronname] LIKE '%California%'"
+    },
+    "retrieval_order": [
+      "address",
+      "california_schools",
+      "csu_1",
+      "college_completion",
+      "yelp"
+    ]
   },
   {
     "question": "What are the zip code for the Senate house?",
-    "original_question": "What are the zip code for the Senate house?",
-    "resolved_question": "What are the zip codes for the US Senate representatives in the election database?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
-      "election",
       "address",
+      "election",
       "legislator",
       "voter_1",
       "election_representative",
@@ -456,16 +631,22 @@
       "chicago_crime",
       "human_resources"
     ],
-    "selected_db": "election",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What are the zip codes for the US Senate representatives in the election database?"
+    "entities": [
+      "Senate house"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "election",
+      "legislator",
+      "voter_1",
+      "election_representative"
+    ]
   },
   {
     "question": "Which city has the most bad aliases?",
-    "original_question": "Which city has the most bad aliases?",
-    "resolved_question": "What is the city with the highest number of aliases that are considered 'bad' or 'unwanted', and how many aliases does it have?",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
       "world_1",
       "world",
@@ -478,20 +659,28 @@
       "chicago_crime",
       "restaurant"
     ],
-    "selected_db": "world_1",
-    "method": "agent_resolved_vector_search",
-    "label": "Ambiguous",
-    "reasoning": "Resolved from Ambiguous. New query: What is the city with the highest number of aliases that are considered 'bad' or 'unwanted', and how many aliases does it have?"
+    "entities": [],
+    "exec_evidence": {
+      "world_1": "",
+      "world": "",
+      "flight_4": ""
+    },
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "geo",
+      "yelp",
+      "flight_4"
+    ]
   },
   {
     "question": "List all the counties in Georgia.",
-    "original_question": "List all the counties in Georgia.",
-    "resolved_question": "List all the counties in Georgia.",
     "gold_db": "address",
+    "selected_db": "election",
     "retrieved_dbs": [
-      "geo",
       "election",
       "county_public_safety",
+      "geo",
       "world_1",
       "restaurants",
       "software_company",
@@ -500,16 +689,24 @@
       "wine_1",
       "mondial_geo"
     ],
-    "selected_db": "geo",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Georgia"
+    ],
+    "exec_evidence": {
+      "world_1": "Found data in country matching [Name] LIKE '%Georgia%'; Found data in country matching [LocalName] LIKE '%Georgia%'"
+    },
+    "retrieval_order": [
+      "election",
+      "county_public_safety",
+      "geo",
+      "world_1",
+      "restaurants"
+    ]
   },
   {
     "question": "List all the locations of postal points with the area code \"410\".",
-    "original_question": "List all the locations of postal points with the area code \"410\".",
-    "resolved_question": "List all the locations of postal points with the area code \"410\".",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "store_product",
@@ -522,16 +719,24 @@
       "regional_sales",
       "geo"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "410"
+    ],
+    "exec_evidence": {
+      "flight_4": "Found data in airlines matching [name] LIKE '%410%'"
+    },
+    "retrieval_order": [
+      "address",
+      "store_product",
+      "flight_4",
+      "address_1",
+      "voter_1"
+    ]
   },
   {
     "question": "What is the name of the CBSA of the city with the highest average house value?",
-    "original_question": "What is the name of the CBSA of the city with the highest average house value?",
-    "resolved_question": "What is the name of the CBSA of the city with the highest average house value?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "geo",
@@ -544,16 +749,22 @@
       "bike_1",
       "store_product"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "CBSA"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "geo",
+      "yelp",
+      "world_1",
+      "california_schools"
+    ]
   },
   {
     "question": "What are the bad aliases of the postal points from East Setauket?",
-    "original_question": "What are the bad aliases of the postal points from East Setauket?",
-    "resolved_question": "What are the bad aliases of the postal points from East Setauket?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "local_govt_mdm",
@@ -566,16 +777,24 @@
       "flight_4",
       "software_company"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "East Setauket"
+    ],
+    "exec_evidence": {
+      "local_govt_mdm": ""
+    },
+    "retrieval_order": [
+      "address",
+      "local_govt_mdm",
+      "chicago_crime",
+      "geo",
+      "yelp"
+    ]
   },
   {
     "question": "What was the population of Wilcox County in 2010?",
-    "original_question": "What was the population of Wilcox County in 2010?",
-    "resolved_question": "What was the population of Wilcox County in 2010?",
     "gold_db": "address",
+    "selected_db": "election",
     "retrieved_dbs": [
       "election",
       "county_public_safety",
@@ -588,19 +807,26 @@
       "wine_1",
       "geo"
     ],
-    "selected_db": "election",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Wilcox County",
+      "2010"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "election",
+      "county_public_safety",
+      "address",
+      "california_schools",
+      "csu_1"
+    ]
   },
   {
     "question": "What is the code of the area with the largest Asian population?",
-    "original_question": "What is the code of the area with the largest Asian population?",
-    "resolved_question": "What is the code of the area with the largest Asian population?",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "address",
       "world_1",
+      "address",
       "world",
       "mondial_geo",
       "voter_1",
@@ -610,16 +836,26 @@
       "region_building",
       "geo"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "world_1": "",
+      "address": "",
+      "world": "",
+      "mondial_geo": "",
+      "voter_1": ""
+    },
+    "retrieval_order": [
+      "world_1",
+      "address",
+      "world",
+      "mondial_geo",
+      "voter_1"
+    ]
   },
   {
     "question": "List all the cities with micro CBSA.",
-    "original_question": "List all the cities with micro CBSA.",
-    "resolved_question": "List all the cities with micro CBSA.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "world_1",
@@ -632,16 +868,25 @@
       "chicago_crime",
       "software_company"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "address": "",
+      "world_1": "",
+      "world": "",
+      "tv_shows": ""
+    },
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "world",
+      "tv_shows",
+      "geo"
+    ]
   },
   {
     "question": "What is the name of the state with the most counties?",
-    "original_question": "What is the name of the state with the most counties?",
-    "resolved_question": "What is the name of the state with the most counties?",
     "gold_db": "address",
+    "selected_db": "geo",
     "retrieved_dbs": [
       "geo",
       "address",
@@ -654,20 +899,29 @@
       "california_schools",
       "wine_1"
     ],
-    "selected_db": "geo",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "address": "",
+      "election": "",
+      "county_public_safety": "",
+      "voter_1": ""
+    },
+    "retrieval_order": [
+      "geo",
+      "address",
+      "election",
+      "county_public_safety",
+      "voter_1"
+    ]
   },
   {
     "question": "What is the number of households in the \"FL-10\" district?",
-    "original_question": "What is the number of households in the \"FL-10\" district?",
-    "resolved_question": "What is the number of households in the \"FL-10\" district?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
-      "election",
       "address",
       "district_spokesman",
+      "election",
       "california_schools",
       "software_company",
       "store_product",
@@ -676,16 +930,24 @@
       "local_govt_mdm",
       "county_public_safety"
     ],
-    "selected_db": "election",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "FL-10"
+    ],
+    "exec_evidence": {
+      "software_company": ""
+    },
+    "retrieval_order": [
+      "address",
+      "district_spokesman",
+      "election",
+      "california_schools",
+      "software_company"
+    ]
   },
   {
     "question": "What is the average household income in the city known as \"Danzig\"?",
-    "original_question": "What is the average household income in the city known as \"Danzig\"?",
-    "resolved_question": "What is the average household income in the city known as \"Danzig\" in the zip_data table of the address database?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "world_1",
@@ -698,16 +960,25 @@
       "geo",
       "store_product"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the average household income in the city known as \"Danzig\" in the zip_data table of the address database?"
+    "entities": [
+      "Danzig"
+    ],
+    "exec_evidence": {
+      "software_company": "",
+      "city_record": ""
+    },
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "software_company",
+      "world",
+      "city_record"
+    ]
   },
   {
     "question": "What are the states with an above-average female population?",
-    "original_question": "What are the states with an above-average female population?",
-    "resolved_question": "What are the states with an above-average female population?",
     "gold_db": "address",
+    "selected_db": "geo",
     "retrieved_dbs": [
       "geo",
       "address",
@@ -720,16 +991,25 @@
       "regional_sales",
       "voter_1"
     ],
-    "selected_db": "geo",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "address": "",
+      "software_company": "",
+      "world_1": "",
+      "college_completion": ""
+    },
+    "retrieval_order": [
+      "geo",
+      "address",
+      "software_company",
+      "world_1",
+      "college_completion"
+    ]
   },
   {
     "question": "What percentage of households are in \"Coroyell\" out of its state?",
-    "original_question": "What percentage of households are in \"Coroyell\" out of its state?",
-    "resolved_question": "What percentage of households in the state where \"Coroyell\" is located are in \"Coroyell\"?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "county_public_safety",
@@ -742,16 +1022,24 @@
       "voter_1",
       "csu_1"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What percentage of households in the state where \"Coroyell\" is located are in \"Coroyell\"?"
+    "entities": [
+      "Coroyell"
+    ],
+    "exec_evidence": {
+      "software_company": ""
+    },
+    "retrieval_order": [
+      "address",
+      "county_public_safety",
+      "geo",
+      "software_company",
+      "college_completion"
+    ]
   },
   {
     "question": "What is the name and the position of the CBSA officer in the city of Cabo Rojo?",
-    "original_question": "What is the name and the position of the CBSA officer in the city of Cabo Rojo?",
-    "resolved_question": "What is the name and the position of the CBSA officer in the city of Cabo Rojo, specifically in the CBSA that corresponds to the city of Cabo Rojo?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "human_resources",
@@ -764,20 +1052,29 @@
       "district_spokesman",
       "works_cycles"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the name and the position of the CBSA officer in the city of Cabo Rojo, specifically in the CBSA that corresponds to the city of Cabo Rojo?"
+    "entities": [
+      "CBSA",
+      "Cabo Rojo"
+    ],
+    "exec_evidence": {
+      "county_public_safety": "Found data in city matching [Name] LIKE '%Cabo Rojo%'"
+    },
+    "retrieval_order": [
+      "address",
+      "human_resources",
+      "legislator",
+      "chicago_crime",
+      "county_public_safety"
+    ]
   },
   {
     "question": "Indicate the country name of the city Las Marias.",
-    "original_question": "Indicate the country name of the city Las Marias.",
-    "resolved_question": "Indicate the country name of the city Las Marias.",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "mondial_geo",
       "world_1",
       "world",
+      "mondial_geo",
       "geo",
       "flight_4",
       "country_language",
@@ -786,16 +1083,22 @@
       "address_1",
       "restaurant"
     ],
-    "selected_db": "mondial_geo",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Las Marias"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "mondial_geo",
+      "geo",
+      "flight_4"
+    ]
   },
   {
     "question": "How many cities does congressman Pierluisi Pedro represent?",
-    "original_question": "How many cities does congressman Pierluisi Pedro represent?",
-    "resolved_question": "How many cities does congressman Pierluisi Pedro represent?",
     "gold_db": "address",
+    "selected_db": "legislator",
     "retrieved_dbs": [
       "legislator",
       "address",
@@ -808,16 +1111,22 @@
       "chicago_crime",
       "county_public_safety"
     ],
-    "selected_db": "legislator",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Pierluisi Pedro"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "legislator",
+      "address",
+      "election",
+      "election_representative",
+      "district_spokesman"
+    ]
   },
   {
     "question": "Provide the names of bad aliases in the city of Aguadilla.",
-    "original_question": "Provide the names of bad aliases in the city of Aguadilla.",
-    "resolved_question": "Provide the names of bad aliases in the city of Aguadilla.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "chicago_crime",
@@ -830,19 +1139,28 @@
       "geo",
       "storm_record"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Aguadilla"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%Aguadilla%'",
+      "local_govt_mdm": ""
+    },
+    "retrieval_order": [
+      "address",
+      "chicago_crime",
+      "tv_shows",
+      "local_govt_mdm",
+      "flight_4"
+    ]
   },
   {
     "question": "Indicate the name of the congressman represent in Guanica.",
-    "original_question": "Indicate the name of the congressman represent in Guanica.",
-    "resolved_question": "Indicate the name of the congressman represent in Guanica.",
     "gold_db": "address",
+    "selected_db": "legislator",
     "retrieved_dbs": [
-      "address",
       "legislator",
+      "address",
       "election_representative",
       "election",
       "party_people",
@@ -852,19 +1170,25 @@
       "donor",
       "e_government"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Guanica"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "legislator",
+      "address",
+      "election_representative",
+      "election",
+      "party_people"
+    ]
   },
   {
     "question": "Which state has the most bad aliases?",
-    "original_question": "Which state has the most bad aliases?",
-    "resolved_question": "Which state has the most bad aliases?",
     "gold_db": "address",
+    "selected_db": "geo",
     "retrieved_dbs": [
-      "address",
       "geo",
+      "address",
       "retail_complains",
       "epinions_1",
       "yelp",
@@ -874,16 +1198,24 @@
       "chicago_crime",
       "legislator"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "address": "",
+      "retail_complains": "",
+      "epinions_1": ""
+    },
+    "retrieval_order": [
+      "geo",
+      "address",
+      "retail_complains",
+      "epinions_1",
+      "yelp"
+    ]
   },
   {
     "question": "What is the difference in the number of bad alias between Aguada city and Aguadilla city?",
-    "original_question": "What is the difference in the number of bad alias between Aguada city and Aguadilla city?",
-    "resolved_question": "What is the difference in the number of bad alias between Aguada city and Aguadilla city in the address database, specifically in the avoid table?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "geo",
@@ -896,16 +1228,23 @@
       "tv_shows",
       "bike_1"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the difference in the number of bad alias between Aguada city and Aguadilla city in the address database, specifically in the avoid table?"
+    "entities": [
+      "Aguada city",
+      "Aguadilla city"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "geo",
+      "world_1",
+      "yelp",
+      "chicago_crime"
+    ]
   },
   {
     "question": "Which state has greater than 50 CBSA officers of metro type?",
-    "original_question": "Which state has greater than 50 CBSA officers of metro type?",
-    "resolved_question": "Which state has greater than 50 CBSA officers of metro type?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "geo",
@@ -918,16 +1257,25 @@
       "california_schools",
       "store_product"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "CBSA",
+      "50"
+    ],
+    "exec_evidence": {
+      "chicago_crime": "Found data in IUCR matching [secondary_description] LIKE '%50%'"
+    },
+    "retrieval_order": [
+      "address",
+      "geo",
+      "county_public_safety",
+      "college_completion",
+      "chicago_crime"
+    ]
   },
   {
     "question": "Provide the population of Arecibo in 2020.",
-    "original_question": "Provide the population of Arecibo in 2020.",
-    "resolved_question": "Provide the population of Arecibo in 2020.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "world_1",
@@ -940,21 +1288,33 @@
       "synthea",
       "geo"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "Arecibo",
+      "2020"
+    ],
+    "exec_evidence": {
+      "address": "Found data in CBSA matching [CBSA_name] LIKE '%Arecibo%'",
+      "world_1": "Found data in city matching [Name] LIKE '%Arecibo%'",
+      "world": "Found data in City matching [Name] LIKE '%Arecibo%'",
+      "county_public_safety": "Found data in city matching [Name] LIKE '%Arecibo%'"
+    },
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "world",
+      "county_public_safety",
+      "software_company"
+    ]
   },
   {
     "question": "Indicate the name of the country with a population greater than 10000 in 2010.",
-    "original_question": "Indicate the name of the country with a population greater than 10000 in 2010.",
-    "resolved_question": "Indicate the name of the country with a population greater than 10000 in 2010.",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "world_development_indicators",
       "world_1",
       "world",
       "mondial_geo",
+      "world_development_indicators",
       "geo",
       "roller_coaster",
       "country_language",
@@ -962,20 +1322,29 @@
       "university",
       "car_1"
     ],
-    "selected_db": "world_development_indicators",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "2010",
+      "10000"
+    ],
+    "exec_evidence": {
+      "world_development_indicators": "Found data in Footnotes matching [Description] LIKE '%10000%'; Found data in Country matching [NationalAccountsBaseYear] = 2010; Found data in Country matching [NationalAccountsReferenceYear] = 2010"
+    },
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "mondial_geo",
+      "world_development_indicators",
+      "geo"
+    ]
   },
   {
     "question": "Name the country with the largest number of households in a residential area.",
-    "original_question": "Name the country with the largest number of households in a residential area.",
-    "resolved_question": "Name the country with the largest number of households in a residential area.",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "address",
       "world_1",
       "world",
+      "address",
       "mondial_geo",
       "world_development_indicators",
       "geo",
@@ -984,16 +1353,26 @@
       "roller_coaster",
       "store_product"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "world_1": "",
+      "world": "",
+      "address": "",
+      "mondial_geo": "",
+      "world_development_indicators": ""
+    },
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "address",
+      "mondial_geo",
+      "world_development_indicators"
+    ]
   },
   {
     "question": "Calculate the percentage of households in residential areas of countries over 10000.",
-    "original_question": "Calculate the percentage of households in residential areas of countries over 10000.",
-    "resolved_question": "What is the percentage of households in residential areas of countries with a population over 10,000?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "world_1",
@@ -1006,16 +1385,24 @@
       "country_language",
       "local_govt_mdm"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the percentage of households in residential areas of countries with a population over 10,000?"
+    "entities": [
+      "10000"
+    ],
+    "exec_evidence": {
+      "world_development_indicators": "Found data in Footnotes matching [Description] LIKE '%10000%'"
+    },
+    "retrieval_order": [
+      "address",
+      "world_1",
+      "mondial_geo",
+      "world",
+      "world_development_indicators"
+    ]
   },
   {
     "question": "Among the types of postal points in Saint Croix, what percentage of postal points is the post office?",
-    "original_question": "Among the types of postal points in Saint Croix, what percentage of postal points is the post office?",
-    "resolved_question": "What percentage of postal points in Saint Croix are post offices?",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "store_product",
@@ -1028,16 +1415,23 @@
       "bike_share_1",
       "trains"
     ],
-    "selected_db": "address",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What percentage of postal points in Saint Croix are post offices?"
+    "entities": [
+      "Saint Croix",
+      "post office"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "store_product",
+      "bike_1",
+      "mondial_geo",
+      "chicago_crime"
+    ]
   },
   {
     "question": "Among the area code 787, list the country of the cities with a postal point type of unique postal office.",
-    "original_question": "Among the area code 787, list the country of the cities with a postal point type of unique postal office.",
-    "resolved_question": "Among the area code 787, list the country of the cities with a postal point type of unique postal office.",
     "gold_db": "address",
+    "selected_db": "address",
     "retrieved_dbs": [
       "address",
       "flight_4",
@@ -1050,16 +1444,23 @@
       "geo",
       "address_1"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [
+      "787",
+      "unique postal office"
+    ],
+    "exec_evidence": {},
+    "retrieval_order": [
+      "address",
+      "flight_4",
+      "world_1",
+      "voter_1",
+      "store_product"
+    ]
   },
   {
     "question": "What is the elevation of the city with the alias East Longmeadow?",
-    "original_question": "What is the elevation of the city with the alias East Longmeadow?",
-    "resolved_question": "What is the elevation of the city with the alias 'East Longmeadow' in the address database?",
     "gold_db": "address",
+    "selected_db": "geo",
     "retrieved_dbs": [
       "geo",
       "address",
@@ -1072,21 +1473,30 @@
       "bike_1",
       "world"
     ],
-    "selected_db": "geo",
-    "method": "agent_resolved_vector_search",
-    "label": "Incomplete",
-    "reasoning": "Resolved from Incomplete. New query: What is the elevation of the city with the alias 'East Longmeadow' in the address database?"
+    "entities": [],
+    "exec_evidence": {
+      "address": "",
+      "mondial_geo": "",
+      "world_1": "",
+      "tv_shows": ""
+    },
+    "retrieval_order": [
+      "geo",
+      "address",
+      "mondial_geo",
+      "world_1",
+      "tv_shows"
+    ]
   },
   {
     "question": "In cities that do not implement daylight savings, what is the total number of cities?",
-    "original_question": "In cities that do not implement daylight savings, what is the total number of cities?",
-    "resolved_question": "In cities that do not implement daylight savings, what is the total number of cities?",
     "gold_db": "address",
+    "selected_db": "world_1",
     "retrieved_dbs": [
-      "address",
       "world_1",
       "world",
       "city_record",
+      "address",
       "flight_4",
       "social_media",
       "tv_shows",
@@ -1094,9 +1504,20 @@
       "bike_1",
       "address_1"
     ],
-    "selected_db": "address",
-    "method": "agent_normal_select",
-    "label": "Normal",
-    "reasoning": "Normal query."
+    "entities": [],
+    "exec_evidence": {
+      "world_1": "",
+      "world": "",
+      "city_record": "",
+      "address": "",
+      "flight_4": ""
+    },
+    "retrieval_order": [
+      "world_1",
+      "world",
+      "city_record",
+      "address",
+      "flight_4"
+    ]
   }
 ]

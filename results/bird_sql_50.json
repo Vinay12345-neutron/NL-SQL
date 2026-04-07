@@ -1,0 +1,419 @@
+{
+  "metrics": {
+    "execution_accuracy": 1.0,
+    "total_queries": 50,
+    "successful_executions": 50,
+    "retrieval": {
+      "R@1": 0.68,
+      "R@3": 0.86,
+      "R@5": 0.9,
+      "R@10": 0.98,
+      "R@20": 0.98,
+      "MAP": 0.7835238095238095,
+      "Dataset": "bird-GenRun",
+      "Model": "Qwen/Qwen3-Embedding-8B"
+    }
+  },
+  "data": [
+    {
+      "original_question": "What are the alias of the cities with 0 population in 2010?",
+      "resolved_question": "What are the alias of the cities with 0 population in 2010?",
+      "selected_db": "address",
+      "generated_sql": "SELECT alias.alias FROM alias INNER JOIN zip_data ON alias.zip_code = zip_data.zip_code WHERE zip_data.population_2010 = 0;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the cities with area code 608, how many cities implement daylight savings?",
+      "resolved_question": "What is the count of cities with area code 608 where the time_zone is 'Daylight Savings' from the zip_data table in the address database?",
+      "selected_db": "address",
+      "generated_sql": "SELECT COUNT(DISTINCT zip_data.city) FROM zip_data INNER JOIN area_code ON zip_data.zip_code = area_code.zip_code WHERE area_code.area_code = 608 AND zip_data.time_zone = 'Daylight Savings'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the average elevation of the cities with alias Amherst.",
+      "resolved_question": "What is the average elevation of the cities in the zip_data table where the alias is 'Amherst'?",
+      "selected_db": "address",
+      "generated_sql": "SELECT AVG(zip_data.elevation) FROM zip_data INNER JOIN alias ON zip_data.zip_code = alias.zip_code WHERE alias.alias = 'Amherst'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the country and state of the city named Dalton?",
+      "resolved_question": "What is the country and state of the city named Dalton?",
+      "selected_db": "world_1",
+      "generated_sql": "SELECT country.Name, city.District FROM city JOIN country ON city.CountryCode = country.Code WHERE city.Name = 'Dalton'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Give at least five alias of cities with a postal point of post office.",
+      "resolved_question": "What are at least five different aliases (or names) of cities that have a postal point of post office, considering the available databases and their respective tables?",
+      "selected_db": "flight_4",
+      "generated_sql": "SELECT DISTINCT city FROM airports LIMIT 5;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the difference in the number of cities with P.O. box only and cities with Post Office among the cities with area code 787?",
+      "resolved_question": "What is the difference in the number of cities with P.O. box only and cities with Post Office among the cities with area code 787?",
+      "selected_db": "address",
+      "generated_sql": "SELECT \n    (SELECT COUNT(*) FROM zip_data JOIN area_code ON zip_data.zip_code = area_code.zip_code WHERE area_code.area_code = 787 AND zip_data.type = 'Post Office') - \n    (SELECT COUNT(*) FROM zip_data JOIN area_code ON zip_data.zip_code = area_code.zip_code WHERE area_code.area_code = 787 AND zip_data.type = 'P.O. box only') AS difference;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the cities belonging to the country named Arroyo, calculate the percentage of increase in the population in these cities from 2010 to 2020.",
+      "resolved_question": "Among the cities belonging to the country named Arroyo, calculate the percentage of increase in the population in these cities from 2010 to 2020.",
+      "selected_db": "world",
+      "generated_sql": "SELECT \n    (SUM(CASE WHEN year = 2020 THEN population ELSE 0 END) - SUM(CASE WHEN year = 2010 THEN population ELSE 0 END)) / NULLIF(SUM(CASE WHEN year = 2010 THEN population ELSE 0 END), 0) * 100 AS percentage_increase\nFROM (\n    SELECT \n        c.Name AS city_name, \n        c.Population AS population,\n        2010 AS year\n    FROM City c\n    JOIN Country co ON c.CountryCode = co.Code\n    WHERE co.Name = 'Arroyo'\n    UNION ALL\n    SELECT \n        c.Name AS city_name, \n        c.Population AS population,\n        2020 AS year\n    FROM City c\n    JOIN Country co ON c.CountryCode = co.Code\n    WHERE co.Name = 'Arroyo'\n) AS city_pop_years;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the postal points in Texas, provide the zip codes and cities of postal points which have total beneficiaries of above 10000.",
+      "resolved_question": "Among the postal points in Texas, provide the zip codes and cities of postal points which have total beneficiaries of above 10000.",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_code, city FROM zip_data WHERE state = 'TX' AND total_beneficiaries > 10000;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the postal points in the District of Columbia, how many of them have an area with above 20000 black population?",
+      "resolved_question": "What is the count of zip codes in the District of Columbia where the black population in the corresponding area is above 20000?",
+      "selected_db": "address",
+      "generated_sql": "SELECT COUNT(*) FROM zip_data WHERE state = 'DC' AND black_population > 20000;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the city where zip code 19019 is located and the alias of that city.",
+      "resolved_question": "Provide the city where zip code 19019 is located and the alias of that city.",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_data.city, alias.alias FROM zip_data INNER JOIN alias ON zip_data.zip_code = alias.zip_code WHERE zip_data.zip_code = 19019;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "List the bad alias of the postal point located in Camuy.",
+      "resolved_question": "What are the bad aliases of the postal points located in Camuy?",
+      "selected_db": "address",
+      "generated_sql": "SELECT avoid.bad_alias FROM avoid INNER JOIN zip_data ON avoid.zip_code = zip_data.zip_code WHERE zip_data.city = 'Camuy';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the zip code, city, and congress representative's full names of the area which has highest population in 2020.",
+      "resolved_question": "Provide the zip code, city, and congress representative's full names of the area which has highest population in 2020.",
+      "selected_db": "address",
+      "generated_sql": "SELECT zd.zip_code, zd.city, c.first_name, c.last_name\nFROM zip_data zd\nJOIN zip_congress zc ON zd.zip_code = zc.zip_code\nJOIN congress c ON zc.district = c.cognress_rep_id\nWHERE zd.population_2020 = (SELECT MAX(population_2020) FROM zip_data)",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the daylight savings areas in the Midwest region, how many postal points are there in Illinois?",
+      "resolved_question": "Among the daylight savings areas in the Midwest region, how many postal points are there in Illinois?",
+      "selected_db": "address",
+      "generated_sql": "SELECT COUNT(*) FROM zip_data WHERE daylight_savings = 'Yes' AND region = 'Midwest' AND state = 'IL';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the countries and the zip codes in the Virgin Islands.",
+      "resolved_question": "What are the countries and zip codes associated with the Virgin Islands in the mondial_geo database?",
+      "selected_db": "world_1",
+      "generated_sql": "SELECT country.Name, city.Name FROM country INNER JOIN city ON country.Code = city.CountryCode WHERE country.Name LIKE '%Virgin Islands%';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the zip codes and the alias of Greeneville.",
+      "resolved_question": "Provide the zip codes and the alias of Greeneville.",
+      "selected_db": "address",
+      "generated_sql": "SELECT a.zip_code, a.alias FROM alias a JOIN zip_data z ON a.zip_code = z.zip_code WHERE z.city = 'Greeneville'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Compare the numbers of postal points under Smith Adrian and Heck Joe.",
+      "resolved_question": "Compare the numbers of postal points under Smith Adrian and Heck Joe.",
+      "selected_db": "professional_basketball",
+      "generated_sql": "SELECT \n    (SELECT SUM(PostPoints) FROM players_teams WHERE playerID = (SELECT playerID FROM players WHERE lastName = 'Smith' AND firstName = 'Adrian')) AS smith_adrian_post_points,\n    (SELECT SUM(PostPoints) FROM players_teams WHERE playerID = (SELECT playerID FROM players WHERE lastName = 'Heck' AND firstName = 'Joe')) AS heck_joe_post_points;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the zip codes and CBSA officers of the postal point in Oxford.",
+      "resolved_question": "What are the zip codes and CBSA officers associated with the postal point in Oxford, and how can we retrieve this information from the provided databases?",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_data.zip_code, CBSA.CBSA_name, congress.first_name, congress.last_name \nFROM zip_data \nJOIN CBSA ON zip_data.CBSA = CBSA.CBSA \nJOIN zip_congress ON zip_data.zip_code = zip_congress.zip_code \nJOIN congress ON zip_congress.district = congress.cognress_rep_id \nWHERE zip_data.city = 'Oxford'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the zip codes and their affiliated organization for the postal point under Kingsport-Bristol, TN-VA.",
+      "resolved_question": "Provide the zip codes and their affiliated organization for the postal point under Kingsport-Bristol, TN-VA.",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_data.zip_code, zip_data.organization\nFROM zip_data\nINNER JOIN CBSA ON zip_data.CBSA = CBSA.CBSA\nWHERE CBSA.CBSA_name = 'Kingsport-Bristol, TN-VA';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the zip codes and the congress representatives' names of the postal points which are affiliated with Readers Digest.",
+      "resolved_question": "What are the zip codes and the names of the congress representatives associated with the postal points that are affiliated with Readers Digest?",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_data.zip_code, congress.first_name, congress.last_name FROM zip_data INNER JOIN zip_congress ON zip_data.zip_code = zip_congress.zip_code INNER JOIN congress ON zip_congress.district = congress.cognress_rep_id WHERE zip_data.organization = 'Readers Digest'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the postal points in California, calculate the percentage of them in post office types.",
+      "resolved_question": "Among the postal points in California, calculate the percentage of them in post office types.",
+      "selected_db": "address",
+      "generated_sql": "SELECT (COUNT(CASE WHEN type = 'Post Office' THEN 1 END) * 100.0 / COUNT(*)) AS post_office_percentage FROM zip_data WHERE state = 'CA';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What are the zip code for the Senate house?",
+      "resolved_question": "What are the zip codes for the US Senate representatives in the election database?",
+      "selected_db": "election",
+      "generated_sql": "SELECT county.Zip_code\nFROM county\nJOIN election ON county.County_Id = election.District\nJOIN party ON election.Party = party.Party_ID\nWHERE election.Delegate LIKE '%' || party.US_Senate || '%'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Which city has the most bad aliases?",
+      "resolved_question": "What is the city with the highest number of aliases that are considered 'bad' or 'unwanted', and how many aliases does it have?",
+      "selected_db": "world",
+      "generated_sql": "SELECT Name, COUNT(*) AS AliasCount FROM City GROUP BY Name ORDER BY AliasCount DESC LIMIT 1;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "List all the counties in Georgia.",
+      "resolved_question": "List all the counties in Georgia.",
+      "selected_db": "geo",
+      "generated_sql": "SELECT city_name FROM city WHERE state_name = 'Georgia';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "List all the locations of postal points with the area code \"410\".",
+      "resolved_question": "List all the locations of postal points with the area code \"410\".",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_data.city, zip_data.state FROM area_code INNER JOIN zip_data ON area_code.zip_code = zip_data.zip_code WHERE area_code.area_code = '410'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the name of the CBSA of the city with the highest average house value?",
+      "resolved_question": "What is the name of the CBSA of the city with the highest average house value?",
+      "selected_db": "address",
+      "generated_sql": "SELECT CBSA.CBSA_name\nFROM zip_data\nJOIN CBSA ON zip_data.CBSA = CBSA.CBSA\nORDER BY zip_data.avg_house_value DESC\nLIMIT 1;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What are the bad aliases of the postal points from East Setauket?",
+      "resolved_question": "What are the bad aliases of the postal points from East Setauket?",
+      "selected_db": "address",
+      "generated_sql": "SELECT avoid.bad_alias\nFROM avoid\nJOIN zip_data ON avoid.zip_code = zip_data.zip_code\nWHERE zip_data.city = 'East Setauket';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What was the population of Wilcox County in 2010?",
+      "resolved_question": "What was the population of Wilcox County in 2010?",
+      "selected_db": "election",
+      "generated_sql": "SELECT county.Population FROM county WHERE county.County_name = 'Wilcox County';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the code of the area with the largest Asian population?",
+      "resolved_question": "What is the code of the area with the largest Asian population?",
+      "selected_db": "address",
+      "generated_sql": "SELECT zip_code FROM zip_data ORDER BY asian_population DESC LIMIT 1;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "List all the cities with micro CBSA.",
+      "resolved_question": "List all the cities with micro CBSA.",
+      "selected_db": "address",
+      "generated_sql": "SELECT DISTINCT zip_data.city\nFROM zip_data\nINNER JOIN CBSA ON zip_data.CBSA = CBSA.CBSA\nWHERE CBSA.CBSA_type = 'Micro';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the name of the state with the most counties?",
+      "resolved_question": "What is the name of the state with the most counties?",
+      "selected_db": "geo",
+      "generated_sql": "SELECT state_name FROM city GROUP BY state_name ORDER BY COUNT(*) DESC LIMIT 1;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the number of households in the \"FL-10\" district?",
+      "resolved_question": "What is the number of households in the \"FL-10\" district?",
+      "selected_db": "election",
+      "generated_sql": "SELECT Population FROM county WHERE County_name = 'FL-10';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the average household income in the city known as \"Danzig\"?",
+      "resolved_question": "What is the average household income in the city known as \"Danzig\" in the zip_data table of the address database?",
+      "selected_db": "address",
+      "generated_sql": "SELECT avg_income_per_household FROM zip_data WHERE city = 'Danzig'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What are the states with an above-average female population?",
+      "resolved_question": "What are the states with an above-average female population?",
+      "selected_db": "geo",
+      "generated_sql": "SELECT state_name \nFROM state \nWHERE population > (SELECT AVG(population) FROM state);",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What percentage of households are in \"Coroyell\" out of its state?",
+      "resolved_question": "What percentage of households in the state where \"Coroyell\" is located are in \"Coroyell\"?",
+      "selected_db": "address",
+      "generated_sql": "SELECT (SELECT SUM(zip_data.households) FROM country INNER JOIN zip_data ON country.zip_code = zip_data.zip_code WHERE country.county = 'CORRYELL') * 100.0 / (SELECT SUM(zip_data.households) FROM zip_data WHERE zip_data.state = (SELECT country.state FROM country WHERE country.county = 'CORRYELL' LIMIT 1))",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the name and the position of the CBSA officer in the city of Cabo Rojo?",
+      "resolved_question": "What is the name and the position of the CBSA officer in the city of Cabo Rojo, specifically in the CBSA that corresponds to the city of Cabo Rojo?",
+      "selected_db": "address",
+      "generated_sql": "SELECT c.first_name, c.last_name, c.House FROM zip_data z JOIN zip_congress zc ON z.zip_code = zc.zip_code JOIN congress c ON zc.district = c.cognress_rep_id WHERE z.city = 'Cabo Rojo' AND z.state = 'PR'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Indicate the country name of the city Las Marias.",
+      "resolved_question": "Indicate the country name of the city Las Marias.",
+      "selected_db": "mondial_geo",
+      "generated_sql": "SELECT country.Name FROM city JOIN country ON city.Country = country.Code WHERE city.Name = 'Las Marias';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "How many cities does congressman Pierluisi Pedro represent?",
+      "resolved_question": "How many cities does congressman Pierluisi Pedro represent?",
+      "selected_db": "legislator",
+      "generated_sql": "SELECT COUNT(DISTINCT district) FROM \"current-terms\" WHERE bioguide = (SELECT bioguide_id FROM current WHERE official_full_name = 'Pierluisi Pedro')",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the names of bad aliases in the city of Aguadilla.",
+      "resolved_question": "Provide the names of bad aliases in the city of Aguadilla.",
+      "selected_db": "address",
+      "generated_sql": "SELECT avoid.bad_alias FROM avoid INNER JOIN zip_data ON avoid.zip_code = zip_data.zip_code WHERE zip_data.city = 'Aguadilla'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Indicate the name of the congressman represent in Guanica.",
+      "resolved_question": "Indicate the name of the congressman represent in Guanica.",
+      "selected_db": "address",
+      "generated_sql": "SELECT c.first_name, c.last_name FROM congress c JOIN zip_congress zc ON c.cognress_rep_id = zc.district JOIN zip_data zd ON zc.zip_code = zd.zip_code WHERE zd.city = 'Guanica'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Which state has the most bad aliases?",
+      "resolved_question": "Which state has the most bad aliases?",
+      "selected_db": "address",
+      "generated_sql": "SELECT s.name, COUNT(*) FROM avoid JOIN zip_data zd ON avoid.zip_code = zd.zip_code JOIN state s ON zd.state = s.abbreviation GROUP BY s.name ORDER BY COUNT(*) DESC LIMIT 1;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the difference in the number of bad alias between Aguada city and Aguadilla city?",
+      "resolved_question": "What is the difference in the number of bad alias between Aguada city and Aguadilla city in the address database, specifically in the avoid table?",
+      "selected_db": "address",
+      "generated_sql": "SELECT \n    (SELECT COUNT(*) FROM avoid JOIN zip_data ON avoid.zip_code = zip_data.zip_code WHERE city = 'Aguada') \n    - \n    (SELECT COUNT(*) FROM avoid JOIN zip_data ON avoid.zip_code = zip_data.zip_code WHERE city = 'Aguadilla') AS difference;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Which state has greater than 50 CBSA officers of metro type?",
+      "resolved_question": "Which state has greater than 50 CBSA officers of metro type?",
+      "selected_db": "address",
+      "generated_sql": "SELECT state.name FROM CBSA JOIN zip_data ON CBSA.CBSA = zip_data.CBSA JOIN state ON zip_data.state = state.abbreviation WHERE CBSA.CBSA_type = 'Metro' GROUP BY state.abbreviation HAVING COUNT(DISTINCT CBSA.CBSA) > 50;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the population of Arecibo in 2020.",
+      "resolved_question": "Provide the population of Arecibo in 2020.",
+      "selected_db": "address",
+      "generated_sql": "SELECT population_2020 FROM zip_data WHERE city = 'Arecibo' AND state = 'PR';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Indicate the name of the country with a population greater than 10000 in 2010.",
+      "resolved_question": "Indicate the name of the country with a population greater than 10000 in 2010.",
+      "selected_db": "world_development_indicators",
+      "generated_sql": "SELECT CountryName FROM Indicators WHERE IndicatorCode = 'SP.POP.TOTL' AND Year = 2010 AND Value > 10000;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Name the country with the largest number of households in a residential area.",
+      "resolved_question": "Name the country with the largest number of households in a residential area.",
+      "selected_db": "address",
+      "generated_sql": "SELECT country.county, SUM(zip_data.households) AS total_households FROM country INNER JOIN zip_data ON country.zip_code = zip_data.zip_code GROUP BY country.county ORDER BY total_households DESC LIMIT 1;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Calculate the percentage of households in residential areas of countries over 10000.",
+      "resolved_question": "What is the percentage of households in residential areas of countries with a population over 10,000?",
+      "selected_db": "address",
+      "generated_sql": "SELECT (SUM(t.total_households) * 100.0 / SUM(t.total_population)) AS percentage FROM (SELECT SUM(zip_data.population_2020) AS total_population, SUM(zip_data.households) AS total_households FROM country JOIN zip_data ON country.zip_code = zip_data.zip_code GROUP BY country.county, country.state HAVING SUM(zip_data.population_2020) > 10000) AS t;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the types of postal points in Saint Croix, what percentage of postal points is the post office?",
+      "resolved_question": "What percentage of postal points in Saint Croix are post offices?",
+      "selected_db": "address",
+      "generated_sql": "SELECT (COUNT(CASE WHEN type = 'Post Office' THEN 1 END) * 100.0 / COUNT(*)) FROM zip_data WHERE state = 'VI' AND city = 'Saint Croix'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the area code 787, list the country of the cities with a postal point type of unique postal office.",
+      "resolved_question": "Among the area code 787, list the country of the cities with a postal point type of unique postal office.",
+      "selected_db": "address",
+      "generated_sql": "SELECT country.county, state.name \nFROM area_code \nJOIN zip_data ON area_code.zip_code = zip_data.zip_code \nJOIN country ON area_code.zip_code = country.zip_code \nJOIN state ON country.state = state.abbreviation \nWHERE area_code.area_code = 787 \nAND zip_data.type = 'Unique Post Office'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the elevation of the city with the alias East Longmeadow?",
+      "resolved_question": "What is the elevation of the city with the alias 'East Longmeadow' in the address database?",
+      "selected_db": "geo",
+      "generated_sql": "SELECT city.city_name FROM city WHERE city.city_name = 'East Longmeadow';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "In cities that do not implement daylight savings, what is the total number of cities?",
+      "resolved_question": "In cities that do not implement daylight savings, what is the total number of cities?",
+      "selected_db": "address",
+      "generated_sql": "SELECT COUNT(*) FROM (SELECT DISTINCT city, state FROM zip_data WHERE daylight_savings = 'No')",
+      "execution_status": true,
+      "execution_error": null
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+Spider All: 5116
+Spider Miss: 1843
+Bird All: 5501

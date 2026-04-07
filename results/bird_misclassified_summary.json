@@ -1,0 +1,9 @@
+{
+  "dataset": "BIRD_Misclassified",
+  "n_queries": 2286,
+  "recovered": 1382,
+  "accuracy": 0.6045494313210849,
+  "stage0_recall": 0.8748906386701663,
+  "stage1_recall": 0.7882764654418197,
+  "timestamp": "2026-03-29T11:49:38.744600"
+}

@@ -1,0 +1,9 @@
+{
+  "dataset": "BIRD",
+  "n_queries": 75,
+  "accuracy": 0.7866666666666666,
+  "stage0_recall": 1.0,
+  "stage1_recall": 0.8666666666666667,
+  "correct": 59,
+  "timestamp": "2026-03-18T13:40:45.202753"
+}

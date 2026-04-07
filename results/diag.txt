@@ -1,0 +1,4 @@
+--- FAILURE DIAGNOSTIC ON 100 FAILED QUERIES ---
+Stage 1 (Groq Qwen3-32B) missed the gold DB entirely: 54 (54.0%)
+Stage 2/3 (DeepSeek SQL Generation) failed to extract valid data from gold DB: 31 (31.0%)
+Stage 4 (Gemini Judge) picked wrong DB even though gold DB had data: 15 (15.0%)

@@ -193,10 +193,11 @@ def load_schemas() -> Dict[str, str]:
         os.path.join(RAW_DATA_DIR, "spider_data", "tables.json"),
         
         # Bird
-        os.path.join(DATA_DIR, "dev_tables.json"),      # Bird Dev
-        os.path.join(DATA_DIR, "train_tables.json"),    # Bird Train
+        os.path.join(DATA_DIR, "bird_dev_tables.json"),      # Bird Dev
+        os.path.join(DATA_DIR, "bird_train_tables.json"),    # Bird Train
         os.path.join(RAW_DATA_DIR, "train", "train_tables.json"),
     ]
+    
     
     print(f"Searching for schemas in: {files}")
     for f_path in files:

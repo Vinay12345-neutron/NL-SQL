@@ -1,0 +1,10 @@
+{
+  "dataset": "Spider_Misclassified",
+  "n_queries": 1843,
+  "recovered": 864,
+  "accuracy": 0.46880086814975586,
+  "stage0_recall": 0.9234943027672273,
+  "stage1_recall": 0.7835051546391752,
+  "valid_structure_wins": 213,
+  "timestamp": "2026-03-31T12:34:54.916210"
+}

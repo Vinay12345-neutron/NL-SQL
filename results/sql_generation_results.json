@@ -1,0 +1,59 @@
+{
+  "metrics": {
+    "execution_accuracy": 1.0,
+    "total_queries": 5,
+    "successful_executions": 5,
+    "retrieval": {
+      "R@1": 0.6,
+      "R@3": 0.6,
+      "R@5": 0.8,
+      "R@10": 1.0,
+      "R@20": 1.0,
+      "MAP": 0.6733333333333333,
+      "Dataset": "bird-GenRun",
+      "Model": "Qwen/Qwen3-Embedding-8B"
+    }
+  },
+  "data": [
+    {
+      "original_question": "What are the alias of the cities with 0 population in 2010?",
+      "resolved_question": "What are the alias of the cities with 0 population in 2010?",
+      "selected_db": "address",
+      "generated_sql": "SELECT alias.alias\nFROM alias\nJOIN zip_data ON alias.zip_code = zip_data.zip_code\nWHERE zip_data.population_2010 = 0;",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Among the cities with area code 608, how many cities implement daylight savings?",
+      "resolved_question": "What is the count of cities with area code 608 where the time_zone is 'Daylight Savings' from the zip_data table in the address database?",
+      "selected_db": "address",
+      "generated_sql": "SELECT COUNT(DISTINCT zip_data.city) FROM zip_data INNER JOIN area_code ON zip_data.zip_code = area_code.zip_code WHERE area_code.area_code = 608 AND zip_data.daylight_savings = 'Yes'",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Provide the average elevation of the cities with alias Amherst.",
+      "resolved_question": "What is the average elevation of the cities in the zip_data table where the alias is 'Amherst'?",
+      "selected_db": "address",
+      "generated_sql": "SELECT AVG(zip_data.elevation) FROM zip_data INNER JOIN alias ON zip_data.zip_code = alias.zip_code WHERE alias.alias = 'Amherst';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "What is the country and state of the city named Dalton?",
+      "resolved_question": "What is the country and state of the city named Dalton?",
+      "selected_db": "world_1",
+      "generated_sql": "SELECT country.Name, city.District FROM city JOIN country ON city.CountryCode = country.Code WHERE city.Name = 'Dalton';",
+      "execution_status": true,
+      "execution_error": null
+    },
+    {
+      "original_question": "Give at least five alias of cities with a postal point of post office.",
+      "resolved_question": "What are at least five different aliases (or names) of cities that have a postal point of post office, considering the available databases and their respective tables?",
+      "selected_db": "flight_4",
+      "generated_sql": "SELECT DISTINCT city FROM airports LIMIT 5;",
+      "execution_status": true,
+      "execution_error": null
+    }
+  ]
+}

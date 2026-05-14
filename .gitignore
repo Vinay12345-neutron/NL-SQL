@@ -8,7 +8,6 @@ __pycache__/
 
 # Databases
 *.db
-data/
 offload_weights/
 
 

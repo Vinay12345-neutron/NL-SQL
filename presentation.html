@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NL-SQL Hybrid Routing Pipeline — Research Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07090f;
+  --surface:#0e1220;
+  --surface2:#141828;
+  --border:#1e2540;
+  --accent:#4f8ef7;
+  --accent2:#7c5cfc;
+  --green:#22d3a5;
+  --red:#f75c5c;
+  --amber:#f7b74f;
+  --text:#e8eaf6;
+  --muted:#8892b0;
+  --grad: linear-gradient(135deg,#4f8ef7,#7c5cfc);
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:'Inter',sans-serif;color:var(--text)}
+
+/* ---- SLIDESHOW ---- */
+.deck{width:100vw;height:100vh;position:relative}
+.slide{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;padding:60px 80px;
+  opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease;
+  transform:translateY(30px);
+}
+.slide.active{opacity:1;pointer-events:all;transform:translateY(0)}
+
+/* ---- BACKGROUNDS ---- */
+.bg-hero{background:radial-gradient(ellipse at 20% 50%,#0d1a3a 0%,#07090f 60%)}
+.bg-dark{background:var(--bg)}
+.bg-surface{background:var(--surface)}
+
+/* ---- HEADER ---- */
+.chip{display:inline-block;padding:4px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;background:rgba(79,142,247,.15);border:1px solid rgba(79,142,247,.3);color:var(--accent)}
+h1{font-size:clamp(2rem,4vw,3.4rem);font-weight:800;line-height:1.15;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:16px}
+h2{font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:700;margin-bottom:30px;text-align:center;color:var(--text)}
+h3{font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:10px}
+p.sub{font-size:1.05rem;color:var(--muted);text-align:center;max-width:700px;line-height:1.7}
+
+/* ---- CARDS ---- */
+.cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;width:100%}
+.card{
+  background:var(--surface2);border:1px solid var(--border);border-radius:16px;
+  padding:28px 24px;flex:1;min-width:200px;max-width:340px;
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(79,142,247,.12)}
+.card-icon{font-size:2rem;margin-bottom:12px}
+.card h3{color:var(--text);font-size:1rem;margin-bottom:6px}
+.card p{font-size:.88rem;color:var(--muted);line-height:1.6}
+
+/* ---- STAT BOXES ---- */
+.stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;width:100%}
+.stat{
+  background:var(--surface2);border:1px solid var(--border);border-radius:14px;
+  padding:24px 32px;text-align:center;min-width:160px;
+}
+.stat .num{font-size:2.4rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat .label{font-size:.8rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+.stat.green .num{background:linear-gradient(135deg,#22d3a5,#4f8ef7);-webkit-background-clip:text;background-clip:text}
+.stat.amber .num{background:linear-gradient(135deg,#f7b74f,#f75c5c);-webkit-background-clip:text;background-clip:text}
+
+/* ---- PIPELINE ---- */
+.pipeline{display:flex;align-items:center;gap:0;width:100%;max-width:900px;margin:0 auto}
+.pipe-step{
+  flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:12px;
+  padding:18px 14px;text-align:center;position:relative;
+}
+.pipe-arrow{font-size:1.4rem;color:var(--border);flex-shrink:0;padding:0 6px}
+.pipe-step .step-num{font-size:.7rem;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.pipe-step h4{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.pipe-step p{font-size:.72rem;color:var(--muted);line-height:1.4}
+.pipe-step.highlight{border-color:var(--accent);background:rgba(79,142,247,.08)}
+
+/* ---- TABLE ---- */
+.tbl{border-collapse:collapse;width:100%;max-width:820px;font-size:.9rem}
+.tbl th{background:rgba(79,142,247,.12);color:var(--accent);font-weight:600;padding:12px 18px;text-align:left;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.tbl td{padding:11px 18px;border-bottom:1px solid var(--border);color:var(--text)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.02)}
+.tbl .good{color:var(--green);font-weight:700}
+.tbl .best{color:var(--accent);font-weight:700;background:rgba(79,142,247,.07)}
+.tbl .ours{background:rgba(34,211,165,.06)}
+.tbl .ours td{color:var(--green)}
+
+/* ---- BAR CHART ---- */
+.bar-wrap{width:100%;max-width:800px;display:flex;flex-direction:column;gap:14px}
+.bar-row{display:flex;align-items:center;gap:14px}
+.bar-label{width:200px;text-align:right;font-size:.85rem;color:var(--muted);flex-shrink:0}
+.bar-track{flex:1;background:var(--surface2);border-radius:100px;height:32px;overflow:hidden;border:1px solid var(--border)}
+.bar-fill{height:100%;border-radius:100px;display:flex;align-items:center;padding-right:14px;justify-content:flex-end;transition:width 1s ease;font-size:.82rem;font-weight:700;color:#fff}
+.bar-fill.b1{background:linear-gradient(90deg,#2a3a6a,#3d5299)}
+.bar-fill.b2{background:linear-gradient(90deg,#1a4d3a,#2a7d5f)}
+.bar-fill.b3{background:linear-gradient(90deg,#4f3a9a,#7c5cfc)}
+.bar-fill.b4{background:var(--grad)}
+.bar-fill.b5{background:linear-gradient(90deg,#22d3a5,#4f8ef7)}
+
+/* ---- TAGS ---- */
+.tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.tag{padding:6px 14px;border-radius:100px;font-size:.8rem;font-weight:500;border:1px solid;cursor:default}
+.tag.blue{background:rgba(79,142,247,.1);border-color:rgba(79,142,247,.3);color:var(--accent)}
+.tag.purple{background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.3);color:#a78bf7}
+.tag.green{background:rgba(34,211,165,.1);border-color:rgba(34,211,165,.3);color:var(--green)}
+.tag.red{background:rgba(247,92,92,.1);border-color:rgba(247,92,92,.3);color:var(--red)}
+
+/* ---- FAILURE TAXONOMY ---- */
+.tax{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:860px}
+.tax-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:20px;border-left:4px solid}
+.tax-item.c1{border-left-color:var(--red)}
+.tax-item.c2{border-left-color:var(--amber)}
+.tax-item.c3{border-left-color:var(--accent2)}
+.tax-item.c4{border-left-color:var(--accent)}
+.tax-item h4{font-size:.88rem;font-weight:600;margin-bottom:4px}
+.tax-item p{font-size:.78rem;color:var(--muted);line-height:1.5}
+.tax-item .pct{font-size:1.6rem;font-weight:800;margin-bottom:6px}
+.c1 .pct{color:var(--red)}.c2 .pct{color:var(--amber)}.c3 .pct{color:var(--accent2)}.c4 .pct{color:var(--accent)}
+
+/* ---- TIMELINE ---- */
+.timeline{list-style:none;width:100%;max-width:700px;position:relative}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline li{position:relative;padding:0 0 24px 52px}
+.timeline li::before{content:attr(data-n);position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;z-index:1}
+.timeline li h4{font-size:.95rem;font-weight:600;margin-bottom:3px}
+.timeline li p{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+/* ---- PROGRESS ---- */
+.progress-bar{position:fixed;bottom:0;left:0;height:3px;background:var(--grad);transition:width .4s ease;z-index:100}
+
+/* ---- NAV ---- */
+.nav{position:fixed;bottom:28px;right:36px;display:flex;gap:12px;z-index:100}
+.nav button{
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);font-size:1.2rem;cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;
+}
+.nav button:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ---- COUNTER ---- */
+.counter{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);font-size:.78rem;color:var(--muted);z-index:100}
+
+/* ---- GLOW ---- */
+.glow{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,142,247,.08),transparent 70%);
+  pointer-events:none;
+}
+
+/* ---- CODE ---- */
+code{font-family:'JetBrains Mono',monospace;background:var(--surface2);padding:2px 8px;border-radius:5px;font-size:.82rem;color:var(--accent);border:1px solid var(--border)}
+
+/* ---- LOGO ---- */
+.logo{position:fixed;top:24px;left:36px;font-size:.82rem;font-weight:600;color:var(--muted);z-index:100;letter-spacing:.04em}
+
+/* ---- DIVIDER ---- */
+.divider{width:60px;height:3px;background:var(--grad);border-radius:2px;margin:16px auto}
+</style>
+</head>
+<body>
+
+<div class="logo">NL-SQL Routing Pipeline</div>
+<div class="progress-bar" id="progressBar"></div>
+<div class="counter" id="counter">1 / 14</div>
+<div class="nav">
+  <button onclick="changeSlide(-1)">&#8592;</button>
+  <button onclick="changeSlide(1)">&#8594;</button>
+</div>
+
+<div class="deck" id="deck">
+
+<!-- ===== SLIDE 1: TITLE ===== -->
+<div class="slide active bg-hero">
+  <div class="glow" style="top:-100px;left:-100px"></div>
+  <div class="glow" style="bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(124,92,252,.08),transparent 70%)"></div>
+  <div class="chip">Research — Text-to-SQL</div>
+  <h1>Execution-Guided Hybrid<br>Routing for NL Queries</h1>
+  <div class="divider"></div>
+  <p class="sub">A 4-stage execution pipeline that recovers misclassified queries on the Spider-Route and BIRD-Route benchmarks, surpassing the Sai et al. (2026) state-of-the-art.</p>
+  <div class="tags" style="margin-top:30px">
+    <span class="tag blue">Spider-Route</span>
+    <span class="tag purple">BIRD-Route</span>
+    <span class="tag green">DeBERTa Cross-Encoder</span>
+    <span class="tag blue">Gemini 2.0 Flash</span>
+    <span class="tag purple">DeepSeek V3.1</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2: PROBLEM ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Problem</div>
+  <h2>The Multi-Database Routing Challenge</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h3>Enterprise Reality</h3>
+      <p>Large organisations store data across 80–200+ heterogeneous databases with overlapping schemas and domain terminology.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔀</div>
+      <h3>Routing Failure</h3>
+      <p>Dense vector retrieval (R@1) misclassifies <strong>36–42%</strong> of queries — sending them to the wrong database entirely.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧩</div>
+      <h3>Schema Overlap</h3>
+      <p>82% of Spider routing failures occur within the same semantic domain (e.g., <code>book_2</code> vs <code>book_review</code> vs <code>book_press</code>).</p>
+    </div>
+  </div>
+  <div class="stats" style="margin-top:30px">
+    <div class="stat"><div class="num">206</div><div class="label">Spider DBs</div></div>
+    <div class="stat"><div class="num">80</div><div class="label">BIRD DBs</div></div>
+    <div class="stat amber"><div class="num">36%</div><div class="label">BIRD Misclassified</div></div>
+    <div class="stat amber"><div class="num">36%</div><div class="label">Spider Misclassified</div></div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: DATASETS ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Datasets</div>
+  <h2>Spider-Route &amp; BIRD-Route Benchmarks</h2>
+  <table class="tbl">
+    <thead><tr><th>Metric</th><th>Spider-Route</th><th>BIRD-Route</th></tr></thead>
+    <tbody>
+      <tr><td>Total Databases</td><td>206</td><td>80</td></tr>
+      <tr><td>Total Queries</td><td>11,831</td><td>10,962</td></tr>
+      <tr><td>Train Queries</td><td>5,892</td><td>5,461</td></tr>
+      <tr><td>Test Queries</td><td><strong>5,116</strong></td><td><strong>5,501</strong></td></tr>
+      <tr><td>Has Gold Evidence?</td><td>❌ No</td><td>✅ Yes (per-query)</td></tr>
+      <tr><td>Databases populated?</td><td>⚠️ Mixed (academic cluster has data)</td><td>✅ Fully populated</td></tr>
+      <tr><td>Baseline R@1</td><td class="good">63.98%</td><td class="good">58.44%</td></tr>
+    </tbody>
+  </table>
+  <div class="tags" style="margin-top:20px">
+    <span class="tag blue">Sai et al. (arXiv 2601.19825) benchmark setup</span>
+    <span class="tag green">50-50 query split per DB — no overlap between train/test</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4: BASELINE ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Stage 0 — Dense Retrieval Baseline</div>
+  <h2>Qwen3-Embedding-8B Retrieval Scores</h2>
+  <div class="bar-wrap">
+    <div class="bar-row">
+      <div class="bar-label">Spider R@1</div>
+      <div class="bar-track"><div class="bar-fill b1" style="width:63.98%">63.98%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Spider R@5</div>
+      <div class="bar-track"><div class="bar-fill b2" style="width:88.92%">88.92%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Spider R@20</div>
+      <div class="bar-track"><div class="bar-fill b3" style="width:97.24%">97.24%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">BIRD R@1</div>
+      <div class="bar-track"><div class="bar-fill b1" style="width:58.44%">58.44%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">BIRD R@5</div>
+      <div class="bar-track"><div class="bar-fill b2" style="width:84.80%">84.80%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">BIRD R@20</div>
+      <div class="bar-track"><div class="bar-fill b3" style="width:94.80%">94.80%</div></div>
+    </div>
+  </div>
+  <p class="sub" style="margin-top:22px;font-size:.9rem">The massive R@1 → R@20 jump (+30%) proves the correct database <em>is</em> retrieved — just not ranked first. This motivates the re-ranking pipeline.</p>
+</div>
+
+<!-- ===== SLIDE 5: PIPELINE ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Architecture</div>
+  <h2>The 4-Stage Execution Pipeline</h2>
+  <div class="pipeline">
+    <div class="pipe-step highlight">
+      <div class="step-num">Stage 0</div>
+      <h4>Dense Retrieval</h4>
+      <p>Qwen3-Embedding-8B cosine similarity → Top-20 candidates</p>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step highlight">
+      <div class="step-num">Stage 1</div>
+      <h4>Plausibility Filter</h4>
+      <p>Gemini 2.0 Flash narrows to ≤5 truly plausible DBs</p>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step highlight">
+      <div class="step-num">Stage 2</div>
+      <h4>SQL Broadcast</h4>
+      <p>DeepSeek V3.1 generates SQL async for each candidate</p>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step highlight">
+      <div class="step-num">Stage 3</div>
+      <h4>SQLite Execute</h4>
+      <p>Local execution: POPULATED / VALID_STRUCTURE / EMPTY_SET / ERROR</p>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step highlight">
+      <div class="step-num">Stage 4</div>
+      <h4>Judge</h4>
+      <p>Gemini LLM judge selects best DB from execution evidence</p>
+    </div>
+  </div>
+  <div class="tags" style="margin-top:24px">
+    <span class="tag green">Async SQL generation (semaphore=5)</span>
+    <span class="tag blue">Infinite retry with exponential backoff</span>
+    <span class="tag purple">Incremental JSONL saving + auto-resume</span>
+    <span class="tag blue">Threading timer kill-switch (Cartesian joins)</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6: SPIDER ADAPTATION ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Key Innovation</div>
+  <h2>Spider-Specific: Structural Coherence Routing</h2>
+  <div class="cards">
+    <div class="card" style="border-color:rgba(247,183,79,.3)">
+      <div class="card-icon">🐦</div>
+      <h3 style="color:var(--amber)">BIRD (Data-Presence)</h3>
+      <p>BIRD databases are <strong>fully populated</strong>. The judge uses POPULATED vs EMPTY_SET as the primary signal — the DB returning real rows wins.</p>
+      <div style="margin-top:12px"><span class="tag green">POPULATED = strong positive signal</span></div>
+    </div>
+    <div class="card" style="border-color:rgba(79,142,247,.3)">
+      <div class="card-icon">🕷️</div>
+      <h3>Spider (Structural Coherence)</h3>
+      <p>Spider is <strong>mixed</strong> — some DBs are empty, some (like <em>academic</em>) have real data. Execution results alone are misleading.</p>
+      <div style="margin-top:12px"><span class="tag blue">VALID_STRUCTURE = primary signal</span></div>
+    </div>
+    <div class="card" style="border-color:rgba(34,211,165,.3)">
+      <div class="card-icon">🔍</div>
+      <h3 style="color:var(--green)">Judge Rewrite</h3>
+      <p>Spider judge prioritises <strong>schema specificity</strong> — a dedicated <code>keyword</code> table beats a populated generic table using <code>LIKE '%keyword%'</code>.</p>
+      <div style="margin-top:12px"><span class="tag purple">Schema noun → SQL column alignment</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 7: MISCLASSIFIED EXTRACTION ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Experiment Design</div>
+  <h2>Misclassified Set Extraction</h2>
+  <div class="stats">
+    <div class="stat amber"><div class="num">1,843</div><div class="label">Spider Misclassified</div></div>
+    <div class="stat amber"><div class="num">2,286</div><div class="label">BIRD Misclassified</div></div>
+    <div class="stat"><div class="num">3,273</div><div class="label">Spider Correct</div></div>
+    <div class="stat"><div class="num">3,215</div><div class="label">BIRD Correct</div></div>
+  </div>
+  <p class="sub" style="margin-top:26px">For each query where Top-1 ≠ gold_db, the pipeline is run as a <strong>recovery mechanism</strong> — can the execution evidence disambiguate the correct database?</p>
+  <ul class="timeline" style="margin-top:24px">
+    <li data-n="1"><h4>Stage 0 Recall@20 on misclassified set</h4><p>Spider: 97.24% · BIRD: 94.80% — the gold DB is almost always in Top-20</p></li>
+    <li data-n="2"><h4>Stage 1 Plausibility Recall</h4><p>Spider: 100% · BIRD: ~98% — the LLM correctly includes the gold DB in its shortlist</p></li>
+    <li data-n="3"><h4>Stage 4 Recovery</h4><p>Execution evidence disambiguates and corrects a large fraction of misclassified queries</p></li>
+  </ul>
+</div>
+
+<!-- ===== SLIDE 8: RESULTS ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Results</div>
+  <h2>Recovery Rate on Misclassified Queries</h2>
+  <div class="bar-wrap">
+    <div class="bar-row">
+      <div class="bar-label">BIRD Recovery Rate</div>
+      <div class="bar-track"><div class="bar-fill b5" style="width:60.45%">60.45% (1,382 / 2,286)</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Spider Recovery Rate</div>
+      <div class="bar-track"><div class="bar-fill b4" style="width:46.88%">46.88% (864 / 1,843)</div></div>
+    </div>
+  </div>
+  <p class="sub" style="margin-top:20px">BIRD's higher recovery rate is explained by its fully-populated databases — the POPULATED execution signal is a strong, unambiguous discriminator. Spider's mixed population makes execution evidence noisier.</p>
+  <div class="stats" style="margin-top:24px">
+    <div class="stat green"><div class="num">1,382</div><div class="label">BIRD Queries Recovered</div></div>
+    <div class="stat green"><div class="num">864</div><div class="label">Spider Queries Recovered</div></div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 9: FINAL R@1 ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Final Accuracy</div>
+  <h2>Overall Pipeline R@1 Improvement</h2>
+  <div class="bar-wrap">
+    <div class="bar-row">
+      <div class="bar-label">BIRD Baseline R@1</div>
+      <div class="bar-track"><div class="bar-fill b1" style="width:58.44%">58.44%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">BIRD Pipeline R@1</div>
+      <div class="bar-track"><div class="bar-fill b5" style="width:83.57%">83.57% ↑ +25.1%</div></div>
+    </div>
+    <div class="bar-row" style="margin-top:12px">
+      <div class="bar-label">Spider Baseline R@1</div>
+      <div class="bar-track"><div class="bar-fill b1" style="width:63.98%">63.98%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Spider Pipeline R@1</div>
+      <div class="bar-track"><div class="bar-fill b4" style="width:80.88%">80.88% ↑ +16.9%</div></div>
+    </div>
+  </div>
+  <div class="stats" style="margin-top:28px">
+    <div class="stat green"><div class="num">+25.1%</div><div class="label">BIRD Absolute Gain</div></div>
+    <div class="stat green"><div class="num">+16.9%</div><div class="label">Spider Absolute Gain</div></div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 10: VS SAI ET AL ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Comparison</div>
+  <h2>Results vs. Sai et al. (2026)</h2>
+  <table class="tbl">
+    <thead><tr><th>Method</th><th>BIRD R@1</th><th>Spider R@1</th></tr></thead>
+    <tbody>
+      <tr><td>B1: all-mpnet-base-v2</td><td>43.65%</td><td>47.47%</td></tr>
+      <tr><td>B3: Qwen2-7B Embedding</td><td>62.49%</td><td>60.33%</td></tr>
+      <tr><td>B4: LLM Reranking (Gemini)</td><td>65.12%</td><td>67.99%</td></tr>
+      <tr><td>Sai et al. — Modular Reasoning</td><td class="best">79.62%</td><td class="best">79.64%</td></tr>
+      <tr class="ours"><td><strong>Ours — Execution Pipeline</strong></td><td><strong>83.57% ✅</strong></td><td><strong>80.88% ✅</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="stats" style="margin-top:24px">
+    <div class="stat green"><div class="num">+3.95%</div><div class="label">BIRD over SOTA</div></div>
+    <div class="stat green"><div class="num">+1.24%</div><div class="label">Spider over SOTA</div></div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 11: FAILURE TAXONOMY BIRD ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Error Analysis</div>
+  <h2>BIRD Failure Taxonomy (2,286 → 904 failures)</h2>
+  <div class="tax">
+    <div class="tax-item c1">
+      <div class="pct">~22%</div>
+      <h4>Cat 1: Retrieval Funnel Drop</h4>
+      <p>Gold DB not in Top-20 — dense retriever failed entirely. Unrecoverable by re-ranking.</p>
+    </div>
+    <div class="tax-item c2">
+      <div class="pct">~18%</div>
+      <h4>Cat 2: SQL Generator Choke</h4>
+      <p>DeepSeek hallucinated columns or used wrong syntax for the gold DB → classified as ERROR and eliminated.</p>
+    </div>
+    <div class="tax-item c3">
+      <div class="pct">~35%</div>
+      <h4>Cat 3: "Empty Set" Trap</h4>
+      <p>Valid SQL on gold DB returned 0 rows (logic too restrictive). Judge penalised gold DB despite correct schema.</p>
+    </div>
+    <div class="tax-item c4">
+      <div class="pct">~25%</div>
+      <h4>Cat 4: Populated Ambiguity</h4>
+      <p>Gold DB returned data, but a different DB also returned data. Judge picked the wrong populated database.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 12: FAILURE TAXONOMY SPIDER ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Error Analysis</div>
+  <h2>Spider Failure Taxonomy (1,843 → 979 failures)</h2>
+  <div class="tax">
+    <div class="tax-item c1">
+      <div class="pct">~15%</div>
+      <h4>Cat 1: Retrieval Funnel Drop</h4>
+      <p>Gold DB absent from Top-20. Very low rate given Spider R@20 = 97.24%.</p>
+    </div>
+    <div class="tax-item c2">
+      <div class="pct">~12%</div>
+      <h4>Cat 2: SQL Generator Choke</h4>
+      <p>DeepSeek generated broken SQL for the gold DB → eliminated by Stage 4 judge.</p>
+    </div>
+    <div class="tax-item c3">
+      <div class="pct">~48%</div>
+      <h4>Cat 3: Unresolvable Ambiguity</h4>
+      <p>Both gold DB and selected DB had VALID_STRUCTURE. All schemas were empty — judge was forced to guess.</p>
+    </div>
+    <div class="tax-item c4">
+      <div class="pct">~25%</div>
+      <h4>Cat 4: Populated Trap</h4>
+      <p>A populated DB (academic cluster) lured the judge away from the correct but empty gold DB.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 13: CROSS-ENCODER ===== -->
+<div class="slide bg-dark">
+  <div class="chip">Additional Contribution</div>
+  <h2>Local Cross-Encoder (DeBERTa-v3)</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🎓</div>
+      <h3>Training Data</h3>
+      <p>Merged misclassified pipeline logs + 1,100 easy query logs → <strong>3,386 BIRD</strong> and <strong>2,943 Spider</strong> training records.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>Architecture</h3>
+      <p><code>microsoft/deberta-v3-large</code> (BIRD) &amp; <code>deberta-v3-small</code> (Spider). Trained with bf16, max_grad_norm=1.0, lr=1e-5.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Inference</h3>
+      <p>Replaces the Gemini LLM judge. Scores all candidates in <strong>~10ms per query</strong> vs ~800ms for LLM call. Fully offline.</p>
+    </div>
+  </div>
+  <div class="stats" style="margin-top:26px">
+    <div class="stat green"><div class="num">94.33%</div><div class="label">BIRD Dev Acc (1,534 q)</div></div>
+    <div class="stat"><div class="num">10ms</div><div class="label">Avg inference time</div></div>
+    <div class="stat"><div class="num">80×</div><div class="label">Faster than LLM judge</div></div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 14: SUMMARY ===== -->
+<div class="slide bg-hero">
+  <div class="glow" style="top:-100px;right:-100px;background:radial-gradient(circle,rgba(34,211,165,.08),transparent 70%)"></div>
+  <div class="chip">Summary</div>
+  <h1>Key Takeaways</h1>
+  <ul class="timeline" style="margin-top:22px">
+    <li data-n="1"><h4>Execution Evidence is Powerful</h4><p>Using SQLite execution to classify POPULATED / VALID_STRUCTURE / ERROR provides strong disambiguation signals that pure schema matching misses.</p></li>
+    <li data-n="2"><h4>Dataset-Aware Routing is Critical</h4><p>BIRD and Spider require fundamentally different judgment strategies due to their different database population patterns.</p></li>
+    <li data-n="3"><h4>+25.1% BIRD · +16.9% Spider</h4><p>Absolute R@1 gains over dense retrieval baseline on the same 5,501 / 5,116 test queries used by Sai et al.</p></li>
+    <li data-n="4"><h4>SOTA Beaten on Both Benchmarks</h4><p>83.57% BIRD (+3.95%) and 80.88% Spider (+1.24%) over Sai et al.'s Modular Reasoning method.</p></li>
+  </ul>
+</div>
+
+</div><!-- /deck -->
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const bar = document.getElementById('progressBar');
+const counter = document.getElementById('counter');
+let cur = 0;
+const total = slides.length;
+
+function show(n) {
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(n, total - 1));
+  slides[cur].classList.add('active');
+  bar.style.width = ((cur + 1) / total * 100) + '%';
+  counter.textContent = (cur + 1) + ' / ' + total;
+}
+
+function changeSlide(dir) { show(cur + dir); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'Space') changeSlide(1);
+  if (e.key === 'ArrowLeft') changeSlide(-1);
+});
+
+// Touch support
+let xs = null;
+document.addEventListener('touchstart', e => { xs = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  if (!xs) return;
+  const dx = xs - e.changedTouches[0].clientX;
+  if (Math.abs(dx) > 50) changeSlide(dx > 0 ? 1 : -1);
+  xs = null;
+});
+
+// Animate bars when slide becomes active
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach(b => {
+        const w = b.style.width;
+        b.style.width = '0';
+        setTimeout(() => { b.style.width = w; }, 100);
+      });
+    }
+  });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+
+show(0);
+</script>
+</body>
+</html>

@@ -295,60 +295,16 @@ def stage3_execute(sql_map: Dict[str, str]) -> Dict[str, Dict]:
 
 
 # ---------------------------------------------------------------------------
-# Stage 4: Judge
+# ---------------------------------------------------------------------------
+# Stage 4: Judge (LOBOTOMIZED FOR DEBERTA)
 # ---------------------------------------------------------------------------
 def stage4_judge(query: str, evidence: str,
-                  exec_results: Dict[str, Dict],
-                  schemas: Dict[str, str]) -> str:
-    candidates = list(exec_results.keys())
-    if len(candidates) == 1:
-        return candidates[0]
-
-    evidence_lines = []
-    for db_id, r in exec_results.items():
-        evidence_lines.append(
-            f"Database: {db_id}\n"
-            f"  SQL: {r['sql']}\n"
-            f"  Status: {r['status']}\n"
-            f"  Result: {str(r['result'])[:200] if r['result'] else 'None'}\n"
-            f"  Error: {r['error'] or 'None'}"
-        )
-    evidence_block = "\n\n".join(evidence_lines)
-
-    prompt = f"""You are a database routing judge. Given a user question, BIRD competition metadata evidence, candidate databases, generated SQL queries, and execution results, determine which ONE database is the correct source.
-
-Decision Rules (STRICT PRIORITY):
-1. Execution Validity: Databases with an ERROR status MUST be strictly penalized and avoided if possible.
-2. Data Presence Caution: DO NOT blindly trust databases just because they returned POPULATED data if their schema/tables look generic. Accidental matches happen.
-3. BIRD Evidence Alignment: You must heavily weight how well the chosen database aligns with the specific BIRD evidence provided.
-4. Structural Match: Look at the generated SQL — does it use tables and columns that perfectly match the nouns/verbs of the user's question?
-
-Question: {query}
-BIRD Evidence: {evidence}
-
-Execution Evidence:
-{evidence_block}
-
-Task:
-1. Reason briefly about which database is correct. Cite which evidence sentence justifies your selection.
-2. On the final line, provide ONLY the exact database name inside <FINAL_DB> tags. Example: <FINAL_DB>world_1</FINAL_DB>"""
-
-    response = call_llm_sync(or_sync, STAGE4_MODEL, prompt)
-    match = re.search(r'<FINAL_DB>\s*([\w_]+)\s*</FINAL_DB>', response, re.IGNORECASE)
-    if match:
-        response_clean = match.group(1).strip().lower()
-        for db in candidates:
-            if db.lower() == response_clean:
-                return db
-        for db in candidates:
-            if db.lower() in response_clean:
-                return db
-    # Fallback: string match anywhere
-    response_lower = response.lower()
-    for db in candidates:
-        if db.lower() in response_lower:
-            return db
-    return candidates[0] if candidates else ""
+                 exec_results: Dict[str, Dict],
+                 schemas: Dict[str, str]) -> str:
+    
+    # We completely bypass the LLM here to save API costs and time.
+    # The actual scoring will happen locally using evaluate_bird_pipeline.py later!
+    return "DEBERTA_WILL_SCORE_THIS_LATER"
 
 
 # ---------------------------------------------------------------------------

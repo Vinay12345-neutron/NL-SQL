@@ -1,0 +1,1306 @@
+[
+    {
+        "query": "Which school in Contra Costa has the highest number of test takers?",
+        "gold": "california_schools",
+        "predicted": "donor",
+        "scores": {
+            "california_schools": 0.7330436110496521,
+            "behavior_monitoring": 0.4969356656074524,
+            "csu_1": 0.4965398609638214,
+            "donor": 0.7341036200523376,
+            "school_bus": 0.49760186672210693,
+            "school_finance": 0.49675628542900085,
+            "school_player": 0.49758297204971313,
+            "student_assessment": 0.49648213386535645,
+            "student_loan": 0.4972226321697235,
+            "university_basketball": 0.4973697364330292,
+            "university_rank": 0.4974229335784912
+        }
+    },
+    {
+        "query": "List the names of schools with more than 30 difference in enrollements between K-12 and ages 5-17? Please also give the full street adress of the schools.",
+        "gold": "california_schools",
+        "predicted": "csu_1",
+        "scores": {
+            "behavior_monitoring": 0.4965399205684662,
+            "cre_Students_Information_Systems": 0.4964327812194824,
+            "csu_1": 0.4970175325870514,
+            "school_player": 0.4969367980957031,
+            "student_assessment": 0.49626150727272034,
+            "student_transcripts_tracking": 0.49593958258628845
+        }
+    },
+    {
+        "query": "Which cities have the top 5 lowest enrollment number for students in grades 1 through 12?",
+        "gold": "california_schools",
+        "predicted": "student_1",
+        "scores": {
+            "address_1": 0.4963422119617462,
+            "school_player": 0.4961470365524292,
+            "student_1": 0.496427446603775
+        }
+    },
+    {
+        "query": "What is the average math score of the school with the lowest average score for all subjects, and in which county is it located?",
+        "gold": "california_schools",
+        "predicted": "address",
+        "scores": {
+            "california_schools": 0.49695345759391785,
+            "address": 0.49938878417015076,
+            "csu_1": 0.4967671036720276,
+            "school_finance": 0.4961816668510437,
+            "school_player": 0.4971414804458618,
+            "university_basketball": 0.49644002318382263,
+            "university_rank": 0.49534857273101807,
+            "wine_1": 0.4968566596508026
+        }
+    },
+    {
+        "query": "Which state special schools have the highest number of enrollees from grades 1 through 12?",
+        "gold": "california_schools",
+        "predicted": "student_loan",
+        "scores": {
+            "california_schools": 0.6915146112442017,
+            "cre_Students_Information_Systems": 0.49674758315086365,
+            "network_1": 0.4964057505130768,
+            "school_bus": 0.49782896041870117,
+            "school_finance": 0.4972127079963684,
+            "school_player": 0.49642807245254517,
+            "student_1": 0.49640217423439026,
+            "student_assessment": 0.4966769814491272,
+            "student_loan": 0.7244833111763,
+            "student_transcripts_tracking": 0.4966198205947876
+        }
+    },
+    {
+        "query": "Please specify all of the schools and their related mailing zip codes that are under Avetik Atoian's administration.",
+        "gold": "california_schools",
+        "predicted": "behavior_monitoring",
+        "scores": {
+            "behavior_monitoring": 0.4974656403064728,
+            "address": 0.49704709649086,
+            "school_bus": 0.496637225151062,
+            "school_finance": 0.4970354735851288,
+            "school_player": 0.49742069840431213,
+            "student_1": 0.49640992283821106,
+            "student_assessment": 0.4965418577194214,
+            "university_rank": 0.4961208701133728
+        }
+    },
+    {
+        "query": "How many students from the ages of 5 to 17 are enrolled at the State Special School school in Fremont for the 2014-2015 academic year?",
+        "gold": "california_schools",
+        "predicted": "behavior_monitoring",
+        "scores": {
+            "activity_1": 0.4968026876449585,
+            "address_1": 0.49646544456481934,
+            "allergy_1": 0.49675002694129944,
+            "behavior_monitoring": 0.4975030720233917,
+            "club_1": 0.4966524541378021,
+            "cre_Students_Information_Systems": 0.4970801770687103,
+            "dorm_1": 0.4967135190963745,
+            "pets_1": 0.4965614974498749,
+            "restaurant_1": 0.49669116735458374,
+            "student_transcripts_tracking": 0.4973546266555786,
+            "voter_2": 0.4963819086551666
+        }
+    },
+    {
+        "query": "What are the two most common first names among the school administrators? Indicate the district to which they administer.",
+        "gold": "california_schools",
+        "predicted": "donor",
+        "scores": {
+            "activity_1": 0.49658194184303284,
+            "behavior_monitoring": 0.49688950181007385,
+            "district_spokesman": 0.49561914801597595,
+            "donor": 0.5097748637199402,
+            "driving_school": 0.4967102110385895,
+            "financial": 0.49837470054626465,
+            "human_resources": 0.4974933862686157,
+            "school_bus": 0.49669149518013,
+            "school_finance": 0.49644824862480164,
+            "school_player": 0.4970225691795349,
+            "student_1": 0.4963148236274719,
+            "student_loan": 0.5012319684028625
+        }
+    },
+    {
+        "query": "The average unemployment ratio of 1995 and 1996, which one has higher percentage?",
+        "gold": "financial",
+        "predicted": "student_loan",
+        "scores": {
+            "hr_1": 0.4976561665534973,
+            "human_resources": 0.4987246096134186,
+            "student_loan": 0.7319712042808533,
+            "world_development_indicators": 0.51053786277771
+        }
+    },
+    {
+        "query": "How many customers who choose statement of weekly issuance are Owner?",
+        "gold": "financial",
+        "predicted": "insurance_fnol",
+        "scores": {
+            "chinook_1": 0.4964281916618347,
+            "customers_and_invoices": 0.4964890778064728,
+            "customers_and_products_contacts": 0.497550904750824,
+            "customers_campaigns_ecommerce": 0.4971775412559509,
+            "customers_card_transactions": 0.4979056119918823,
+            "debit_card_specializing": 0.4983656406402588,
+            "dog_kennels": 0.49590301513671875,
+            "driving_school": 0.49750542640686035,
+            "e_government": 0.49669352173805237,
+            "epinions_1": 0.4966793358325958,
+            "financial": 0.498172789812088,
+            "insurance_fnol": 0.5025308132171631,
+            "loan_1": 0.49669569730758667,
+            "local_govt_mdm": 0.49737799167633057,
+            "products_for_hire": 0.4979373514652252,
+            "small_bank_1": 0.4970424771308899,
+            "software_company": 0.49846720695495605,
+            "store_1": 0.4968109428882599,
+            "student_loan": 0.49703165888786316,
+            "works_cycles": 0.4998643696308136
+        }
+    },
+    {
+        "query": "For the branch which located in the south Bohemia with biggest number of inhabitants, what is the percentage of the male clients?",
+        "gold": "financial",
+        "predicted": "retail_complains",
+        "scores": {
+            "financial": 0.5024290680885315,
+            "retail_complains": 0.5052739977836609
+        }
+    },
+    {
+        "query": "Who placed the order with the id 32423?",
+        "gold": "financial",
+        "predicted": "retail_world",
+        "scores": {
+            "book_1": 0.4958672523498535,
+            "books": 0.4988190531730652,
+            "car_retails": 0.4978193938732147,
+            "customers_and_addresses": 0.49706900119781494,
+            "customers_and_invoices": 0.4969305396080017,
+            "customers_and_orders": 0.49725285172462463,
+            "customers_and_products_contacts": 0.4975626766681671,
+            "customers_campaigns_ecommerce": 0.4977405071258545,
+            "e_commerce": 0.49790653586387634,
+            "retail_world": 0.5209414958953857,
+            "store_1": 0.497126042842865,
+            "tracking_orders": 0.4979952275753021
+        }
+    },
+    {
+        "query": "What was the difference in the number of crimes committed in East and North Bohemia in 1996?",
+        "gold": "financial",
+        "predicted": "chicago_crime",
+        "scores": {
+            "chicago_crime": 0.5089395046234131,
+            "party_people": 0.4971328675746918,
+            "region_building": 0.4975464940071106,
+            "retail_complains": 0.497114360332489,
+            "european_football_1": 0.49782806634902954,
+            "mondial_geo": 0.5001278519630432
+        }
+    },
+    {
+        "query": "How many male customers who were born between 1974 and 1976 have made a payment on their home in excess of $4000?",
+        "gold": "financial",
+        "predicted": "software_company",
+        "scores": {
+            "car_retails": 0.4977490305900574,
+            "customers_and_addresses": 0.4969628155231476,
+            "customers_and_invoices": 0.4964422881603241,
+            "customers_and_products_contacts": 0.49757659435272217,
+            "customers_campaigns_ecommerce": 0.49715471267700195,
+            "customers_card_transactions": 0.49670296907424927,
+            "driving_school": 0.4964500665664673,
+            "e_commerce": 0.49755996465682983,
+            "financial": 0.49818697571754456,
+            "movie_3": 0.5005461573600769,
+            "products_for_hire": 0.497750848531723,
+            "sakila_1": 0.4970814883708954,
+            "software_company": 0.5015809535980225,
+            "store_1": 0.497289776802063,
+            "student_loan": 0.4974862337112427,
+            "wedding": 0.4967753291130066
+        }
+    },
+    {
+        "query": "What percentage of male clients request for weekly statements to be issued?",
+        "gold": "financial",
+        "predicted": "retail_complains",
+        "scores": {
+            "advertising_agencies": 0.5017156600952148,
+            "candidate_poll": 0.49676668643951416,
+            "cre_Drama_Workshop_Groups": 0.49666863679885864,
+            "customers_and_invoices": 0.49647825956344604,
+            "customers_and_products_contacts": 0.4975767731666565,
+            "customers_campaigns_ecommerce": 0.4970143437385559,
+            "financial": 0.4979523718357086,
+            "local_govt_mdm": 0.4966028928756714,
+            "products_for_hire": 0.4970143437385559,
+            "retail_complains": 0.5038391351699829,
+            "social_media": 0.4988054037094116,
+            "software_company": 0.49910905957221985,
+            "student_loan": 0.4983217716217041,
+            "talkingdata": 0.4940510392189026,
+            "wedding": 0.49739721417427063,
+            "works_cycles": 0.4967915713787079
+        }
+    },
+    {
+        "query": "How many clients who choose statement of weekly issuance are Owner?",
+        "gold": "financial",
+        "predicted": "advertising_agencies",
+        "scores": {
+            "advertising_agencies": 0.5205453634262085,
+            "book_1": 0.49600693583488464,
+            "cre_Drama_Workshop_Groups": 0.4967831075191498,
+            "customers_and_invoices": 0.4965628981590271,
+            "customers_card_transactions": 0.4972175359725952,
+            "debit_card_specializing": 0.49772360920906067,
+            "dog_kennels": 0.4960380792617798,
+            "driving_school": 0.4969145357608795,
+            "e_government": 0.49651139974594116,
+            "financial": 0.5003712773323059,
+            "insurance_fnol": 0.4966363310813904,
+            "local_govt_mdm": 0.4965570271015167,
+            "products_for_hire": 0.4969047009944916,
+            "retail_complains": 0.5088057518005371,
+            "software_company": 0.4977147579193115,
+            "store_1": 0.4966970980167389,
+            "student_loan": 0.4967747628688812,
+            "synthea": 0.4972037672996521,
+            "works_cycles": 0.49628838896751404
+        }
+    },
+    {
+        "query": "What are the labels for TR000, TR001 and TR002?",
+        "gold": "toxicology",
+        "predicted": "talkingdata",
+        "scores": {
+            "talkingdata": 0.6922104358673096
+        }
+    },
+    {
+        "query": "How many positive comments are there on the list?",
+        "gold": "codebase_community",
+        "predicted": "movie_platform",
+        "scores": {
+            "app_store": 0.5033122301101685,
+            "codebase_community": 0.7140359282493591,
+            "movie_platform": 0.7358715534210205,
+            "music_platform_2": 0.4984513819217682,
+            "public_review_platform": 0.5037248730659485,
+            "retail_complains": 0.49808499217033386,
+            "simpson_episodes": 0.5005022287368774,
+            "yelp": 0.4976188540458679
+        }
+    },
+    {
+        "query": "How many users were adult?",
+        "gold": "codebase_community",
+        "predicted": "movielens",
+        "scores": {
+            "activity_1": 0.4961076080799103,
+            "dorm_1": 0.49622294306755066,
+            "network_2": 0.4958537518978119,
+            "real_estate_rentals": 0.49936214089393616,
+            "talkingdata": 0.4989703595638275,
+            "movielens": 0.5036104917526245
+        }
+    },
+    {
+        "query": "What is the id of the youngest user?",
+        "gold": "codebase_community",
+        "predicted": "movielens",
+        "scores": {
+            "activity_1": 0.49594956636428833,
+            "club_1": 0.495890349149704,
+            "club_leader": 0.49583137035369873,
+            "dorm_1": 0.496085524559021,
+            "movielens": 0.5116516351699829,
+            "network_2": 0.49586009979248047,
+            "pets_1": 0.49577605724334717,
+            "real_estate_rentals": 0.49800747632980347,
+            "school_player": 0.49650272727012634,
+            "talkingdata": 0.5041728019714355
+        }
+    },
+    {
+        "query": "Give the publisher ID of Star Trek.",
+        "gold": "superhero",
+        "predicted": "video_games",
+        "scores": {
+            "book_2": 0.49659231305122375,
+            "book_publishing_company": 0.4980926811695099,
+            "superhero": 0.6932496428489685,
+            "video_games": 0.7372256517410278
+        }
+    },
+    {
+        "query": "Calculate the difference between Emil Blonsky's weight and Charles Chandler's weight.",
+        "gold": "superhero",
+        "predicted": "olympics",
+        "scores": {
+            "body_builder": 0.4976411759853363,
+            "entrepreneur": 0.4985061287879944,
+            "olympics": 0.5097308158874512,
+            "perpetrator": 0.49783533811569214,
+            "superhero": 0.4991122782230377
+        }
+    },
+    {
+        "query": "Give the coordinate position for Abu Dhabi Grand Prix.",
+        "gold": "formula_1",
+        "predicted": "mondial_geo",
+        "scores": {
+            "aircraft": 0.4968266487121582,
+            "bike_1": 0.4962502419948578,
+            "bike_share_1": 0.4986775517463684,
+            "car_racing": 0.4969468414783478,
+            "city_record": 0.49650412797927856,
+            "formula_1": 0.4996059536933899,
+            "mondial_geo": 0.600477933883667,
+            "race_track": 0.49697592854499817,
+            "restaurant": 0.5008350610733032,
+            "world": 0.4968598484992981,
+            "world_1": 0.4958459138870239,
+            "yelp": 0.4969145953655243
+        }
+    },
+    {
+        "query": "Where is Malaysian Grand Prix held? Give the location coordinates.",
+        "gold": "formula_1",
+        "predicted": "mondial_geo",
+        "scores": {
+            "car_racing": 0.4966735243797302,
+            "formula_1": 0.5011556148529053,
+            "geo": 0.49629825353622437,
+            "mondial_geo": 0.5250170826911926,
+            "race_track": 0.49668261408805847
+        }
+    },
+    {
+        "query": "How many American drivers have puncture status.",
+        "gold": "formula_1",
+        "predicted": "car_racing",
+        "scores": {
+            "car_racing": 0.4970863163471222,
+            "vehicle_driver": 0.4965091943740845
+        }
+    },
+    {
+        "query": "Give the name of the league had the most goals in the 2016 season?",
+        "gold": "european_football_2",
+        "predicted": "hockey",
+        "scores": {
+            "european_football_1": 0.49576619267463684,
+            "european_football_2": 0.5134000778198242,
+            "game_injury": 0.496447890996933,
+            "hockey": 0.7231432199478149,
+            "soccer_1": 0.497001975774765,
+            "soccer_2016": 0.5101756453514099,
+            "sports_competition": 0.4966958165168762
+        }
+    },
+    {
+        "query": "Which home team had lost the fewest matches in the 2016 season?",
+        "gold": "european_football_2",
+        "predicted": "soccer_2016",
+        "scores": {
+            "european_football_1": 0.6081743240356445,
+            "european_football_2": 0.4995824098587036,
+            "game_injury": 0.4973618984222412,
+            "match_season": 0.497572124004364,
+            "soccer_2016": 0.7240549921989441,
+            "sports_competition": 0.4966731071472168
+        }
+    },
+    {
+        "query": "Give the name of the league had the most matches end as draw in the 2016 season?",
+        "gold": "european_football_2",
+        "predicted": "soccer_2016",
+        "scores": {
+            "city_record": 0.4963935315608978,
+            "european_football_1": 0.49904054403305054,
+            "european_football_2": 0.5014944076538086,
+            "game_injury": 0.49645721912384033,
+            "match_season": 0.4973154664039612,
+            "soccer_1": 0.4967510402202606,
+            "soccer_2016": 0.663327693939209,
+            "sports_competition": 0.4965283274650574
+        }
+    },
+    {
+        "query": "What is the average height of players born between 1990 and 1995?",
+        "gold": "european_football_2",
+        "predicted": "ice_hockey_draft",
+        "scores": {
+            "baseball_1": 0.49657535552978516,
+            "body_builder": 0.4973844289779663,
+            "candidate_poll": 0.4970870316028595,
+            "entrepreneur": 0.49761107563972473,
+            "european_football_2": 0.4987054765224457,
+            "ice_hockey_draft": 0.6294352412223816,
+            "olympics": 0.4979977607727051,
+            "poker_player": 0.498442143201828,
+            "soccer_1": 0.4969097673892975
+        }
+    },
+    {
+        "query": "How many players were born after 1990?",
+        "gold": "european_football_2",
+        "predicted": "soccer_2016",
+        "scores": {
+            "baseball_1": 0.4962025582790375,
+            "european_football_2": 0.49587780237197876,
+            "ice_hockey_draft": 0.4983559250831604,
+            "poker_player": 0.5004586577415466,
+            "soccer_1": 0.4964330196380615,
+            "soccer_2016": 0.733955442905426,
+            "synthea": 0.4967382252216339,
+            "video_game": 0.49703744053840637,
+            "wta_1": 0.49724459648132324
+        }
+    },
+    {
+        "query": "How many players whose first names are Adam and weigh more than 170?",
+        "gold": "european_football_2",
+        "predicted": "professional_basketball",
+        "scores": {
+            "body_builder": 0.49661263823509216,
+            "olympics": 0.4967915713787079,
+            "professional_basketball": 0.7334772348403931,
+            "wta_1": 0.49678686261177063
+        }
+    },
+    {
+        "query": "What is the highest overall rating received by Dorlan Pabon?",
+        "gold": "european_football_2",
+        "predicted": "soccer_1",
+        "scores": {
+            "baseball_1": 0.4967291057109833,
+            "soccer_1": 0.4969847798347473
+        }
+    },
+    {
+        "query": "What is the average number of goals made by Parma as the away team while playing in Italy?",
+        "gold": "european_football_2",
+        "predicted": "european_football_1",
+        "scores": {
+            "european_football_1": 0.7362682819366455,
+            "european_football_2": 0.7348933815956116,
+            "city_record": 0.49717292189598083,
+            "soccer_1": 0.4970589876174927,
+            "sports_competition": 0.49786388874053955
+        }
+    },
+    {
+        "query": "Sum up the away team goal scored by both Daan Smith and Filipe Ferreira.",
+        "gold": "european_football_2",
+        "predicted": "european_football_1",
+        "scores": {
+            "european_football_1": 0.7342556118965149,
+            "european_football_2": 0.7176005244255066,
+            "hockey": 0.6970878839492798,
+            "match_season": 0.4969109892845154,
+            "soccer_1": 0.4970457851886749,
+            "soccer_2016": 0.5009134411811829,
+            "sports_competition": 0.4975651502609253
+        }
+    },
+    {
+        "query": "State the name of the most strongest player.",
+        "gold": "european_football_2",
+        "predicted": "soccer_2016",
+        "scores": {
+            "european_football_2": 0.5054045915603638,
+            "soccer_1": 0.4968714416027069,
+            "match_season": 0.49719956517219543,
+            "poker_player": 0.4988642632961273,
+            "video_game": 0.49810901284217834,
+            "wta_1": 0.4975084960460663,
+            "baseball_1": 0.49655798077583313,
+            "professional_basketball": 0.5010181069374084,
+            "hockey": 0.5019225478172302,
+            "ice_hockey_draft": 0.49937114119529724,
+            "riding_club": 0.4969911277294159,
+            "school_player": 0.4972212612628937,
+            "soccer_2": 0.4964408874511719,
+            "soccer_2016": 0.6854698061943054,
+            "soccer_3": 0.49722450971603394
+        }
+    },
+    {
+        "query": "State the name of players who came from Belgium.",
+        "gold": "european_football_2",
+        "predicted": "soccer_2016",
+        "scores": {
+            "car_racing": 0.49598991870880127,
+            "european_football_2": 0.4991336464881897,
+            "match_season": 0.4974386990070343,
+            "poker_player": 0.49772587418556213,
+            "soccer_1": 0.49659958481788635,
+            "soccer_3": 0.49736154079437256,
+            "soccer_2016": 0.5278216600418091,
+            "world": 0.49911215901374817,
+            "world_1": 0.49631136655807495,
+            "wta_1": 0.49698883295059204,
+            "baseball_1": 0.49623754620552063
+        }
+    },
+    {
+        "query": "How many football players born after the 1990s have the first name \"Aaron\"?",
+        "gold": "european_football_2",
+        "predicted": "soccer_2016",
+        "scores": {
+            "european_football_2": 0.4988709092140198,
+            "soccer_1": 0.49644771218299866,
+            "soccer_2016": 0.620420515537262
+        }
+    },
+    {
+        "query": "Are there more in-patient or outpatient who were male? What is the deviation in percentage?",
+        "gold": "thrombosis_prediction",
+        "predicted": "synthea",
+        "scores": {
+            "candidate_poll": 0.49923110008239746,
+            "synthea": 0.5781417489051819,
+            "thrombosis_prediction": 0.5338311791419983,
+            "wedding": 0.5009324550628662
+        }
+    },
+    {
+        "query": "What is the percentage of female patient were born after 1930?",
+        "gold": "thrombosis_prediction",
+        "predicted": "synthea",
+        "scores": {
+            "candidate_poll": 0.4970797300338745,
+            "financial": 0.49802592396736145,
+            "network_2": 0.49636775255203247,
+            "software_company": 0.49742746353149414,
+            "synthea": 0.6986873149871826,
+            "thrombosis_prediction": 0.6603172421455383,
+            "wedding": 0.49809730052948
+        }
+    },
+    {
+        "query": "For patient born between Year 1930 to 1940, how many percent of them were inpatient?",
+        "gold": "thrombosis_prediction",
+        "predicted": "synthea",
+        "scores": {
+            "financial": 0.4987010955810547,
+            "synthea": 0.72504061460495,
+            "thrombosis_prediction": 0.612719714641571
+        }
+    },
+    {
+        "query": "What percentage of patients who were born in 1980 and were diagnosed with RA are women?",
+        "gold": "thrombosis_prediction",
+        "predicted": "synthea",
+        "scores": {
+            "candidate_poll": 0.4979592263698578,
+            "financial": 0.49682483077049255,
+            "synthea": 0.7359983921051025,
+            "thrombosis_prediction": 0.7353412508964539
+        }
+    },
+    {
+        "query": "For the patient with an abnormal alkaliphophatase level, how many of them are admitted to the hospital?",
+        "gold": "thrombosis_prediction",
+        "predicted": "synthea",
+        "scores": {
+            "hospital_1": 0.49663975834846497,
+            "synthea": 0.4968392550945282
+        }
+    },
+    {
+        "query": "How many patients accepted to the hospital have a normal level of white blood cells?",
+        "gold": "thrombosis_prediction",
+        "predicted": "synthea",
+        "scores": {
+            "hospital_1": 0.4970414340496063,
+            "synthea": 0.49713173508644104
+        }
+    },
+    {
+        "query": "Among the events attended by more than 10 members of the Student_Club, how many of them are meetings?",
+        "gold": "student_club",
+        "predicted": "advertising_agencies",
+        "scores": {
+            "activity_1": 0.4967097342014313,
+            "advertising_agencies": 0.49689197540283203,
+            "club_1": 0.49658700823783875
+        }
+    },
+    {
+        "query": "List the last name of all the students who majored Law and Constitutional Studies. \n",
+        "gold": "student_club",
+        "predicted": "university_rank",
+        "scores": {
+            "activity_1": 0.4964263141155243,
+            "address_1": 0.49593278765678406,
+            "allergy_1": 0.49625346064567566,
+            "club_1": 0.49619370698928833,
+            "college_1": 0.4961563050746918,
+            "college_3": 0.4960919916629791,
+            "dorm_1": 0.4963182210922241,
+            "pets_1": 0.4960837662220001,
+            "restaurant_1": 0.49632498621940613,
+            "student_1": 0.4963633418083191,
+            "student_assessment": 0.4969066381454468,
+            "student_transcripts_tracking": 0.4972435534000397,
+            "voter_2": 0.4962216913700104,
+            "university_rank": 0.4982052147388458
+        }
+    },
+    {
+        "query": "What county did Sherri Ramsey grew up?",
+        "gold": "student_club",
+        "predicted": "restaurants",
+        "scores": {
+            "address": 0.5050951242446899,
+            "county_public_safety": 0.49612292647361755,
+            "csu_1": 0.49649572372436523,
+            "election": 0.4986954629421234,
+            "wine_1": 0.4972514510154724,
+            "restaurants": 0.5055157542228699
+        }
+    },
+    {
+        "query": "What department offers the major that Pierce and Guidi took?",
+        "gold": "student_club",
+        "predicted": "student_transcripts_tracking",
+        "scores": {
+            "college_1": 0.4968814551830292,
+            "college_2": 0.49699002504348755,
+            "college_3": 0.496589720249176,
+            "student_transcripts_tracking": 0.49728983640670776,
+            "university_rank": 0.49691852927207947
+        }
+    },
+    {
+        "query": "What was the cost for the \"Posters\" on 2019/9/4?",
+        "gold": "student_club",
+        "predicted": "car_retails",
+        "scores": {
+            "customers_and_invoices": 0.4973870813846588,
+            "customers_and_products_contacts": 0.4977092146873474,
+            "customers_campaigns_ecommerce": 0.4979582130908966,
+            "department_store": 0.4977993965148926,
+            "products_for_hire": 0.49786752462387085,
+            "store_1": 0.49693554639816284,
+            "car_retails": 0.4980449974536896
+        }
+    },
+    {
+        "query": "With the biggest budget for the \"Food\", what was the remaining of it?",
+        "gold": "student_club",
+        "predicted": "movies_4",
+        "scores": {
+            "cre_Docs_and_Epenses": 0.4969104826450348,
+            "movies_4": 0.5000990033149719,
+            "school_finance": 0.49811455607414246
+        }
+    },
+    {
+        "query": "Tell the phone number of \"Carlo Jacobs\".",
+        "gold": "student_club",
+        "predicted": "works_cycles",
+        "scores": {
+            "car_retails": 0.4983959496021271,
+            "chinook_1": 0.49648866057395935,
+            "customers_and_addresses": 0.49701356887817383,
+            "customers_and_products_contacts": 0.4968802034854889,
+            "customers_card_transactions": 0.49722856283187866,
+            "driving_school": 0.49732130765914917,
+            "e_government": 0.4967955946922302,
+            "local_govt_mdm": 0.4965805411338806,
+            "network_2": 0.49585792422294617,
+            "sakila_1": 0.49731358885765076,
+            "store_1": 0.49696099758148193,
+            "voter_1": 0.4965202212333679,
+            "works_cycles": 0.5020172595977783
+        }
+    },
+    {
+        "query": "Tell the hometown county for \"Adela O'Gallagher\".",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.720598578453064,
+            "county_public_safety": 0.4957956075668335,
+            "csu_1": 0.4964117407798767,
+            "customers_and_products_contacts": 0.4965853691101074,
+            "e_government": 0.4967467486858368,
+            "election": 0.5038284063339233,
+            "restaurant": 0.5042049884796143,
+            "world": 0.49703449010849,
+            "world_1": 0.49679356813430786
+        }
+    },
+    {
+        "query": "Where is the hometown state for \"Sacha Harrison\"?",
+        "gold": "student_club",
+        "predicted": "regional_sales",
+        "scores": {
+            "address": 0.49999988079071045,
+            "address_1": 0.4963427782058716,
+            "college_completion": 0.49846431612968445,
+            "geo": 0.49726536870002747,
+            "human_resources": 0.5013426542282104,
+            "regional_sales": 0.5018142461776733,
+            "sakila_1": 0.4971127212047577,
+            "shipping": 0.49827879667282104,
+            "soccer_2": 0.4962778389453888,
+            "social_media": 0.4999293088912964,
+            "store_1": 0.4969305992126465,
+            "voter_1": 0.49693620204925537
+        }
+    },
+    {
+        "query": "How many cities are there in Orange County, Virginia?",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.7322393655776978,
+            "address_1": 0.49639788269996643,
+            "county_public_safety": 0.4973572790622711,
+            "election": 0.4989890158176422,
+            "farm": 0.49737268686294556,
+            "geo": 0.49774038791656494,
+            "restaurant": 0.5023443698883057,
+            "restaurants": 0.50568687915802,
+            "shipping": 0.49835383892059326,
+            "tv_shows": 0.4978320896625519,
+            "wine_1": 0.4966849088668823,
+            "world": 0.49749183654785156,
+            "world_1": 0.4966670870780945
+        }
+    },
+    {
+        "query": "List all of the College of Humanities and Social Sciences' departments.",
+        "gold": "student_club",
+        "predicted": "student_transcripts_tracking",
+        "scores": {
+            "college_1": 0.4966769814491272,
+            "college_2": 0.4961565434932709,
+            "college_3": 0.49600809812545776,
+            "department_management": 0.49668580293655396,
+            "department_store": 0.49659135937690735,
+            "hr_1": 0.49674299359321594,
+            "student_transcripts_tracking": 0.49715012311935425
+        }
+    },
+    {
+        "query": "Where is Amy Firth's hometown?",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.5015901923179626,
+            "address_1": 0.4967058598995209,
+            "flight_4": 0.49641185998916626,
+            "human_resources": 0.49935412406921387,
+            "network_2": 0.49611955881118774,
+            "restaurant": 0.4990663230419159,
+            "sakila_1": 0.49732884764671326,
+            "store_1": 0.49700862169265747,
+            "tv_shows": 0.4968390166759491,
+            "world": 0.49763497710227966,
+            "world_1": 0.496845006942749
+        }
+    },
+    {
+        "query": "How many events did the member with the phone number \"954-555-6240\" attend?",
+        "gold": "student_club",
+        "predicted": "local_govt_and_lot",
+        "scores": {
+            "e_government": 0.496681809425354,
+            "local_govt_and_lot": 0.4968039393424988,
+            "local_govt_in_alabama": 0.49630483984947205,
+            "solvency_ii": 0.49639859795570374,
+            "voter_1": 0.49637943506240845
+        }
+    },
+    {
+        "query": "What is the total amount of money spent for food?",
+        "gold": "student_club",
+        "predicted": "cookbook",
+        "scores": {
+            "bakery_1": 0.4961147606372833,
+            "cookbook": 0.5588884353637695,
+            "cre_Docs_and_Epenses": 0.49718478322029114,
+            "customers_and_invoices": 0.4964893162250519,
+            "customers_card_transactions": 0.49638667702674866,
+            "debit_card_specializing": 0.5074050426483154,
+            "donor": 0.5052341818809509,
+            "financial": 0.49782776832580566,
+            "food_inspection": 0.5002901554107666,
+            "food_inspection_2": 0.49969834089279175,
+            "menu": 0.5005128383636475,
+            "restaurant": 0.5092028379440308,
+            "restaurant_1": 0.496240496635437,
+            "restaurant_bills": 0.49749934673309326,
+            "restaurants": 0.4983411133289337,
+            "retails": 0.5000426173210144,
+            "sales_in_weather": 0.49687620997428894,
+            "school_finance": 0.49655798077583313,
+            "shop_membership": 0.4966038763523102,
+            "student_club": 0.4978814125061035
+        }
+    },
+    {
+        "query": "State the name of students from Georgetown, South Carolina.",
+        "gold": "student_club",
+        "predicted": "college_completion",
+        "scores": {
+            "address": 0.49752771854400635,
+            "address_1": 0.49661311507225037,
+            "allergy_1": 0.4965665638446808,
+            "club_1": 0.4965209364891052,
+            "college_3": 0.49620556831359863,
+            "college_completion": 0.5022326707839966,
+            "student_assessment": 0.49759694933891296,
+            "student_transcripts_tracking": 0.49756985902786255,
+            "pets_1": 0.49671533703804016,
+            "soccer_2": 0.496630996465683,
+            "student_1": 0.49708136916160583
+        }
+    },
+    {
+        "query": "How many income generated by Grant Gilmour?",
+        "gold": "student_club",
+        "predicted": "software_company",
+        "scores": {
+            "entrepreneur": 0.49828216433525085,
+            "singer": 0.4981074035167694,
+            "soccer_3": 0.49639689922332764,
+            "software_company": 0.5003288388252258
+        }
+    },
+    {
+        "query": "Indicate the top source of funds received in September 2019 based on their amount.",
+        "gold": "student_club",
+        "predicted": "school_finance",
+        "scores": {
+            "financial": 0.49698811769485474,
+            "donor": 0.49625709652900696,
+            "school_finance": 0.4979625940322876,
+            "software_company": 0.4975559413433075
+        }
+    },
+    {
+        "query": "What is the most popular size of t-shirt ordered by the club members?",
+        "gold": "student_club",
+        "predicted": "e_commerce",
+        "scores": {
+            "club_1": 0.49672815203666687,
+            "customers_and_invoices": 0.49674874544143677,
+            "e_commerce": 0.4971632659435272
+        }
+    },
+    {
+        "query": "Among the budgets for Advertising, list out top three which have the most budgeted amount?",
+        "gold": "student_club",
+        "predicted": "advertising_agencies",
+        "scores": {
+            "advertising_agencies": 0.502607524394989,
+            "cre_Docs_and_Epenses": 0.49700209498405457,
+            "movies_4": 0.5020361542701721,
+            "school_finance": 0.49703165888786316
+        }
+    },
+    {
+        "query": "Calculate the total cost spent for Parking in the list.",
+        "gold": "student_club",
+        "predicted": "menu",
+        "scores": {
+            "car_retails": 0.4977783262729645,
+            "local_govt_mdm": 0.49660736322402954,
+            "driving_school": 0.49694356322288513,
+            "menu": 0.49811244010925293
+        }
+    },
+    {
+        "query": "How many income are received with an amount of 50?",
+        "gold": "student_club",
+        "predicted": "software_company",
+        "scores": {
+            "customers_and_invoices": 0.49650466442108154,
+            "customers_card_transactions": 0.4967169761657715,
+            "driving_school": 0.4969383776187897,
+            "financial": 0.49747568368911743,
+            "school_finance": 0.49640265107154846,
+            "software_company": 0.4992135167121887,
+            "solvency_ii": 0.4973004460334778,
+            "store_1": 0.4963149428367615
+        }
+    },
+    {
+        "query": "Among the members, how many of them have an extra large t-shirt size?",
+        "gold": "student_club",
+        "predicted": "club_leader",
+        "scores": {
+            "club_1": 0.49584296345710754,
+            "club_leader": 0.4975830912590027,
+            "performance_attendance": 0.49751514196395874,
+            "shop_membership": 0.4963168203830719
+        }
+    },
+    {
+        "query": "List the city and state of members enrolled under electrical and computer engineering department.",
+        "gold": "student_club",
+        "predicted": "student_transcripts_tracking",
+        "scores": {
+            "address_1": 0.4961220324039459,
+            "college_1": 0.496900349855423,
+            "college_3": 0.4966312348842621,
+            "student_transcripts_tracking": 0.49889570474624634,
+            "university_rank": 0.4964440166950226
+        }
+    },
+    {
+        "query": "Which countries have zip codes with post office boxes?",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.5139224529266357,
+            "books": 0.49680382013320923,
+            "customers_and_addresses": 0.4961545467376709,
+            "customers_and_products_contacts": 0.49732574820518494,
+            "e_government": 0.49707770347595215,
+            "hr_1": 0.49721759557724,
+            "mondial_geo": 0.4976575970649719,
+            "works_cycles": 0.4973014295101166,
+            "world": 0.4976019263267517,
+            "world_1": 0.4971500635147095,
+            "world_development_indicators": 0.5010963082313538
+        }
+    },
+    {
+        "query": "What are the zip codes that have post office boxes in the country of the country of San Juan Municipio whose state is Puerto Rico?",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.5012067556381226,
+            "address_1": 0.49606454372406006,
+            "customers_and_products_contacts": 0.49720534682273865,
+            "e_government": 0.496490478515625
+        }
+    },
+    {
+        "query": "List emails of people who paid more than 20 dollars from 9/10/2019 to 11/19/2019.",
+        "gold": "student_club",
+        "predicted": "movie_3",
+        "scores": {
+            "customers_and_invoices": 0.4967859983444214,
+            "customers_and_orders": 0.49707943201065063,
+            "customers_and_products_contacts": 0.4972732663154602,
+            "customers_campaigns_ecommerce": 0.49756672978401184,
+            "customers_card_transactions": 0.49712520837783813,
+            "driving_school": 0.4970962107181549,
+            "e_commerce": 0.49698323011398315,
+            "e_government": 0.4971528947353363,
+            "financial": 0.4969891309738159,
+            "movie_3": 0.5036117434501648,
+            "sakila_1": 0.49703794717788696,
+            "software_company": 0.5015199184417725,
+            "store_1": 0.4970856010913849,
+            "superstore": 0.4970608651638031,
+            "twitter_1": 0.49675804376602173,
+            "works_cycles": 0.49933093786239624
+        }
+    },
+    {
+        "query": "Find the full name of members whose t-shirt size is extra large.",
+        "gold": "student_club",
+        "predicted": "movie_3",
+        "scores": {
+            "activity_1": 0.49614134430885315,
+            "club_1": 0.4959995448589325,
+            "movie_3": 0.49771299958229065,
+            "sakila_1": 0.49621841311454773,
+            "store_1": 0.49649372696876526,
+            "student_1": 0.49592211842536926,
+            "superhero": 0.4966563880443573,
+            "works_cycles": 0.4974801540374756
+        }
+    },
+    {
+        "query": "Calculate the percentage of zip codes that are PO boxes.",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.498541921377182,
+            "e_government": 0.4968017041683197,
+            "election": 0.4969474971294403
+        }
+    },
+    {
+        "query": "List the name of events with less than average parking cost.",
+        "gold": "student_club",
+        "predicted": "party_people",
+        "scores": {
+            "cre_Theme_park": 0.49616512656211853,
+            "olympics": 0.49699997901916504,
+            "party_people": 0.49712496995925903,
+            "solvency_ii": 0.49686938524246216
+        }
+    },
+    {
+        "query": "Which budget allowed the most money for water, chips, and cookies?",
+        "gold": "student_club",
+        "predicted": "school_finance",
+        "scores": {
+            "cre_Docs_and_Epenses": 0.4970225691795349,
+            "school_finance": 0.4974173903465271,
+            "superstore": 0.49638083577156067
+        }
+    },
+    {
+        "query": "Calculate the difference in the percentage of members in New Jersey and Vermont.",
+        "gold": "student_club",
+        "predicted": "regional_sales",
+        "scores": {
+            "address": 0.4979228675365448,
+            "college_completion": 0.4950450658798218,
+            "geo": 0.4975863993167877,
+            "regional_sales": 0.49843481183052063,
+            "retail_complains": 0.4964304268360138,
+            "voter_1": 0.4969782829284668
+        }
+    },
+    {
+        "query": "List the last names of students under the Elementary Education major and include their phone numbers.",
+        "gold": "student_club",
+        "predicted": "cs_semester",
+        "scores": {
+            "activity_1": 0.4969140589237213,
+            "address_1": 0.4960535168647766,
+            "allergy_1": 0.49630144238471985,
+            "club_1": 0.49607425928115845,
+            "college_1": 0.49650129675865173,
+            "college_3": 0.49705320596694946,
+            "cs_semester": 0.4980606734752655,
+            "dorm_1": 0.49616312980651855,
+            "pets_1": 0.4959295094013214,
+            "restaurant_1": 0.4961646497249603,
+            "student_1": 0.4957982003688812,
+            "student_assessment": 0.4968015253543854,
+            "student_transcripts_tracking": 0.4966047704219818,
+            "voter_2": 0.4962187707424164
+        }
+    },
+    {
+        "query": "Write the full names of students who received funds on the date of 9/9/2019 and include the amount received.",
+        "gold": "student_club",
+        "predicted": "cre_Students_Information_Systems",
+        "scores": {
+            "cre_Students_Information_Systems": 0.4977717101573944,
+            "student_assessment": 0.49699538946151733,
+            "student_transcripts_tracking": 0.4973152279853821,
+            "tracking_grants_for_research": 0.4965667724609375
+        }
+    },
+    {
+        "query": "Where is the hometown of Garrett Gerke?",
+        "gold": "student_club",
+        "predicted": "address",
+        "scores": {
+            "address": 0.5033169984817505,
+            "craftbeer": 0.49778831005096436,
+            "donor": 0.4972545802593231,
+            "flight_4": 0.49683037400245667,
+            "geo": 0.4970322549343109,
+            "human_resources": 0.49921244382858276,
+            "imdb": 0.4976707100868225,
+            "movie_3": 0.5021128058433533,
+            "restaurant": 0.4995987117290497,
+            "sakila_1": 0.49744731187820435,
+            "world": 0.49737468361854553,
+            "world_1": 0.4972307085990906,
+            "yelp": 0.4978764057159424
+        }
+    },
+    {
+        "query": "Which customers, paying in CZK, consumed the most gas in 2011?",
+        "gold": "debit_card_specializing",
+        "predicted": "works_cycles",
+        "scores": {
+            "customers_and_addresses": 0.4972495436668396,
+            "customers_and_invoices": 0.4966675639152527,
+            "customers_and_products_contacts": 0.49756017327308655,
+            "customers_card_transactions": 0.49706369638442993,
+            "debit_card_specializing": 0.49919384717941284,
+            "financial": 0.49710139632225037,
+            "local_govt_mdm": 0.4970451295375824,
+            "works_cycles": 0.5008670091629028
+        }
+    },
+    {
+        "query": "Which client ID consumed the most in September 2013?",
+        "gold": "debit_card_specializing",
+        "predicted": "advertising_agencies",
+        "scores": {
+            "advertising_agencies": 0.5028803944587708,
+            "book_1": 0.49613243341445923,
+            "customers_and_addresses": 0.4974077045917511,
+            "customers_and_invoices": 0.49685102701187134,
+            "customers_and_products_contacts": 0.497437447309494,
+            "customers_card_transactions": 0.49698713421821594,
+            "debit_card_specializing": 0.49812522530555725,
+            "driving_school": 0.49702000617980957,
+            "financial": 0.5016508102416992,
+            "local_govt_mdm": 0.4965050220489502,
+            "products_for_hire": 0.4972056448459625,
+            "retails": 0.4975276589393616,
+            "sales_in_weather": 0.49594464898109436,
+            "software_company": 0.49932676553726196,
+            "store_1": 0.4968637228012085,
+            "superstore": 0.49706411361694336,
+            "vehicle_rent": 0.4966276288032532,
+            "works_cycles": 0.4977879524230957
+        }
+    },
+    {
+        "query": "Please list the product description of the products consumed in September, 2013.",
+        "gold": "debit_card_specializing",
+        "predicted": "works_cycles",
+        "scores": {
+            "customer_deliveries": 0.49804985523223877,
+            "customers_and_invoices": 0.4973106384277344,
+            "customers_and_products_contacts": 0.4975278377532959,
+            "customers_campaigns_ecommerce": 0.4978066682815552,
+            "debit_card_specializing": 0.5097201466560364,
+            "department_store": 0.49745991826057434,
+            "e_commerce": 0.4980316460132599,
+            "products_for_hire": 0.4976153075695038,
+            "products_gen_characteristics": 0.49739769101142883,
+            "retail_world": 0.5031154155731201,
+            "sales_in_weather": 0.49992358684539795,
+            "superstore": 0.497628778219223,
+            "works_cycles": 0.7242912650108337
+        }
+    },
+    {
+        "query": "For the deal happened at 2012/8/24 12:42:00, which country was it?",
+        "gold": "debit_card_specializing",
+        "predicted": "world_development_indicators",
+        "scores": {
+            "debit_card_specializing": 0.5008042454719543,
+            "flight_4": 0.4970051050186157,
+            "mondial_geo": 0.4980809688568115,
+            "retails": 0.4973801076412201,
+            "works_cycles": 0.4990484416484833,
+            "world": 0.4978245198726654,
+            "world_1": 0.4969213008880615,
+            "world_development_indicators": 0.5041412115097046
+        }
+    },
+    {
+        "query": "For the customer who paid 124.05 in 2012/8/24, how much did he/she spend during the January of 2012? And what is the date and expenses exactly?",
+        "gold": "debit_card_specializing",
+        "predicted": "works_cycles",
+        "scores": {
+            "customers_and_invoices": 0.4965292811393738,
+            "customers_card_transactions": 0.49653562903404236,
+            "driving_school": 0.4977072477340698,
+            "financial": 0.49587997794151306,
+            "insurance_policies": 0.4985261559486389,
+            "products_for_hire": 0.49805909395217896,
+            "store_1": 0.4969440996646881,
+            "works_cycles": 0.4997125267982483
+        }
+    },
+    {
+        "query": "Which country was the card owner of No.667467 in?",
+        "gold": "debit_card_specializing",
+        "predicted": "works_cycles",
+        "scores": {
+            "customers_card_transactions": 0.4974023401737213,
+            "financial": 0.49789637327194214,
+            "works_cycles": 0.499372661113739
+        }
+    },
+    {
+        "query": "What's the nationality of the customer who spent 548.4 in 2012/8/24?",
+        "gold": "debit_card_specializing",
+        "predicted": "restaurant_bills",
+        "scores": {
+            "beer_factory": 0.5023730397224426,
+            "chinook_1": 0.496695339679718,
+            "customers_and_addresses": 0.4970215857028961,
+            "customers_and_invoices": 0.4967375099658966,
+            "customers_and_orders": 0.49714958667755127,
+            "customers_and_products_contacts": 0.49680405855178833,
+            "customers_campaigns_ecommerce": 0.4971664547920227,
+            "customers_card_transactions": 0.49712055921554565,
+            "debit_card_specializing": 0.5015875101089478,
+            "driving_school": 0.4973290264606476,
+            "e_commerce": 0.4975384771823883,
+            "financial": 0.4964747428894043,
+            "restaurant_bills": 0.5843942165374756,
+            "retails": 0.4971863627433777,
+            "sakila_1": 0.4968058168888092,
+            "store_1": 0.49694037437438965,
+            "superstore": 0.49753904342651367,
+            "works_cycles": 0.4978153109550476
+        }
+    },
+    {
+        "query": "What is the amount spent by customer \"38508\" at the gas stations? How much had the customer spent in January 2012?",
+        "gold": "debit_card_specializing",
+        "predicted": "retails",
+        "scores": {
+            "beer_factory": 0.5054767727851868,
+            "customers_and_addresses": 0.49625158309936523,
+            "customers_and_invoices": 0.49524667859077454,
+            "customers_and_products_contacts": 0.49708595871925354,
+            "customers_card_transactions": 0.503233790397644,
+            "debit_card_specializing": 0.5007957220077515,
+            "driving_school": 0.4975232481956482,
+            "financial": 0.49832868576049805,
+            "gas_company": 0.49914732575416565,
+            "products_for_hire": 0.4979766607284546,
+            "restaurant_bills": 0.501271665096283,
+            "retails": 0.5084022283554077,
+            "store_1": 0.4965650141239166,
+            "superstore": 0.5018607974052429,
+            "vehicle_rent": 0.4977700412273407
+        }
+    },
+    {
+        "query": "Which are the top five best selling products? Please state the full name of them.",
+        "gold": "debit_card_specializing",
+        "predicted": "sales",
+        "scores": {
+            "car_retails": 0.49825894832611084,
+            "customer_deliveries": 0.4973239600658417,
+            "customers_and_invoices": 0.4967292249202728,
+            "customers_and_orders": 0.49708566069602966,
+            "customers_and_products_contacts": 0.49718624353408813,
+            "e_commerce": 0.4976153075695038,
+            "manufactory_1": 0.49656572937965393,
+            "retail_world": 0.5233094692230225,
+            "sales": 0.5341821312904358,
+            "store_product": 0.4971741735935211,
+            "superstore": 0.49776920676231384,
+            "works_cycles": 0.5059137940406799
+        }
+    },
+    {
+        "query": "For all the people who paid more than 29.00 per unit of product id No.5. Give their consumption status in the August of 2012.",
+        "gold": "debit_card_specializing",
+        "predicted": "works_cycles",
+        "scores": {
+            "customers_and_invoices": 0.4965112507343292,
+            "customers_and_products_contacts": 0.4973447322845459,
+            "department_store": 0.4969736933708191,
+            "e_commerce": 0.49729230999946594,
+            "products_for_hire": 0.496718168258667,
+            "works_cycles": 0.4998893439769745
+        }
+    }
+]
